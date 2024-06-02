@@ -8,9 +8,9 @@
   <description>Automatically extracts the main text content (and much more) from an HTML document</description>
   <url>https://github.com/cdimascio/essence</url>
 
-  <groupId>io.github.cdimascio</groupId>
+  <groupId>de.visualdigits</groupId> <!-- choose another group id to make clear choice within other projects -->
   <artifactId>essence</artifactId>
-  <version>0.12.6</version>
+  <version>0.15.0</version>
 
   <licenses>
     <license>
@@ -27,10 +27,10 @@
   </organization>
 
   <scm>
-    <connection>scm:github:https://github.com/cdimascio/essence</connection>
-    <developerConnection>scm:github:https://github.com/cdimascio/essence</developerConnection>
-    <tag>master</tag>
-    <url>https://github.com/cdimascio/essence</url>
+    <connection>scm:github:https://github.com/sknull/essence</connection>
+    <developerConnection>scm:github:https://github.com/sknull/essence</developerConnection>
+    <tag>main</tag>
+    <url>https://github.com/sknull/essence</url>
   </scm>
 
   <developers>
@@ -46,19 +46,35 @@
       </roles>
       <timezone>America/New_York</timezone>
     </developer>
+    <developer>
+      <id>sknull</id>
+      <name>Stephan Knull</name>
+      <email>s.knull@t-online.de</email>
+      <url>https://www.github.com/sknull</url>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
   </developers>
 
-
   <properties>
-    <kotlin.version>1.3.0</kotlin.version>
     <main.class>io.github.cdimascio.Essence</main.class>
-    <junit.version>4.12</junit.version>
+
+    <jdk.version>17</jdk.version>
+    <project.build.source>17</project.build.source>
+    <project.build.target>17</project.build.target>
+
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <maven.source.plugin>3.0.1</maven.source.plugin>
-    <maven.javadoc.plugin>3.0.0</maven.javadoc.plugin>
-    <maven.assembly.plugin>3.1.0</maven.assembly.plugin>
-    <dokka.version>0.9.15</dokka.version>
+    <kotlin.code.style>official</kotlin.code.style>
+
+    <version.kotlin.maven>1.9.23</version.kotlin.maven>
+    <version.kotlin.language>1.9</version.kotlin.language>
+
+    <version.jackson>2.16.2</version.jackson>
+    <version.junit>5.10.2</version.junit>
+
     <bintray.subject>cdimascio</bintray.subject>
     <bintray.repo>maven</bintray.repo>
     <bintray.package>java-dotenv</bintray.package>
@@ -72,11 +88,24 @@
     </pluginRepository>
   </pluginRepositories>
 
+  <!-- workaround for junit tests not being found within kotlin code -->
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>${version.junit}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <dependencies>
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-stdlib</artifactId>
-      <version>${kotlin.version}</version>
+      <version>${version.kotlin.maven}</version>
     </dependency>
 
     <dependency>
@@ -88,106 +117,125 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
-      <version>2.9.7</version>
+      <version>${version.jackson}</version>
     </dependency>
 
     <dependency>
       <groupId>com.fasterxml.jackson.module</groupId>
       <artifactId>jackson-module-kotlin</artifactId>
-      <version>2.9.7</version>
+      <version>${version.jackson}</version>
     </dependency>
 
+    <!-- testing -->
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>${junit.version}</version>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${version.junit}</version>
       <scope>test</scope>
     </dependency>
-
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>${version.junit}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>3.24.2</version>
+      <scope>test</scope>
+    </dependency>
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-test-junit</artifactId>
-      <version>${kotlin.version}</version>
+      <version>1.9.0</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
 
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/sknull/essence</url>
+    </repository>
+  </distributionManagement>
+
+  <profiles>
+    <profile>
+      <id>github</id>
+      <repositories>
+        <repository>
+          <id>github</id>
+          <name>GitHub sknull Apache Maven Packages</name>
+          <url>https://maven.pkg.github.com/sknull/essence</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+        <repository>
+          <id>central</id>
+          <url>https://repo1.maven.org/maven2</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+
   <build>
-    <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
-    <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
+    <sourceDirectory>src/main/kotlin</sourceDirectory>
+    <testSourceDirectory>src/test/kotlin</testSourceDirectory>
+
     <plugins>
       <plugin>
-        <artifactId>kotlin-maven-plugin</artifactId>
         <groupId>org.jetbrains.kotlin</groupId>
-        <version>${kotlin.version}</version>
-
+        <artifactId>kotlin-maven-plugin</artifactId>
+        <version>${version.kotlin.maven}</version>
+        <configuration>
+          <languageVersion>${version.kotlin.language}</languageVersion>
+          <jvmTarget>${project.build.target}</jvmTarget>
+        </configuration>
         <executions>
           <execution>
             <id>compile</id>
+            <phase>compile</phase>
             <goals>
               <goal>compile</goal>
             </goals>
           </execution>
-
           <execution>
             <id>test-compile</id>
+            <phase>test-compile</phase>
             <goals>
               <goal>test-compile</goal>
             </goals>
           </execution>
         </executions>
       </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>2.6</version>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
         <configuration>
-          <archive>
-            <manifest>
-              <addClasspath>true</addClasspath>
-              <mainClass>${main.class}</mainClass>
-            </manifest>
-          </archive>
+          <source>${project.build.source}</source>
+          <target>${project.build.target}</target>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.20.1</version>
-        <configuration>
-          <workingDirectory>${project.basedir}</workingDirectory>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <version>${maven.source.plugin}</version>
-        <executions>
-          <execution>
-            <id>attach-sources</id>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>${maven.javadoc.plugin}</version>
-        <executions>
-          <execution>
-            <id>attach-javadocs</id>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
+
+      <!-- generate kotlin docs -->
       <plugin>
         <groupId>org.jetbrains.dokka</groupId>
         <artifactId>dokka-maven-plugin</artifactId>
-        <version>${dokka.version}</version>
+        <version>1.9.10</version>
         <executions>
           <execution>
             <phase>pre-site</phase>
@@ -197,37 +245,46 @@
           </execution>
         </executions>
       </plugin>
+
+      <!-- attach sources -->
       <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.7.6.201602180812</version>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.2.1</version>
         <executions>
           <execution>
-            <id>prepare-agent</id>
+            <id>attach-sources</id>
             <goals>
-              <goal>prepare-agent</goal>
+              <goal>jar</goal>
             </goals>
           </execution>
         </executions>
       </plugin>
+
+      <!-- testing -->
       <plugin>
-        <groupId>org.eluder.coveralls</groupId>
-        <artifactId>coveralls-maven-plugin</artifactId>
-        <version>4.3.0</version>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
         <configuration>
-          <repoToken>i3Bl4av26PMqZNekY8X3Jt7t6YhwFXKFu</repoToken>
+          <systemPropertyVariables>
+            <maven.home>${maven.home}</maven.home>
+          </systemPropertyVariables>
         </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <version>${maven.assembly.plugin}</version>
-        <configuration>
-          <descriptors>
-            <descriptor>src/assembly/descriptor.xml</descriptor>
-          </descriptors>
-        </configuration>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>3.2.5</version>
       </plugin>
+
+      <!-- release management -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>3.0.1</version>
+      </plugin>
+
     </plugins>
   </build>
 </project>
