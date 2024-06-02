@@ -1,15 +1,17 @@
 package io.github.cdimascio.essence.extractors
 
-import org.jsoup.nodes.Document
+import org.jsoup.nodes.Element
+import java.util.*
 
-internal object FaviconExtractor {
-    fun extract(doc: Document): String {
-        val favicon = doc.select("link").filter {
-            it.attr("rel").toLowerCase() == "shortcut icon"
-        }
-        if (favicon.isNotEmpty()) {
-            return favicon[0].attr("href")
-        }
-        return ""
+object FaviconExtractor {
+
+    fun extract(document: Element): String {
+        return document
+                .select("link")
+                .filter { elem ->
+                    elem.attr("rel").lowercase(Locale.getDefault()) == "shortcut icon"
+                }.firstOrNull()
+                ?.attr("href")
+            ?:""
     }
 }

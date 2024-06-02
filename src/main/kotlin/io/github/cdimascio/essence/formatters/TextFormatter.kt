@@ -85,23 +85,27 @@ class TextFormatter(private val stopWords: StopWords) : Formatter {
 
     private fun removeFewwordsParagraphs(node: Element) {
         val elements = node.find("*")
-        for (e in elements) {
-            val tag = e.tagName()
-            val text = e.text()
-            val numStopWords = stopWords.statistics(text).stopWords.size
-            val hasObject = e.find("object").isNotEmpty()
-            val hasEmbed = e.find("embed").isNotEmpty()
-            val isEndline = tag == "br" || text == "\\r"
-            if (!isEndline && numStopWords < 3 && !hasObject && !hasEmbed) {
-                if (e.parent() != null)
-                    e.remove()
-            } else {
-                val trimmed = text.trim()
-                val numWords = text.split(" ").size
-                if (trimmed.isNotBlank() && numWords < 25 && trimmed.first() == '(' && trimmed.last() == ')') {
-                    // remove paragraph's that are surrounded entirely by parens and have few-ish words
-                    if (e.parent() != null)
+        elements.forEach { e ->
+            val tagName = e.tagName()
+            if (tagName != "h1" && tagName != "h2" && tagName != "h3") {
+                val text = e.text()
+                val numStopWords = stopWords.statistics(text).stopWords.size
+                val hasObject = e.find("object").isNotEmpty()
+                val hasEmbed = e.find("embed").isNotEmpty()
+                val isEndline = tagName == "br" || text == "\\r"
+                if (!isEndline && numStopWords < 3 && !hasObject && !hasEmbed) {
+                    if (e.parent() != null) {
                         e.remove()
+                    }
+                } else {
+                    val trimmed = text.trim()
+                    val numWords = text.split(" ").size
+                    if (trimmed.isNotBlank() && numWords < 25 && trimmed.first() == '(' && trimmed.last() == ')') {
+                        // remove paragraph's that are surrounded entirely by parens and have few-ish words
+                        if (e.parent() != null) {
+                            e.remove()
+                        }
+                    }
                 }
             }
         }
@@ -112,13 +116,13 @@ class TextFormatter(private val stopWords: StopWords) : Formatter {
         // html elements
         val texts = mutableListOf<String>()
         val hangingText = StringBuffer()
-        for (child in node.childNodes()) {
+        node.childNodes().forEach { child ->
             if (child is TextNode) {
                 hangingText.append(child.text())
-                continue
+                return@forEach
             } else if (child is Element && child.tagName() == "ul") {
                 hangingText.append(ulToText(child))
-                continue
+                return@forEach
             }
 
             // TODO if hanging text is blank here, we should reset the text to empty

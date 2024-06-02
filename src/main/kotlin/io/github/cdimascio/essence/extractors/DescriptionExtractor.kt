@@ -1,12 +1,16 @@
 package io.github.cdimascio.essence.extractors
 
-import org.jsoup.nodes.Document
+import org.jsoup.nodes.Element
 
-internal object DescriptionExtractor {
-    fun extract(doc: Document): String {
-        return doc.selectFirst("""
-           meta[name=description],
-           meta[property='og:description']
-            """.trimIndent())?.attr("content")?.cleanse() ?: ""
+object DescriptionExtractor {
+
+    fun extract(element: Element): String {
+        return element.select(
+           "meta[name=description]",
+           "meta[property='og:description']"
+        ).first()
+            ?.attr("content")
+            ?.cleanse()
+            ?: ""
     }
 }

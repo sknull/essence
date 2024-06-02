@@ -43,7 +43,7 @@ object Rule {
 
     fun correctErrantLineBreaks(node: Node) {
         if (node is Element && node.tagName() == "p") {
-            for (textNode in node.textNodes()) {
+            node.textNodes().forEach { textNode ->
                 val text = textNode.text().replace("""([^\n])\n([^\n])""".toRegex()) {
                     it.groupValues.joinToString(" ")
                 }

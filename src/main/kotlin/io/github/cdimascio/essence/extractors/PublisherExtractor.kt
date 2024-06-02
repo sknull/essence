@@ -1,18 +1,22 @@
 package io.github.cdimascio.essence.extractors
 
-import org.jsoup.nodes.Document
+import org.jsoup.nodes.Element
 
-internal object PublisherExtractor {
-    fun extract(doc: Document): String {
-        val candidates = doc.select("""
-            meta[property='og:site_name'],
-            meta[name='dc.publisher'],
-            meta[name='DC.publisher'],
-            meta[name='DC.Publisher']""".trimIndent())
-        for (c in candidates) {
+object PublisherExtractor {
+
+    fun extract(document: Element): String {
+        return document.select(
+            "meta[property='og:site_name']",
+            "meta[name='dc.publisher']",
+            "meta[name='DC.publisher']",
+            "meta[name='DC.Publisher']"
+        ).first()?.let { c ->
             val text = c.attr("content").cleanse()
-            if (text.isNotBlank()) return text
-        }
-        return ""
+            if (text.isNotBlank()) {
+                text.cleanse()
+            } else {
+                ""
+            }
+        }?:""
     }
 }

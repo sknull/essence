@@ -4,9 +4,9 @@ package io.github.cdimascio.essence
 import io.github.cdimascio.essence.cleaners.Cleaner
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Node
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Test
 
 class CleanerSpec {
 
@@ -16,10 +16,9 @@ class CleanerSpec {
         val document = Jsoup.parse(contents)
 
         assertEquals("magazine", document.body().attr("class").trim())
-        val cleaner = Cleaner(document)
-        val cleaned = cleaner.clean()
+        Cleaner.clean(document)
 
-        assertEquals("", cleaned.body().attr("class").trim())
+        assertEquals("", document.body().attr("class").trim())
     }
 
     @Test
@@ -31,7 +30,7 @@ class CleanerSpec {
             "row post js_post_item status-published commented js_amazon_module",
             document.select("article").attr("class").trim()
         )
-        Cleaner(document).clean()
+        Cleaner.clean(document)
 
         assertEquals(
             "", document.select("article").attr("class").trim()
@@ -45,7 +44,7 @@ class CleanerSpec {
 
         assertEquals(6, document.select("em").size)
 
-        Cleaner(document).clean()
+        Cleaner.clean(document)
         assertEquals(0, document.select("em").size)
     }
 
@@ -55,7 +54,7 @@ class CleanerSpec {
         val document = Jsoup.parse(contents)
 
         assertEquals(40, document.select("script").size)
-        Cleaner(document).clean()
+        Cleaner.clean(document)
         assertEquals(0, document.select("script").size)
     }
 
@@ -71,7 +70,7 @@ class CleanerSpec {
         assertEquals(18, origComments)
 
         val doc = Jsoup.parse(contents)
-        Cleaner(doc).clean()
+        Cleaner.clean(doc)
 
         var comments = 0
         traverse(doc) {
@@ -83,7 +82,7 @@ class CleanerSpec {
     @Test
     fun replaceChildlessDivsWithPTags() {
         val doc = Jsoup.parse("<html><body><div>text1</div></body></html>")
-        Cleaner(doc).clean()
+        Cleaner.clean(doc)
         assertEquals(0, doc.select("div").size)
         assertEquals(1, doc.select("p").size)
         assertEquals("text1", doc.select("p").text())
@@ -92,7 +91,7 @@ class CleanerSpec {
     @Test
     fun replaceChildlessDivsWithPTags2() {
         val doc = Jsoup.parse("<html><body><div>text1</div><div>more text</div></body></html>")
-        Cleaner(doc).clean()
+        Cleaner.clean(doc)
         assertEquals(0, doc.select("div").size)
         assertEquals(2, doc.select("p").size)
         assertEquals("text1 more text", doc.select("p").text())
@@ -101,7 +100,7 @@ class CleanerSpec {
     @Test
     fun replacesUTagsWithPlainText() {
         val doc = Jsoup.parse("<html><body><u>text1</u></body></html>")
-        Cleaner(doc).clean()
+        Cleaner.clean(doc)
         assertEquals(0, doc.select("u").size)
         assertEquals("text1", doc.body().html())
     }
@@ -113,7 +112,7 @@ class CleanerSpec {
 
         assertEquals(1, doc.select("div.caption").size)
 
-        Cleaner(doc).clean()
+        Cleaner.clean(doc)
 
         assertEquals(0, doc.select("div.caption").size)
     }
@@ -126,7 +125,7 @@ class CleanerSpec {
         val naughtyElmsOrig = doc.select(".retweet")
         assertEquals(2, naughtyElmsOrig.size)
 
-        Cleaner(doc).clean()
+        Cleaner.clean(doc)
 
         val naughtyElms = doc.select(".retweet")
         assertEquals(0, naughtyElms.size)
@@ -137,7 +136,7 @@ class CleanerSpec {
         val contents = readFileFull("./fixtures/test_sec1.html")
         val doc = Jsoup.parse(contents)
 
-        Cleaner(doc).clean()
+        Cleaner.clean(doc)
 
         val pElements = doc.select("p")
         val cleanedParaText = pElements[9].textNodes()[0].text()
@@ -152,7 +151,7 @@ class CleanerSpec {
         val codeBlocksOrig = doc.select("code")
         assertEquals(26, codeBlocksOrig.size)
 
-        Cleaner(doc).clean()
+        Cleaner.clean(doc)
 
         val codeBlocks = doc.select("code")
         assertEquals(0, codeBlocks.size)
@@ -164,7 +163,5 @@ class CleanerSpec {
 
 fun traverse(node: Node, visit: (Node) -> Unit) {
     visit(node)
-    for (c in node.childNodes()) {
-        traverse(c, visit)
-    }
+    node.childNodes().forEach { c -> traverse(c, visit) }
 }

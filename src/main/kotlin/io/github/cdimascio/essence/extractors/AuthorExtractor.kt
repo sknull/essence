@@ -1,22 +1,21 @@
 package io.github.cdimascio.essence.extractors
 
-import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
 
 
-internal object AuthorExtractor {
-    fun extract(doc: Document): List<String> {
-        val candidates = doc.select("""
-            meta[property='article:author'],
-            meta[property='og:article:author'],
-            meta[name='author'],
-            meta[name='dcterms.creator'],
-            meta[name='DC.creator'],
-            meta[name='DC.Creator'],
-            meta[name='dc.creator'],
-            meta[name='creator']""".trimIndent())
+object AuthorExtractor {
 
-        val authors = candidates.fold(mutableListOf<String>()) { l, c ->
+    fun extract(element: Element): List<String> {
+        val authors = element.select(
+            "meta[property='article:author']",
+            "meta[property='og:article:author']",
+            "meta[name='author']",
+            "meta[name='dcterms.creator']",
+            "meta[name='DC.creator']",
+            "meta[name='DC.Creator']",
+            "meta[name='dc.creator']",
+            "meta[name='creator']"
+        ).fold(mutableListOf<String>()) { l, c ->
             val author = c.attr("content").cleanse()
             if (author.isNotBlank()) {
                 l.add(author)
@@ -25,16 +24,19 @@ internal object AuthorExtractor {
         }
 
         if (authors.isEmpty()) {
-            val fallback: Element? = doc.selectFirst("span[class*='author']")
-                ?: doc.selectFirst("p[class*='author']")
-                ?: doc.selectFirst("div[class*='author']")
-                ?: doc.selectFirst("span[class*='byline']")
-                ?: doc.selectFirst("p[class*='byline']")
-                ?: doc.selectFirst("div[class*='byline']")
-            fallback?.let {
-                authors.add(fallback.text().cleanse())
+            element.select(
+                    "span[class*='author']",
+                    "p[class*='author']",
+                    "div[class*='author']",
+                    "span[class*='byline']",
+                    "p[class*='byline']",
+                    "div[class*='byline']"
+            ).first()
+                ?.let {
+                    authors.add(it.text().cleanse())
             }
         }
+
         return authors
     }
 }

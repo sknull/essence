@@ -1,20 +1,30 @@
 package io.github.cdimascio.essence.extractors
 
-import org.jsoup.nodes.Document
+import org.jsoup.nodes.Element
+import java.util.*
 
-internal object LanguageExtractor {
-    fun extract(doc: Document): String {
-        var lang = doc.select("html").attr("lang")
+object LanguageExtractor {
+
+    fun extract(document: Element): String {
+        var lang = document
+            .select("html")
+            .attr("lang")
         if (lang.isBlank()) {
-            lang = doc.selectFirst("""
-                meta[name=lang],
-                meta[http-equiv=content-language]
-            """.trimIndent())?.attr("content") ?: ""
+            lang = document.select(
+                    "meta[name=lang]",
+                    "meta[http-equiv=content-language]"
+            ).first()
+                ?.attr("content")
+                ?: ""
         }
-        if (lang.isNotBlank() && lang.length >= 2) {
+        return if (lang.isNotBlank() && lang.length >= 2) {
             // return the first 2 letter ISO lang code with no country
-            return lang.cleanse().substring(0, 2).toLowerCase()
+            lang
+                .cleanse()
+                .substring(0, 2)
+                .lowercase(Locale.getDefault())
+        } else {
+            ""
         }
-        return ""
     }
 }

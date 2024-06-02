@@ -1,10 +1,11 @@
 package io.github.cdimascio.essence.words
 
-import io.github.cdimascio.essence.Language
+import io.github.cdimascio.essence.model.Language
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStream
 import java.io.InputStreamReader
+import java.util.*
 
 
 data class StopWordsStatistics(
@@ -18,7 +19,7 @@ class StopWords private constructor(private val stopWords: List<String>) {
             val ins = StopWords::class.java.getResourceAsStream("/stopwords/stopwords-$language.txt")
             val words = readFromInputStream(ins)
             return StopWords(words.map {
-                it.trim().toLowerCase()
+                it.trim().lowercase(Locale.getDefault())
             })
         }
 
@@ -38,7 +39,7 @@ class StopWords private constructor(private val stopWords: List<String>) {
 
     fun statistics(content: String): StopWordsStatistics {
         val cleanedContent = removePunctuation(content)
-        val candidates = cleanedContent.split(" ").map { it.toLowerCase() }
+        val candidates = cleanedContent.split(" ").map { it.lowercase(Locale.getDefault()) }
         val stopWordsInContent = candidates.filter { word -> stopWords.contains(word) }
         return StopWordsStatistics(
             wordCount = candidates.size,

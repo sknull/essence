@@ -1,5 +1,8 @@
 package io.github.cdimascio.essence.extractors
 
+import org.jsoup.nodes.Element
+import org.jsoup.select.Elements
+
 fun String.cleanse(): String {
     return this.trim()
         .replace("null", "")
@@ -7,4 +10,8 @@ fun String.cleanse(): String {
         .replace("""\s\s+""".toRegex(), " ")
         .replace("""<!--.+?-->""", "")
         .replace("""�""", "")
+}
+
+fun Element.select(vararg cssQueries: String): Elements {
+    return this.select(cssQueries.joinToString(","))
 }

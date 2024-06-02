@@ -1,11 +1,14 @@
 package io.github.cdimascio.essence.extractors
 
-import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
 
-internal object CanonicalExtractor {
-    fun extract(doc: Document): String {
-        val tag: Element? = doc.selectFirst("link[rel=canonical]")
-        return tag?.attr("href")?.cleanse() ?: ""
+object CanonicalExtractor {
+
+    fun extract(element: Element): String {
+        return element
+            .selectFirst("link[rel=canonical]")
+            ?.attr("href")
+            ?.cleanse()
+            ?: ""
     }
 }

@@ -1,21 +1,18 @@
 package io.github.cdimascio.essence.extractors
 
-import org.jsoup.nodes.Document
+import org.jsoup.nodes.Element
 
-internal object TagsExtractor {
-    fun extract(doc: Document): List<String> {
-        var candidates = doc.select("a[rel='tag']")
+object TagsExtractor {
+
+    fun extract(element: Element): List<String> {
+        var candidates = element.select("a[rel='tag']")
         if (candidates.isEmpty()) {
-            candidates = doc.select("""
+            candidates = element.select("""
                 a[href*='/tag/'],
                 a[href*='/tags/'],
                 a[href*='/topic/'],
                 a[href*='?keyword=']
             """.trimIndent())
-        }
-
-        if (candidates.isEmpty()) {
-            return emptyList()
         }
 
         return candidates.map {

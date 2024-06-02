@@ -1,8 +1,9 @@
 package io.github.cdimascio.essence
 
+import io.github.cdimascio.essence.model.Language
 import io.github.cdimascio.essence.words.StopWords
-import org.junit.Test
-import kotlin.test.assertEquals
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 
 class StopWordsSpec {
 

@@ -1,11 +1,13 @@
 package io.github.cdimascio.essence
 
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNotEquals
-import org.junit.Assert.assertTrue
-import org.junit.Assert.fail
-import org.junit.Ignore
-import org.junit.Test
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import io.github.cdimascio.essence.model.Link
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNotEquals
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Assertions.fail
+import org.junit.jupiter.api.Disabled
+import org.junit.jupiter.api.Test
 
 class EssenceSpec {
 
@@ -48,7 +50,7 @@ class EssenceSpec {
     }
 
     @Test
-    @Ignore
+    @Disabled
     fun links() {
         checkFixture("theverge1", listOf("links"))
         checkFixture("techcrunch1", listOf("links"))
@@ -201,73 +203,104 @@ class EssenceSpec {
 
     private fun cleanTestingTest(newText: String, originalText: String): String {
         return newText.replace("""\n\n""", " ").replace("""\ \ """, " ")
-            .substring(0, Math.min(newText.length, originalText.length))
+            .substring(0, newText.length.coerceAtMost(originalText.length))
     }
 
     private fun cleanOrigText(text: String): String {
         return text.replace("""\n\n""", " ")
     }
 
-    fun checkFixture(site: String, fields: List<String>) {
+    private fun checkFixture(site: String, fields: List<String>) {
         val html = readFileFull("./fixtures/test_$site.html")
-        val orig = parseJson(readFileFull("./fixtures/test_$site.json"))
+        val orig =
+            jacksonObjectMapper().readTree(readFileFull("./fixtures/test_$site.json"))
         val data = Essence.extract(html)
 
         val expected = orig["expected"]
-        for (field in fields) {
+        fields.forEach { field ->
             when (field) {
                 "title" -> {
                     assertEquals(expected["title"].asText(), data.title)
                 }
+
                 "cleaned_text" -> {
-                    val origText = cleanOrigText(expected["cleaned_text"].asText())
-                    val newText = cleanTestingTest(data.text, origText)
-                    assertNotEquals("text should not be null", "", newText)
+                    val expected = cleanOrigText(expected["cleaned_text"].asText())
+                    val actual = cleanTestingTest(data.text, expected)
+                    assertNotEquals("text should not be null", "", actual)
 
-                    println(origText)
-                    println(newText)
-                    assertTrue(data.text.length >= origText.length)
+                    println(expected)
+                    println(actual)
+                    assertTrue(data.text.length >= expected.length)
 
-                    assertEquals(origText, newText)
+                    assertEquals(expected, actual)
                 }
+
                 "link" -> {
-                    assertEquals(expected["final_url"].asText(), data.canonicalLink)
+                    assertEquals(
+                        expected["final_url"].asText(),
+                        data.canonicalLink
+                    )
                 }
+
                 "image" -> {
                     assertEquals(expected["image"].asText().trim(), data.image)
                 }
+
                 "description" -> {
-                    assertEquals(expected["meta_description"].asText(), data.description)
+                    assertEquals(
+                        expected["meta_description"].asText(),
+                        data.description
+                    )
                 }
+
                 "lang" -> {
                     assertEquals(expected["meta_lang"].asText(), data.language)
                 }
+
                 "keywords" -> {
-                    assertEquals(expected["meta_keywords"].asText(), data.keywords)
+                    assertEquals(
+                        expected["meta_keywords"].asText(),
+                        data.keywords
+                    )
                 }
+
                 "favicon" -> {
-                    assertEquals(expected["meta_favicon"].asText(), data.favicon)
+                    assertEquals(
+                        expected["meta_favicon"].asText(),
+                        data.favicon
+                    )
                 }
+
                 "tags" -> {
                     val tags = data.tags.sorted()
-                    val expectedTags = expected["tags"]?.map { it.asText() }?.sorted() ?: emptyList()
+                    val expectedTags =
+                        expected["tags"]?.map { it.asText() }?.sorted()
+                            ?: emptyList()
                     expectedTags.zip(tags).forEach { (expected, actual) ->
                         assertEquals(expected, actual)
                     }
                 }
+
                 "links" -> {
                     val links = data.links.sortedBy { it.text }
-                    val expectedLinks = expected["links"]?.map { Link(it["href"].asText(), it["text"].asText()) }
+                    val expectedLinks = expected["links"]?.map {
+                        Link(
+                            it["href"].asText(),
+                            it["text"].asText()
+                        )
+                    }
                         ?: emptyList()
                     links.zip(expectedLinks).forEach { (actual, expected) ->
                         assertEquals(expected.text, actual.text)
                         assertEquals(expected.href, actual.href)
                     }
                 }
+
                 "videos" -> {
 //                    assertEquals(expected["keywords"], data.keywords)
                     fail("videos not implemented")
                 }
+
                 else -> {
                     fail("invalid test")
                 }

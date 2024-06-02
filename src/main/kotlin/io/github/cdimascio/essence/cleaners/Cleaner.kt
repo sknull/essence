@@ -8,19 +8,25 @@ import org.jsoup.nodes.Element
 import org.jsoup.nodes.Node
 import org.jsoup.nodes.TextNode
 import org.jsoup.select.NodeFilter
+import java.lang.StringBuilder
 
-private const val GRAVITY_USED_ALREADY = "grv-usedalready"
 
-class Cleaner(private val doc: Document) {
-    fun clean(): Document {
-        removeBodyClasses()
-        cleanEmTags()
-        cleanCodeBlocks()
-        removeDropCaps()
-        removeScriptsStyles()
-        Traverse(
+object Cleaner {
+
+    private const val GRAVITY_USED_ALREADY = "grv-usedalready"
+
+    private val tags = listOf("a", "blockquote", "dl", "div", "img", "ol", "p", "pre", "table", "ul")
+
+
+    fun clean(document: Document) {
+        removeBodyClasses(document)
+        cleanEmTags(document)
+        cleanCodeBlocks(document)
+        removeDropCaps(document)
+        removeScriptsStyles(document)
+        applyRules(
+            node = document,
             nodeRemovalRules = listOf(
-//                Rule::removeNonTextNodes,
                 Rule::removeCommentsTravRule,
                 Rule::removeBadTagsTravRule,
                 Rule::removeNavigationElements,
@@ -33,72 +39,77 @@ class Cleaner(private val doc: Document) {
             nodeModificationRules = listOf(
                 Rule::correctErrantLineBreaks,
                 Rule::cleanArticleTag
-            ))
-            .applyRules(doc)
-        cleanParaSpans()
-        cleanUnderlines()
-        elementToParagraph(doc, listOf("div", "span"))
+            )
+        )
+        cleanParaSpans(document)
+        cleanUnderlines(document)
+        elementToParagraph(document, listOf("div", "span"))
+    }
 
-        return doc
+    private fun applyRules(
+        node: Node,
+        nodeRemovalRules: List<(Node) -> Boolean>,
+        nodeModificationRules: List<(Node) -> Unit>
+    ) {
+        node.filter(object : NodeFilter {
+            override fun tail(node: Node, depth: Int): NodeFilter.FilterResult {
+                return NodeFilter.FilterResult.CONTINUE
+            }
+
+            override fun head(node: Node, depth: Int): NodeFilter.FilterResult {
+                nodeModificationRules.forEach { it(node) }
+                nodeRemovalRules.forEach { if (it(node)) return NodeFilter.FilterResult.REMOVE }
+                return NodeFilter.FilterResult.CONTINUE
+            }
+        })
     }
 
     /**
      * Remove all classes from body
      */
-    private fun removeBodyClasses() {
-        val body = doc.body()
-        body.classNames().forEach {
-            body.removeClass(it)
+    private fun removeBodyClasses(document: Document) {
+        document.body().classNames().forEach {
+            document.body().removeClass(it)
         }
     }
 
-    private fun cleanEmTags() {
-        val ems = doc.getElementsByTag("em")
-        ems.forEach {
-            val images = it.find("img")
-            if (images.isEmpty()) {
-                it.unwrap()
+    private fun cleanEmTags(document: Document) {
+        document
+            .getElementsByTag("em")
+            .forEach {
+                val images = it.find("img")
+                if (images.isEmpty()) {
+                    it.unwrap()
+                }
             }
-        }
     }
 
-    private fun cleanCodeBlocks() {
-        val nodes = doc.select(
+    private fun cleanCodeBlocks(document: Document) {
+        document.select(
             "[class*='highlight-'], pre code, code, pre, ul.task-list"
-        )
-        nodes.forEach {
-            it.unwrap()
-        }
+        ).forEach { it.unwrap() }
     }
 
-    private fun removeDropCaps() {
-        val nodes = doc.select("span[class~=dropcap], span[class~=drop_cap]")
-        return nodes.forEach {
-            it.unwrap()
-        }
+    private fun removeDropCaps(document: Document) {
+        return document.select("span[class~=dropcap], span[class~=drop_cap]")
+            .forEach { it.unwrap() }
     }
 
-    private fun removeScriptsStyles() {
-        doc.getElementsByTag("script").remove()
-        doc.getElementsByTag("style").remove()
+    private fun removeScriptsStyles(document: Document) {
+        document.getElementsByTag("script").remove()
+        document.getElementsByTag("style").remove()
     }
 
-    private fun cleanParaSpans() {
-        doc.select("p span").forEach {
-            it.unwrap()
-        }
+    private fun cleanParaSpans(document: Document) {
+        document.select("p span").forEach { it.unwrap() }
     }
 
-    private fun cleanUnderlines() {
-        doc.select("u").forEach {
-            it.unwrap()
-        }
+    private fun cleanUnderlines(document: Document) {
+        document.select("u").forEach { it.unwrap() }
     }
 
-    private fun elementToParagraph(doc: Document, tagNames: List<String>) {
-        val elements = doc.select(tagNames.joinToString(",")) //\.reversed()
-        val tags = listOf("a", "blockquote", "dl", "div", "img", "ol", "p", "pre", "table", "ul")
-        for (element in elements) {
+    private fun elementToParagraph(document: Document, tagNames: List<String>) {
+        document.select(tagNames.joinToString(",")).forEach { element ->
             val items = element.matchFirstElementTags(tags, 1)
             if (items.isEmpty()) {
                 val html = element.html()
@@ -108,7 +119,7 @@ class Cleaner(private val doc: Document) {
             } else {
                 val replaceNodes = getReplacementNodes(element)
                 val pReplacementElements = mutableListOf<Element>()
-                for (rNode in replaceNodes) {
+                replaceNodes.forEach { rNode ->
                     if (rNode.html().isNotEmpty()) {
                         pReplacementElements.add(Element("p").html(rNode.html()))
                     }
@@ -120,92 +131,73 @@ class Cleaner(private val doc: Document) {
     }
 
     private fun getReplacementNodes(div: Node): List<Element> {
-        val children = div.childNodes()
-        val nodesToReturn = mutableListOf<Element>()
         val nodesToRemove = mutableListOf<Node>()
-        val replacmentText = mutableListOf<String>() // TODO: could be string buffer
-        val isGravityUsed = { e: Element -> e.attr(GRAVITY_USED_ALREADY) == "yes" }
-        val setGravityUsed = { e: Element -> e.attr(GRAVITY_USED_ALREADY, "yes") }
-        for (kid in children) {
-            if (kid is Element && kid.tagName() == "p" && replacmentText.isNotEmpty()) {
-                val html = replacmentText.joinToString("")
+        val replacmentText = StringBuilder()
+
+        val nodesToReturn = mutableListOf<Element>()
+        div.childNodes().forEach { child ->
+            if (child is Element && child.tagName() == "p" && replacmentText.isNotEmpty()) {
+                val html = replacmentText.toString()
                 nodesToReturn.add(Element("p").html(html))
                 replacmentText.clear()
-                nodesToReturn.add(kid)
-            } else if (kid is TextNode) {
-                val kidText = kid.text()
+                nodesToReturn.add(child)
+            } else if (child is TextNode) {
+                val childText = child.text()
                     .replace("""\n""", "\n\n")
                     .replace("""\t""", "")
                     .replace("""^\s+$""", "")
-                if (kidText.length > 1) {
-                    var prevSibling = kid.previousSibling()
-                    while (prevSibling is Element && prevSibling.tagName() == "a" && !isGravityUsed(prevSibling)) {
-                        val outerHtml = " ${prevSibling.outerHtml()} "
-                        replacmentText.add(outerHtml)
-                        nodesToRemove.add(prevSibling)
-                        setGravityUsed(prevSibling)
-                        prevSibling = prevSibling.previousSibling()
-                    }
+                if (childText.length > 1) {
+                    processSibling(
+                        sibling = child.previousSibling(),
+                        replacmentText = replacmentText,
+                        nodesToRemove = nodesToRemove
+                    )
 
-                    replacmentText.add(kidText)
+                    replacmentText.append(childText)
 
-                    var nextSibling = kid.nextSibling()
-                    while (nextSibling is Element && nextSibling.tagName() == "a" && !isGravityUsed(nextSibling)) {
-                        val outerHtml = " ${nextSibling.outerHtml()} "
-                        replacmentText.add(outerHtml)
-                        nodesToRemove.add(nextSibling)
-                        setGravityUsed(nextSibling)
-                        nextSibling = nextSibling.nextSibling()
-                    }
+                    processSibling(
+                        sibling = child.nextSibling(),
+                        replacmentText = replacmentText,
+                        nodesToRemove = nodesToRemove
+                    )
                 }
             } else {
-                if (kid is Element) {
-                    nodesToReturn += kid
+                if (child is Element) {
+                    nodesToReturn += child
                 }
             }
         }
 
         if (replacmentText.isNotEmpty()) {
-            val html = replacmentText.joinToString("")
+            val html = replacmentText.toString()
             nodesToReturn.add(Element("p").html(html))
             replacmentText.clear()
         }
 
-        for (node in nodesToRemove) {
-            node.remove()
-        }
+        nodesToRemove.forEach { it.remove() }
 
         val isInteresting = { e: Element ->
             !listOf("meta", "head").contains(e.tagName())
         }
+
         return nodesToReturn.filter { isInteresting(it) }
     }
-}
 
-class Traverse(
-    private val nodeRemovalRules: List<(Node) -> Boolean>,
-    private val nodeModificationRules: List<(Node) -> Unit>) {
-
-    fun applyRules(node: Node): Traverse {
-        node.filter(object : NodeFilter {
-            override fun tail(node: Node, depth: Int): NodeFilter.FilterResult {
-                return NodeFilter.FilterResult.CONTINUE
-            }
-
-            override fun head(node: Node, depth: Int): NodeFilter.FilterResult {
-                for (rule in nodeModificationRules) {
-                    rule(node)
-                }
-
-                for (rule in nodeRemovalRules) {
-                    if (rule(node)) {
-                        return NodeFilter.FilterResult.REMOVE
-                    }
-                }
-                return NodeFilter.FilterResult.CONTINUE
-            }
-        })
-        return this
+    private fun processSibling(
+        sibling: Node?,
+        replacmentText: StringBuilder,
+        nodesToRemove: MutableList<Node>
+    ) {
+        var prevSibling1 = sibling
+        while (prevSibling1 is Element && prevSibling1.tagName() == "a" && prevSibling1.attr(
+                GRAVITY_USED_ALREADY
+            ) != "yes"
+        ) {
+            val outerHtml = " ${prevSibling1.outerHtml()} "
+            replacmentText.append(outerHtml)
+            nodesToRemove.add(prevSibling1)
+            prevSibling1.attr(GRAVITY_USED_ALREADY, "yes")
+            prevSibling1 = prevSibling1.previousSibling()
+        }
     }
 }
-

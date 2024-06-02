@@ -1,15 +1,16 @@
 package io.github.cdimascio.essence.util
 
-import io.github.cdimascio.essence.scorers.Scorer
+import io.github.cdimascio.essence.scorers.DocumentScorer
 import io.github.cdimascio.essence.words.StopWords
 import org.jsoup.nodes.Element
 import org.jsoup.nodes.Node
 
 object NodeHeuristics {
+
     fun isTableOrListWithNoParagraphs(element: Element): Boolean {
         val paragraphs = element.find("p")
         val remainingParagraphs = mutableListOf<Element>()
-        for (p in paragraphs) {
+        paragraphs.forEach { p ->
             val text = p.text()
             if (text.isNotBlank() && text.length < 25) {
                 p.remove()
@@ -23,15 +24,13 @@ object NodeHeuristics {
     }
 
     fun isNodeThresholdMet(parent: Node, child: Element): Boolean {
-        val parentNodeScore = Scorer.getScore(parent)
-        val childNodeScore = Scorer.getScore(child)
-        val thresholdScore = parentNodeScore * 0.08
+        val parentNodeScore = DocumentScorer.getScore(parent)
+        val childNodeScore = DocumentScorer.getScore(child)
+        val thresholdScore = parentNodeScore * 0.05
+//        println("### parentNodeScore: $parentNodeScore, childNodeScore: $childNodeScore, thresholdScore: $thresholdScore")
 
         val isAnExcludeTags = { tag: String -> listOf("td", "ul", "ol", "blockquote").contains(tag) }
-        if (childNodeScore < thresholdScore && !isAnExcludeTags(child.tagName())) {
-            return false
-        }
-        return true
+        return !(childNodeScore < thresholdScore && !isAnExcludeTags(child.tagName()))
     }
 
     fun hasHighLinkDensity(node: Node): Boolean {

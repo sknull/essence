@@ -1,11 +1,12 @@
 package io.github.cdimascio.essence
 
 import io.github.cdimascio.essence.formatters.TextFormatter
+import io.github.cdimascio.essence.model.Language
 import io.github.cdimascio.essence.words.StopWords
 import org.jsoup.Jsoup
-import org.junit.Assert.assertTrue
-import org.junit.Test
-import kotlin.test.assertEquals
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Test
 
 class FormatterSpec {
     private val stopWords = StopWords.load(Language.en)
