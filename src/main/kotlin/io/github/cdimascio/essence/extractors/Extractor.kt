@@ -5,6 +5,7 @@ import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
 
 class Extractor(private val doc: Document) {
+
     fun date() = DataExtractor.extract(doc)
 
     fun copyright() = CopyrightExtractor.extract(doc)

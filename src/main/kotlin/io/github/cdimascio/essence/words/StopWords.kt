@@ -18,7 +18,7 @@ class StopWords private constructor(private val stopWords: List<String>) {
             val ins = StopWords::class.java.getResourceAsStream("/stopwords/stopwords-$language.txt")
             val words = readFromInputStream(ins)
             return StopWords(words.map {
-                it.trim().toLowerCase()
+                it.trim().lowercase()
             })
         }
 
@@ -38,7 +38,7 @@ class StopWords private constructor(private val stopWords: List<String>) {
 
     fun statistics(content: String): StopWordsStatistics {
         val cleanedContent = removePunctuation(content)
-        val candidates = cleanedContent.split(" ").map { it.toLowerCase() }
+        val candidates = cleanedContent.split(" ").map { it.lowercase() }
         val stopWordsInContent = candidates.filter { word -> stopWords.contains(word) }
         return StopWordsStatistics(
             wordCount = candidates.size,
@@ -47,5 +47,5 @@ class StopWords private constructor(private val stopWords: List<String>) {
     }
 
     private fun removePunctuation(content: String): String =
-        content.replace("""[\|\@\<\>\[\]\"\'\.,-\/#\?!$%\^&\*\+;:{}=\-_`~()]""".toRegex(), "")
+        content.replace("""[|@<>\[\]"'\.,-/#?!$%^&*+;:{}=\-_`~()]""".toRegex(), "")
 }

@@ -12,6 +12,14 @@ import org.jsoup.select.NodeFilter
 private const val GRAVITY_USED_ALREADY = "grv-usedalready"
 
 class Cleaner(private val doc: Document) {
+
+    companion object {
+
+        val tags = listOf("a", "blockquote", "dl", "div", "img", "ol", "p", "pre", "table", "ul")
+
+        val tagsToConvert = listOf("div", "span")
+    }
+
     fun clean(): Document {
         removeBodyClasses()
         cleanEmTags()
@@ -37,7 +45,7 @@ class Cleaner(private val doc: Document) {
             .applyRules(doc)
         cleanParaSpans()
         cleanUnderlines()
-        elementToParagraph(doc, listOf("div", "span"))
+        elementToParagraph(doc, tagsToConvert)
 
         return doc
     }
@@ -95,42 +103,42 @@ class Cleaner(private val doc: Document) {
         }
     }
 
-    private fun elementToParagraph(doc: Document, tagNames: List<String>) {
-        val elements = doc.select(tagNames.joinToString(",")) //\.reversed()
-        val tags = listOf("a", "blockquote", "dl", "div", "img", "ol", "p", "pre", "table", "ul")
-        for (element in elements) {
-            val items = element.matchFirstElementTags(tags, 1)
-            if (items.isEmpty()) {
-                val html = element.html()
-                element.tagName("p")
-                element.html(html)
-
-            } else {
-                val replaceNodes = getReplacementNodes(element)
-                val pReplacementElements = mutableListOf<Element>()
-                for (rNode in replaceNodes) {
-                    if (rNode.html().isNotEmpty()) {
-                        pReplacementElements.add(Element("p").html(rNode.html()))
+    private fun elementToParagraph(doc: Document, tagsToConvert: List<String>) {
+        doc.select(tagsToConvert.joinToString(","))
+            .forEach { element ->
+                if (element.matchFirstElementTags(tags, 1).isEmpty()) {
+                    val html = element.html()
+                    element.tagName("p")
+                    element.html(html)
+                } else {
+                    val pReplacementElements = getReplacementNodes(element)
+                        .map { e -> e.html() }
+                        .filter { h -> h.isNotEmpty() }
+                        .map { html -> Element("p").html(html) }
+                    if (pReplacementElements.isNotEmpty()) {
+                        element.parent()?.insertChildren(
+                            element.siblingIndex(),
+                            pReplacementElements
+                        )
+                        element.remove()
                     }
                 }
-                element.parent().insertChildren(element.siblingIndex(), pReplacementElements)
-                element.remove()
             }
-        }
     }
 
     private fun getReplacementNodes(div: Node): List<Element> {
-        val children = div.childNodes()
         val nodesToReturn = mutableListOf<Element>()
-        val nodesToRemove = mutableListOf<Node>()
-        val replacmentText = mutableListOf<String>() // TODO: could be string buffer
+        val nodesToRemove = mutableListOf<Element>()
+        val replacementText = mutableListOf<String>()
+
         val isGravityUsed = { e: Element -> e.attr(GRAVITY_USED_ALREADY) == "yes" }
         val setGravityUsed = { e: Element -> e.attr(GRAVITY_USED_ALREADY, "yes") }
-        for (kid in children) {
-            if (kid is Element && kid.tagName() == "p" && replacmentText.isNotEmpty()) {
-                val html = replacmentText.joinToString("")
+
+        div.childNodes().forEach { kid ->
+            if (kid is Element && kid.tagName() == "p" && replacementText.isNotEmpty()) {
+                val html = replacementText.joinToString(" ")
                 nodesToReturn.add(Element("p").html(html))
-                replacmentText.clear()
+                replacementText.clear()
                 nodesToReturn.add(kid)
             } else if (kid is TextNode) {
                 val kidText = kid.text()
@@ -139,20 +147,24 @@ class Cleaner(private val doc: Document) {
                     .replace("""^\s+$""", "")
                 if (kidText.length > 1) {
                     var prevSibling = kid.previousSibling()
-                    while (prevSibling is Element && prevSibling.tagName() == "a" && !isGravityUsed(prevSibling)) {
+                    while (prevSibling is Element && prevSibling.tagName() == "a" && !isGravityUsed(
+                            prevSibling
+                        )) {
                         val outerHtml = " ${prevSibling.outerHtml()} "
-                        replacmentText.add(outerHtml)
+                        replacementText.add(outerHtml)
                         nodesToRemove.add(prevSibling)
                         setGravityUsed(prevSibling)
                         prevSibling = prevSibling.previousSibling()
                     }
 
-                    replacmentText.add(kidText)
+                    replacementText.add(kidText)
 
                     var nextSibling = kid.nextSibling()
-                    while (nextSibling is Element && nextSibling.tagName() == "a" && !isGravityUsed(nextSibling)) {
+                    while (nextSibling is Element && nextSibling.tagName() == "a" && !isGravityUsed(
+                            nextSibling
+                        )) {
                         val outerHtml = " ${nextSibling.outerHtml()} "
-                        replacmentText.add(outerHtml)
+                        replacementText.add(outerHtml)
                         nodesToRemove.add(nextSibling)
                         setGravityUsed(nextSibling)
                         nextSibling = nextSibling.nextSibling()
@@ -160,15 +172,15 @@ class Cleaner(private val doc: Document) {
                 }
             } else {
                 if (kid is Element) {
-                    nodesToReturn += kid
+                    nodesToReturn + kid
                 }
             }
         }
 
-        if (replacmentText.isNotEmpty()) {
-            val html = replacmentText.joinToString("")
+        if (replacementText.isNotEmpty()) {
+            val html = replacementText.joinToString(" ")
             nodesToReturn.add(Element("p").html(html))
-            replacmentText.clear()
+            replacementText.clear()
         }
 
         for (node in nodesToRemove) {

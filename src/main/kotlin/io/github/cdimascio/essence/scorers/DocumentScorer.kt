@@ -58,7 +58,7 @@ class DocumentScorer(private val stopWords: StopWords) : Scorer {
 
             // THis only goes up 2 levels per node?
             // Propagate the score upwards
-            val parent = node.parent()
+            val parent = node.parent()!!
             Scorer.updateScore(parent, upScore)
             Scorer.updateNodeCount(parent, 1)
 
@@ -110,16 +110,16 @@ class DocumentScorer(private val stopWords: StopWords) : Scorer {
      **/
     private fun isBoostable(node: Node): Boolean {
         val previousSiblings = TraversalHelpers.getAllPreviousElementSiblings(node)
-        val MIN_STOP_WORDS_COUNT = 5
-        val MAX_STEPS_FROM_NODE = 3
+        val minStopWordsCount = 5
+        val maxStepsFromNode = 3
         for ((stepsAway, element) in previousSiblings.iterator().withIndex()) {
             if (element.tagName() == "p") {
-                if (stepsAway >= MAX_STEPS_FROM_NODE) {
+                if (stepsAway >= maxStepsFromNode) {
                     return false
                 }
                 val text = element.text()
                 val stats = stopWords.statistics(text)
-                if (stats.stopWords.size > MIN_STOP_WORDS_COUNT) {
+                if (stats.stopWords.size > minStopWordsCount) {
                     return true
                 }
             }

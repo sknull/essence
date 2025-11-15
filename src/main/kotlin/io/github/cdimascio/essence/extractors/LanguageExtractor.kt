@@ -13,7 +13,7 @@ internal object LanguageExtractor {
         }
         if (lang.isNotBlank() && lang.length >= 2) {
             // return the first 2 letter ISO lang code with no country
-            return lang.cleanse().substring(0, 2).toLowerCase()
+            return lang.cleanse().substring(0, 2).lowercase()
         }
         return ""
     }

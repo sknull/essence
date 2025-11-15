@@ -56,7 +56,8 @@ class TextFormatter(private val stopWords: StopWords) : Formatter {
                     node.unwrap()
                 }
             }
-        } catch (e: NumberFormatException) {
+        } catch (_: NumberFormatException) {
+            // ignore
         }
     }
 
@@ -98,11 +99,8 @@ class TextFormatter(private val stopWords: StopWords) : Formatter {
             } else {
                 val trimmed = text.trim()
                 val numWords = text.split(" ").size
-                if (trimmed.isNotBlank() && numWords < 25 && trimmed.first() == '(' && trimmed.last() == ')') {
-                    // remove paragraph's that are surrounded entirely by parens and have few-ish words
-                    if (e.parent() != null)
-                        e.remove()
-                }
+                // remove paragraph's that are surrounded entirely by parens and have few-ish words
+                if (trimmed.isNotBlank() && numWords < 25 && trimmed.first() == '(' && trimmed.last() == ')' && e.parent() != null) e.remove()
             }
         }
     }

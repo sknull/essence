@@ -3,13 +3,14 @@ package io.github.cdimascio.essence
 import io.github.cdimascio.essence.extractors.Extractor
 import io.github.cdimascio.essence.words.StopWords
 import org.jsoup.Jsoup
-import org.junit.Assert.assertNull
-import org.junit.Assert.assertTrue
-import org.junit.Test
-import kotlin.test.assertEquals
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Test
 
-class ExtractractorSpec {
+class ExtractractorTest {
+
     private val stopWords = StopWords.load(Language.en)
+
     @Test
     fun returnsABlankTitle() {
         val html = "<html><head><title></title></head></html>"

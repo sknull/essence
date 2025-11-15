@@ -4,11 +4,11 @@ package io.github.cdimascio.essence
 import io.github.cdimascio.essence.cleaners.Cleaner
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Node
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Test
 
-class CleanerSpec {
+class CleanerTest {
 
     @Test
     fun removesBodyClasses() {

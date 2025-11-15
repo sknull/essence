@@ -6,7 +6,8 @@ import org.jsoup.nodes.Node
 
 typealias ScoredElement = Element
 
-interface Scorer {
+fun interface Scorer {
+
     fun score(doc: Document): ScoredElement?
 
     companion object {

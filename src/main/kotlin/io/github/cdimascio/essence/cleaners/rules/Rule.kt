@@ -12,7 +12,7 @@ object Rule {
         if (node !is Element) return false
         return REGEX_SPONSORED.containsMatchIn(node.attr("class")) ||
             node.attributes().any {
-                REGEX_SPONSORED.containsMatchIn(it.value ?: "")
+                REGEX_SPONSORED.containsMatchIn(it.value )
             }
     }
 

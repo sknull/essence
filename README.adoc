@@ -1,0 +1,123 @@
+= Essence
+:doctype: book
+:description: Documentation for essence
+:keywords: kotlin, html, text extraction
+:icons: font
+:toc:
+:toc-title: Contents
+:toclevels: 10
+
+== Status
+
+https://github.com/sknull/essence/actions/workflows/github-ci.yml[image:https://github.com/sknull/essence/actions/workflows/github-ci.yml/badge.svg[Essence]]
+
+image::assets/essence.png[]
+
+== Why this fork?
+
+Essence is now unmaintained since 7 years and I wanted to use it in some of my projects. It also turned out that it did not compile anymore with modern jdk and JSoup. So I overhauled it a bit.
+
+Minor code was changed in the cleanup logic to make it actually work again.
+
+Besides that all credits still goes to the original author.
+
+== Introduction
+
+An automatic web page content extractor for _Kotlin_ and _Java_.
+
+Given an HTML document, *essence* automatically extracts the main text content (and much more).
+
+https://essence.mybluemix.net[Try out the demo] - _a simple webapp to demonstrate essence_.
+
+_This library is inspired by https://github.com/ageitgey/node-unfluff[node-unfluff] and its <<Credits,lineage>>_
+
+== Usage
+
+*Java*
+
+[source,Java]
+----
+import io.github.cdimascio.essence.Essence;
+
+EssenceResult data = Essence.extract(html);
+println(data.getText());
+----
+
+*Kotlin*
+
+[source,Kotlin]
+----
+val data = Essence.extract(html)
+println(data.text)
+----
+
+See <<extracted-data-elements,Extracted data elements>> for additional extracted metadata.
+
+== Install
+
+*Maven*
+
+[source,xml]
+----
+<dependency>
+  <groupId>io.github.cdimascio</groupId>
+  <artifactId>essence</artifactId>
+  <version>0.13.0</version>
+  <type>pom</type>
+</dependency>
+----
+
+*Gradle*
+
+[source,groovy]
+----
+compile 'io.github.cdimascio:essence:0.13.0'
+----
+
+== Try the Essence web demo
+
+https://essence.mybluemix.net[Essence web] is a simple web page that fetches content at a given url and passes the HTML to this essence library.
+
+image:https://raw.githubusercontent.com/cdimascio/essence/master/assets/example.png[]
+
+The essence web project lives https://github.com/cdimascio/essence-web[here]
+
+== Extracted data elements
+
+*essence* attempts to extract the following content:
+
+* `title` - The document's title
+* `softTitle` - A version of `title` with less truncation
+* `date` - The document's publication date
+* `copyright` - The document's copyright line, if present
+* `author` - The document's author
+* `publisher` - The document's publisher (website name)
+* `text` - The main text of the document with all the junk thrown away
+* `image` - The main image for the document (what's used by facebook, etc.)
+* _(coming soon…)_`videos` - An array of videos that were embedded in the article. Each video has src, width and height.
+* `tags`- Any tags or keywords that could be found by checking &lt;rel&gt; tags or by looking at href urls.
+* `canonicalLink` - The https://support.google.com/webmasters/answer/139066?hl=en[canonical url] of the document, if given.
+* `lang` - The language of the document, either detected or supplied by you.
+* `description` - The description of the document, from &lt;meta&gt; tags
+* `favicon` - The url of the document's http://en.wikipedia.org/wiki/Favicon[favicon].
+* `links` - An array of links embedded within the article text. (text and href for each)
+
+== Credits
+
+* node-unfluff by link:ageitgey[https://github.com/ageitgey]
+* python-goose by https://github.com/grangier[Xavier Grangier]
+* goose by https://github.com/GravityLabs[Gravity Labs]
+
+== License
+
+link:LICENSE[Apache 2.0]
+
+== Contributors ✨
+
+Thanks goes to these wonderful people (https://allcontributors.org/docs/en/emoji-key[emoji key]):
+
+|===
+|https://github.com/cdimascio/essence/commits?author=Cleymax[💻]
+|===
+
+This project follows the https://github.com/all-contributors/all-contributors[all-contributors] specification. Contributions of any kind welcome!

@@ -10,6 +10,7 @@ import org.jsoup.nodes.Node
 import org.jsoup.nodes.TextNode
 
 class ScoreCleaner(private val stopWords: StopWords) {
+
     fun clean(element: ScoredElement?): ScoredElement? {
         if (element == null) return null
 
@@ -19,21 +20,12 @@ class ScoreCleaner(private val stopWords: StopWords) {
 
         val topNode = skipNonTextualTopNodes(element)
         addSiblingsToTopNode(topNode)?.let { updatedElement ->
-            for (child in updatedElement.children()) {
-                if (!isParagraphOrAnchor(child)) {
-                    if (NodeHeuristics.hasHighLinkDensity(child) ||
+            updatedElement.children().forEach { child ->
+                if (!isParagraphOrAnchor(child) && (NodeHeuristics.hasHighLinkDensity(child) ||
                         NodeHeuristics.isTableOrListWithNoParagraphs(child) ||
-                        !NodeHeuristics.isNodeThresholdMet(updatedElement, child)) {
-                        if (child.hasParent()) {
-                            child.remove()
-                        }
-                    }
+                        !NodeHeuristics.isNodeThresholdMet(updatedElement, child)) && child.hasParent()) {
+                    child.remove()
                 }
-//                else if (NodeHeuristics.hasFewWordsAndLowFewWordNeighbors(child, stopWords)) {
-//                    if (child.hasParent()) {
-//                        child.remove()
-//                    }
-//                }
             }
         }
         return topNode
@@ -57,7 +49,7 @@ class ScoreCleaner(private val stopWords: StopWords) {
         val previousSiblings = TraversalHelpers.getAllPreviousSiblings(targetNode)
         previousSiblings.filterIsInstance<Element>().forEach { sib: Node ->
             val siblingContent = getSiblingsContent(sib as Element, baselineParagraphSiblingScore)
-            for (content in siblingContent) {
+            siblingContent.forEach { content ->
                 if (content.isNotBlank()) {
                     targetNode.prependChild(TextNode(content))
                 }
@@ -75,7 +67,7 @@ class ScoreCleaner(private val stopWords: StopWords) {
             return emptyList()
         }
         val contents = mutableListOf<String>()
-        for (p in candidateParagraphs) {
+        candidateParagraphs.forEach { p ->
             val text = p.text()
             if (text.isNotBlank()) {
                 val stats = stopWords.statistics(text)
@@ -99,7 +91,7 @@ class ScoreCleaner(private val stopWords: StopWords) {
         if (topNode == null) return base
 
         val elementsToCheck = topNode.find("p")
-        for (element in elementsToCheck) {
+        elementsToCheck.forEach { element ->
             val text = element.text()
             val stats = stopWords.statistics(text)
             val hasHighLinkDensity = NodeHeuristics.hasHighLinkDensity(element)
