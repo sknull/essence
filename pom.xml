@@ -53,11 +53,11 @@
   </developers>
 
   <properties>
-    <java-version>24</java-version>
-    <compilerVersion>24</compilerVersion>
-    <project.build.source>24</project.build.source>
-    <project.build.target>24</project.build.target>
-    <kotlin.compiler.jvmTarget>24</kotlin.compiler.jvmTarget>
+    <java-version>21</java-version>
+    <compilerVersion>21</compilerVersion>
+    <project.build.source>21</project.build.source>
+    <project.build.target>21</project.build.target>
+    <kotlin.compiler.jvmTarget>21</kotlin.compiler.jvmTarget>
     <version.kotlin.maven>2.2.20</version.kotlin.maven>
     <version.kotlin.language>2.2</version.kotlin.language>
 
