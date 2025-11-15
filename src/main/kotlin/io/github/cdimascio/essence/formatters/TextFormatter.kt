@@ -16,7 +16,7 @@ class TextFormatter(private val stopWords: StopWords) : Formatter {
         linksToText(bestRoot)
         addNewlineToBr(bestRoot)
         replaceWithText(bestRoot)
-        removeFewwordsParagraphs(bestRoot)
+        removeFewWordsParagraphs(bestRoot)
         // TODO: find proper root
         // look look at children. if one node, look at their children to see if there are many
         // if there are many use that node as th root
@@ -78,15 +78,13 @@ class TextFormatter(private val stopWords: StopWords) : Formatter {
     private fun replaceWithText(node: Element) {
         val nodes = node.find("b, strong, i, br, sup")
         nodes.forEach {
-            if (it.text().isNotBlank()) {
-                it.unwrap()
-            }
+            it.unwrap()
         }
     }
 
-    private fun removeFewwordsParagraphs(node: Element) {
+    private fun removeFewWordsParagraphs(node: Element) {
         val elements = node.find("*")
-        for (e in elements) {
+        elements.forEach { e ->
             val tag = e.tagName()
             val text = e.text()
             val numStopWords = stopWords.statistics(text).stopWords.size
@@ -110,13 +108,13 @@ class TextFormatter(private val stopWords: StopWords) : Formatter {
         // html elements
         val texts = mutableListOf<String>()
         val hangingText = StringBuffer()
-        for (child in node.childNodes()) {
+        node.childNodes().forEach { child ->
             if (child is TextNode) {
                 hangingText.append(child.text())
-                continue
+                return@forEach
             } else if (child is Element && child.tagName() == "ul") {
                 hangingText.append(ulToText(child))
-                continue
+                return@forEach
             }
 
             // TODO if hanging text is blank here, we should reset the text to empty

@@ -6,10 +6,11 @@ import org.jsoup.nodes.Element
 import org.jsoup.nodes.Node
 
 object NodeHeuristics {
+
     fun isTableOrListWithNoParagraphs(element: Element): Boolean {
         val paragraphs = element.find("p")
         val remainingParagraphs = mutableListOf<Element>()
-        for (p in paragraphs) {
+        paragraphs.forEach { p ->
             val text = p.text()
             if (text.isNotBlank() && text.length < 25) {
                 p.remove()
@@ -22,16 +23,17 @@ object NodeHeuristics {
                 .contains(remainingParagraphs[0].tagName())
     }
 
+    fun isHeadline(element: Element): Boolean {
+        return listOf("h1", "h2", "h3", "h4").contains(element.tagName())
+    }
+
     fun isNodeThresholdMet(parent: Node, child: Element): Boolean {
         val parentNodeScore = Scorer.getScore(parent)
         val childNodeScore = Scorer.getScore(child)
         val thresholdScore = parentNodeScore * 0.08
 
         val isAnExcludeTags = { tag: String -> listOf("td", "ul", "ol", "blockquote").contains(tag) }
-        if (childNodeScore < thresholdScore && !isAnExcludeTags(child.tagName())) {
-            return false
-        }
-        return true
+        return !(childNodeScore < thresholdScore && !isAnExcludeTags(child.tagName()))
     }
 
     fun hasHighLinkDensity(node: Node): Boolean {

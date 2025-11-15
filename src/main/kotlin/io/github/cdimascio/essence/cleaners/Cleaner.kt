@@ -11,7 +11,7 @@ import org.jsoup.select.NodeFilter
 
 private const val GRAVITY_USED_ALREADY = "grv-usedalready"
 
-class Cleaner(private val doc: Document) {
+class Cleaner() {
 
     companion object {
 
@@ -20,12 +20,12 @@ class Cleaner(private val doc: Document) {
         val tagsToConvert = listOf("div", "span")
     }
 
-    fun clean(): Document {
-        removeBodyClasses()
-        cleanEmTags()
-        cleanCodeBlocks()
-        removeDropCaps()
-        removeScriptsStyles()
+    fun clean(doc: Document): Document {
+        removeBodyClasses(doc)
+        cleanEmTags(doc)
+        cleanCodeBlocks(doc)
+        removeDropCaps(doc)
+        removeScriptsStyles(doc)
         Traverse(
             nodeRemovalRules = listOf(
 //                Rule::removeNonTextNodes,
@@ -43,8 +43,8 @@ class Cleaner(private val doc: Document) {
                 Rule::cleanArticleTag
             ))
             .applyRules(doc)
-        cleanParaSpans()
-        cleanUnderlines()
+        cleanParaSpans(doc)
+        cleanUnderlines(doc)
         elementToParagraph(doc, tagsToConvert)
 
         return doc
@@ -53,14 +53,14 @@ class Cleaner(private val doc: Document) {
     /**
      * Remove all classes from body
      */
-    private fun removeBodyClasses() {
+    private fun removeBodyClasses(doc: Document) {
         val body = doc.body()
         body.classNames().forEach {
             body.removeClass(it)
         }
     }
 
-    private fun cleanEmTags() {
+    private fun cleanEmTags(doc: Document) {
         val ems = doc.getElementsByTag("em")
         ems.forEach {
             val images = it.find("img")
@@ -70,7 +70,7 @@ class Cleaner(private val doc: Document) {
         }
     }
 
-    private fun cleanCodeBlocks() {
+    private fun cleanCodeBlocks(doc: Document) {
         val nodes = doc.select(
             "[class*='highlight-'], pre code, code, pre, ul.task-list"
         )
@@ -79,25 +79,25 @@ class Cleaner(private val doc: Document) {
         }
     }
 
-    private fun removeDropCaps() {
+    private fun removeDropCaps(doc: Document) {
         val nodes = doc.select("span[class~=dropcap], span[class~=drop_cap]")
         return nodes.forEach {
             it.unwrap()
         }
     }
 
-    private fun removeScriptsStyles() {
+    private fun removeScriptsStyles(doc: Document) {
         doc.getElementsByTag("script").remove()
         doc.getElementsByTag("style").remove()
     }
 
-    private fun cleanParaSpans() {
+    private fun cleanParaSpans(doc: Document) {
         doc.select("p span").forEach {
             it.unwrap()
         }
     }
 
-    private fun cleanUnderlines() {
+    private fun cleanUnderlines(doc: Document) {
         doc.select("u").forEach {
             it.unwrap()
         }

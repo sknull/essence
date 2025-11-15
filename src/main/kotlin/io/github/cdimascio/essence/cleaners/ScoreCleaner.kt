@@ -21,13 +21,37 @@ class ScoreCleaner(private val stopWords: StopWords) {
         val topNode = skipNonTextualTopNodes(element)
         addSiblingsToTopNode(topNode)?.let { updatedElement ->
             updatedElement.children().forEach { child ->
-                if (!isParagraphOrAnchor(child) && (NodeHeuristics.hasHighLinkDensity(child) ||
-                        NodeHeuristics.isTableOrListWithNoParagraphs(child) ||
-                        !NodeHeuristics.isNodeThresholdMet(updatedElement, child)) && child.hasParent()) {
+                if (!isParagraphOrAnchor(child) &&
+                        (NodeHeuristics.hasHighLinkDensity(child) || NodeHeuristics.isTableOrListWithNoParagraphs(child) || !NodeHeuristics.isNodeThresholdMet(updatedElement, child)) &&
+                        child.hasParent()) {
                     child.remove()
                 }
             }
         }
+
+        return topNode
+    }
+
+    fun cleanHtml(element: ScoredElement?): ScoredElement? {
+        if (element == null) return null
+
+        val isParagraphOrAnchor = { node: Element ->
+            listOf("p", "a").contains(node.tagName())
+        }
+
+        val topNode = skipNonTextualTopNodes(element)
+        addSiblingsToTopNode(topNode)?.let { updatedElement ->
+            updatedElement.children().forEach { child ->
+                if (
+                    (!isParagraphOrAnchor(child) &&
+                        (NodeHeuristics.hasHighLinkDensity(child) || NodeHeuristics.isTableOrListWithNoParagraphs(child) || !NodeHeuristics.isNodeThresholdMet(updatedElement, child)) &&
+                        child.hasParent()) && !NodeHeuristics.isHeadline(child)
+                    ) {
+                    child.remove()
+                }
+            }
+        }
+
         return topNode
     }
 

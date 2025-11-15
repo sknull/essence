@@ -2,6 +2,7 @@ package io.github.cdimascio.essence
 
 data class EssenceResult(
     val text: String,
+    val html: String,
     val language: String,
     val authors: List<String>,
     val title: String,
