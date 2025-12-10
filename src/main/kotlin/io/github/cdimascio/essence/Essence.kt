@@ -67,7 +67,7 @@ class Essence(
         val text = topNodeText?.clone()?.let { tn -> textFormatter.format(tn) }?:""
 
         val topNodeHtml = node?.clone()?.let { n -> scoredCleaner.cleanHtml(n) }
-        val html = topNodeHtml?.clone()?.let { tn -> htmlFormatter.format(tn) } ?: ""
+        val html = topNodeHtml?.clone()?.let { tn -> htmlFormatter.formatElement(tn) }
 
         return EssenceResult(
             authors = authors,

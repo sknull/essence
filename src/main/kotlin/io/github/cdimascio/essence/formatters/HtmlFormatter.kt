@@ -8,6 +8,10 @@ import org.jsoup.nodes.Element
 class HtmlFormatter(private val stopWords: StopWords) : Formatter {
 
     override fun format(node: Element?): String {
+        return formatElement(node)?.html()?:""
+    }
+
+    fun formatElement(node: Element?): Element? {
         return node?.let {
             val bestRoot = drillDownToCruxElement(node)
             // TODO: Combine the following into a single pass
@@ -23,8 +27,8 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
                         elem.removeAttr(attr.key)
                     }
             }
-            bestRoot.html()
-        } ?: ""
+            bestRoot
+        }
     }
 
     private fun drillDownToCruxElement(node: Element): Element {

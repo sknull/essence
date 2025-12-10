@@ -1,8 +1,10 @@
 package io.github.cdimascio.essence
 
+import org.jsoup.nodes.Element
+
 data class EssenceResult(
     val text: String,
-    val html: String,
+    val html: Element?,
     val language: String,
     val authors: List<String>,
     val title: String,
