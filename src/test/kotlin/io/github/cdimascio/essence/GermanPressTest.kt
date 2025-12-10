@@ -11,7 +11,7 @@ class GermanPressTest {
         val html = File(ClassLoader.getSystemResource("germanpress/tagesschau-story.html").toURI()).readText()
         val expected = File(ClassLoader.getSystemResource("germanpress/tagesschau-story_expected.html.txt").toURI()).readText()
         val result = Essence.extract(html)
-        assertEquals(expected, result.html)
+        assertEquals(expected, result.html?.html())
     }
 
     @Test
@@ -19,7 +19,7 @@ class GermanPressTest {
         val html = File(ClassLoader.getSystemResource("germanpress/ntv-story.html").toURI()).readText()
         val expected = File(ClassLoader.getSystemResource("germanpress/ntv-story_expected.htm.txt").toURI()).readText()
         val result = Essence.extract(html)
-        assertEquals(expected, result.html)
+        assertEquals(expected, result.html?.html())
     }
 
     @Test
@@ -27,7 +27,7 @@ class GermanPressTest {
         val html = File(ClassLoader.getSystemResource("germanpress/ndr-story.html").toURI()).readText()
         val expected = File(ClassLoader.getSystemResource("germanpress/ndr-story_expected.html.txt").toURI()).readText()
         val result = Essence.extract(html)
-        assertEquals(expected, result.html)
+        assertEquals(expected, result.html?.html())
     }
 
     @Test
@@ -35,7 +35,7 @@ class GermanPressTest {
         val html = File(ClassLoader.getSystemResource("germanpress/ndr-story-with-links.html").toURI()).readText()
 //        val expected = File(ClassLoader.getSystemResource("germanpress/ndr-story_expected.html.txt").toURI()).readText()
         val result = Essence.extract(html)
-        println(result.html)
+        println(result.html?.html())
 //        assertEquals(expected, result.html)
     }
 
@@ -44,7 +44,7 @@ class GermanPressTest {
         val html = File(ClassLoader.getSystemResource("germanpress/wdr-story.html").toURI()).readText()
         val expected = File(ClassLoader.getSystemResource("germanpress/wdr-story_expected.html.txt").toURI()).readText()
         val result = Essence.extract(html)
-        assertEquals(expected, result.html)
+        assertEquals(expected, result.html?.html())
     }
 
     @Test
@@ -52,7 +52,7 @@ class GermanPressTest {
         val html = File(ClassLoader.getSystemResource("germanpress/heise-story.html").toURI()).readText()
         val expected = File(ClassLoader.getSystemResource("germanpress/heise-story_expected.html.txt").toURI()).readText()
         val result = Essence.extract(html)
-        assertEquals(expected, result.html)
+        assertEquals(expected, result.html?.html())
     }
 
     @Test
@@ -60,6 +60,6 @@ class GermanPressTest {
         val html =File(ClassLoader.getSystemResource("germanpress/t3n-story.html").toURI()).readText()
         val expected = File(ClassLoader.getSystemResource("germanpress/t3n-story_expected.html.txt").toURI()).readText()
         val result = Essence.extract(html)
-        assertEquals(expected, result.html)
+        assertEquals(expected, result.html?.html())
     }
 }
