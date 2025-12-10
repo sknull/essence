@@ -14,8 +14,14 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
             removeNegativescoresNodes(bestRoot)
             removeFewWordsParagraphs(bestRoot)
             bestRoot.allElements.forEach { elem ->
-                elem.classNames().forEach { cn -> elem.removeClass(cn) }
-                elem.attributes().map { attr -> attr.key }.forEach { attr -> elem.removeAttr(attr) }
+                elem.classNames().forEach { cn ->
+                    elem.removeClass(cn)
+                }
+                elem.attributes()
+                    .filter { attr -> attr.key != "href" }
+                    .forEach { attr ->
+                        elem.removeAttr(attr.key)
+                    }
             }
             bestRoot.html()
         } ?: ""
@@ -56,7 +62,8 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
             val hasEmbed = element.find("embed").isNotEmpty()
             val isEndline = tag == "br" || text == "\\r"
             val isHeadline = NodeHeuristics.isHeadline(element)
-            if (!isHeadline && !isEndline && numStopWords < 3 && !hasObject && !hasEmbed && element.parent() != null) {
+            val isLinkInParagraph = element.tagName() == "a" && element.parent()?.tagName() == "p"
+            if (!isLinkInParagraph && !isHeadline && !isEndline && numStopWords < 3 && !hasObject && !hasEmbed && element.parent() != null) {
                 element.remove()
             } else {
                 val trimmed = text.trim()

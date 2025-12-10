@@ -31,6 +31,15 @@ class GermanPressTest {
     }
 
     @Test
+    fun readNdrWithLinks() {
+        val html = File(ClassLoader.getSystemResource("germanpress/ndr-story-with-links.html").toURI()).readText()
+//        val expected = File(ClassLoader.getSystemResource("germanpress/ndr-story_expected.html.txt").toURI()).readText()
+        val result = Essence.extract(html)
+        println(result.html)
+//        assertEquals(expected, result.html)
+    }
+
+    @Test
     fun readWdr() {
         val html = File(ClassLoader.getSystemResource("germanpress/wdr-story.html").toURI()).readText()
         val expected = File(ClassLoader.getSystemResource("germanpress/wdr-story_expected.html.txt").toURI()).readText()
