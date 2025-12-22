@@ -31,6 +31,10 @@ https://essence.mybluemix.net[Try out the demo] - _a simple webapp to demonstrat
 
 _This library is inspired by https://github.com/ageitgey/node-unfluff[node-unfluff] and its <<Credits,lineage>>_
 
+== Difference to the original branch
+
+To make it short: Not much. I just fixed some minor things, updated dependencies to current versions and the only real addition is a new formatter which outputs HTML instead of raw text - so tries to keep at least basic markup such as bold, underline, italic etc. and links. I needed this because I use this in my rss feed https://github.com/sknull/news-homereader[linkaggregator project].
+
 == Usage
 
 *Java*
