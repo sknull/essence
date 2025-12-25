@@ -7,6 +7,10 @@ import org.jsoup.nodes.Element
 
 class HtmlFormatter(private val stopWords: StopWords) : Formatter {
 
+    companion object {
+        private val tagsToRetainInParagraph = listOf("a", "b", "u", "i", "strong")
+    }
+
     override fun format(node: Element?): String {
         return formatElement(node)?.html()?:""
     }
@@ -66,7 +70,7 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
             val hasEmbed = element.find("embed").isNotEmpty()
             val isEndline = tag == "br" || text == "\\r"
             val isHeadline = NodeHeuristics.isHeadline(element)
-            val isLinkInParagraph = element.tagName() == "a" && element.parent()?.tagName() == "p"
+            val isLinkInParagraph = tagsToRetainInParagraph.contains(element.tagName()) && element.parent()?.tagName() == "p"
             if (!isLinkInParagraph && !isHeadline && !isEndline && numStopWords < 3 && !hasObject && !hasEmbed && element.parent() != null) {
                 element.remove()
             } else {

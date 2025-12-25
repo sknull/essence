@@ -40,6 +40,15 @@ class GermanPressTest {
     }
 
     @Test
+    fun readNdrWithBold() {
+        val html = File(ClassLoader.getSystemResource("germanpress/ndr-story-with-bold.html").toURI()).readText()
+//        val expected = File(ClassLoader.getSystemResource("germanpress/ndr-story_expected.html.txt").toURI()).readText()
+        val result = Essence.extract(html)
+        println(result.html?.html())
+//        assertEquals(expected, result.html)
+    }
+
+    @Test
     fun readWdr() {
         val html = File(ClassLoader.getSystemResource("germanpress/wdr-story.html").toURI()).readText()
         val expected = File(ClassLoader.getSystemResource("germanpress/wdr-story_expected.html.txt").toURI()).readText()
