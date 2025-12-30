@@ -17,6 +17,7 @@ class Cleaner() {
 
         val tags = listOf("a", "blockquote", "dl", "div", "img", "ol", "p", "pre", "table", "ul")
 
+        val tagConversionExceptions = listOf("h1", "h2", "h3", "h4")
         val tagsToConvert = listOf("div", "span")
     }
 
@@ -45,7 +46,7 @@ class Cleaner() {
             .applyRules(doc)
         cleanParaSpans(doc)
         cleanUnderlines(doc)
-        elementToParagraph(doc, tagsToConvert)
+        elementToParagraph(doc)
 
         return doc
     }
@@ -103,13 +104,17 @@ class Cleaner() {
         }
     }
 
-    private fun elementToParagraph(doc: Document, tagsToConvert: List<String>) {
+    private fun elementToParagraph(doc: Document) {
         doc.select(tagsToConvert.joinToString(","))
             .forEach { element ->
                 if (element.matchFirstElementTags(tags, 1).isEmpty()) {
-                    val html = element.html()
-                    element.tagName("p")
-                    element.html(html)
+                    if (!tagConversionExceptions.contains(element.parent()?.tagName())) {
+                        val html = element.html()
+                        element.tagName("p")
+                        element.html(html)
+                    } else {
+                        element.unwrap()
+                    }
                 } else {
                     val pReplacementElements = getReplacementNodes(element)
                         .map { e -> e.html() }

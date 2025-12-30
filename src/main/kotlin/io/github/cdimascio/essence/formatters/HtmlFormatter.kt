@@ -77,7 +77,9 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
                 val trimmed = text.trim()
                 val numWords = text.split(" ").size
                 // remove paragraph's that are surrounded entirely by parens and have few-ish words
-                if (trimmed.isNotBlank() && numWords < 25 && trimmed.first() == '(' && trimmed.last() == ')' && element.parent() != null) element.remove()
+                if (trimmed.isNotBlank() && numWords < 25 && trimmed.first() == '(' && trimmed.last() == ')' && element.parent() != null) {
+                    element.remove()
+                }
             }
         }
     }

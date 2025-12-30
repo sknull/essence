@@ -35,7 +35,7 @@ class Essence(
     private val document = Jsoup.parse(this.html)
     private val language = language ?: Language.from(
         LanguageExtractor.extract(
-            document
+            document.clone()
         )
     )
     private val stopWords = StopWords.load(this.language)
@@ -67,7 +67,9 @@ class Essence(
         val text = topNodeText?.clone()?.let { tn -> textFormatter.format(tn) }?:""
 
         val topNodeHtml = node?.clone()?.let { n -> scoredCleaner.cleanHtml(n) }
-        val html = topNodeHtml?.clone()?.let { tn -> htmlFormatter.formatElement(tn) }
+        val html = topNodeHtml?.clone()?.let { tn ->
+            htmlFormatter.formatElement(tn)
+        }
 
         return EssenceResult(
             authors = authors,
