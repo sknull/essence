@@ -1,13 +1,13 @@
 package io.github.cdimascio.essence.cleaners
 
+import com.fleeksoft.ksoup.nodes.Element
+import com.fleeksoft.ksoup.nodes.Node
+import com.fleeksoft.ksoup.nodes.TextNode
 import io.github.cdimascio.essence.scorers.ScoredElement
 import io.github.cdimascio.essence.util.NodeHeuristics
 import io.github.cdimascio.essence.util.TraversalHelpers
 import io.github.cdimascio.essence.util.find
 import io.github.cdimascio.essence.words.StopWords
-import org.jsoup.nodes.Element
-import org.jsoup.nodes.Node
-import org.jsoup.nodes.TextNode
 
 class ScoreCleaner(private val stopWords: StopWords) {
 

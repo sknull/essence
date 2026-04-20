@@ -1,5 +1,6 @@
 package io.github.cdimascio.essence
 
+import com.fleeksoft.ksoup.Ksoup
 import io.github.cdimascio.essence.cleaners.Cleaner
 import io.github.cdimascio.essence.cleaners.ScoreCleaner
 import io.github.cdimascio.essence.extractors.AuthorExtractor
@@ -20,7 +21,6 @@ import io.github.cdimascio.essence.formatters.HtmlFormatter
 import io.github.cdimascio.essence.formatters.TextFormatter
 import io.github.cdimascio.essence.scorers.DocumentScorer
 import io.github.cdimascio.essence.words.StopWords
-import org.jsoup.Jsoup
 
 class Essence(
     private val html: String,
@@ -32,7 +32,7 @@ class Essence(
         fun extract(html: String, language: Language? = null): EssenceResult = Essence(html, language).parse()
     }
 
-    private val document = Jsoup.parse(this.html)
+    private val document = Ksoup.parse(this.html)
     private val language = language ?: Language.from(
         LanguageExtractor.extract(
             document.clone()

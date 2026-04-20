@@ -1,8 +1,8 @@
 package io.github.cdimascio.essence
 
+import com.fleeksoft.ksoup.Ksoup
 import io.github.cdimascio.essence.formatters.TextFormatter
 import io.github.cdimascio.essence.words.StopWords
-import org.jsoup.Jsoup
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
@@ -15,7 +15,7 @@ class FormatterTest {
     @Test
     fun replacesLinksWithPlainText() {
         val contents = readFileFull("./fixtures/test_businessWeek1.html")
-        val doc = Jsoup.parse(contents)
+        val doc = Ksoup.parse(contents)
 
         val originalLinks = doc.select("a")
         assertEquals(232, originalLinks.size)
@@ -29,7 +29,7 @@ class FormatterTest {
     @Test
     fun doesNotDropTextNodesAccidentally() {
         val contents = readFileFull("./fixtures/test_wikipedia1.html")
-        val doc = Jsoup.parse(contents)
+        val doc = Ksoup.parse(contents)
 
         formatter.format(doc)
 

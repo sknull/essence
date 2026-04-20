@@ -1,9 +1,9 @@
 package io.github.cdimascio.essence.util
 
-import org.jsoup.nodes.Element
-import org.jsoup.nodes.Node
-import org.jsoup.select.Elements
-import org.jsoup.select.NodeFilter
+import com.fleeksoft.ksoup.nodes.Element
+import com.fleeksoft.ksoup.nodes.Node
+import com.fleeksoft.ksoup.select.Elements
+import com.fleeksoft.ksoup.select.NodeFilter
 
 object TraversalHelpers {
     fun getAllPreviousElementSiblings(node: Node): List<Element> {
@@ -39,7 +39,7 @@ fun Element.matchFirstElementTags(elementTags: List<String>, n: Int): Elements {
     val elements = Elements()
     var count = 0
     this.filter(object : NodeFilter {
-        override fun tail(node: Node, depth: Int): NodeFilter.FilterResult {
+        override fun tail(node: Node?, depth: Int): NodeFilter.FilterResult {
             return NodeFilter.FilterResult.CONTINUE
         }
 

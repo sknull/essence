@@ -1,13 +1,13 @@
 package io.github.cdimascio.essence.cleaners
 
+import com.fleeksoft.ksoup.nodes.Document
+import com.fleeksoft.ksoup.nodes.Element
+import com.fleeksoft.ksoup.nodes.Node
+import com.fleeksoft.ksoup.nodes.TextNode
+import com.fleeksoft.ksoup.select.NodeFilter
 import io.github.cdimascio.essence.cleaners.rules.Rule
 import io.github.cdimascio.essence.util.find
 import io.github.cdimascio.essence.util.matchFirstElementTags
-import org.jsoup.nodes.Document
-import org.jsoup.nodes.Element
-import org.jsoup.nodes.Node
-import org.jsoup.nodes.TextNode
-import org.jsoup.select.NodeFilter
 
 private const val GRAVITY_USED_ALREADY = "grv-usedalready"
 
@@ -201,7 +201,7 @@ class Traverse(
 
     fun applyRules(node: Node): Traverse {
         node.filter(object : NodeFilter {
-            override fun tail(node: Node, depth: Int): NodeFilter.FilterResult {
+            override fun tail(node: Node?, depth: Int): NodeFilter.FilterResult {
                 return NodeFilter.FilterResult.CONTINUE
             }
 

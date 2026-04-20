@@ -1,6 +1,6 @@
 package io.github.cdimascio.essence.extractors
 
-import org.jsoup.nodes.Document
+import com.fleeksoft.ksoup.nodes.Document
 
 internal object PublisherExtractor {
     fun extract(doc: Document): String {

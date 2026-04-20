@@ -1,6 +1,6 @@
 package io.github.cdimascio.essence
 
-import org.jsoup.nodes.Element
+import com.fleeksoft.ksoup.nodes.Element
 
 data class EssenceResult(
     val text: String,

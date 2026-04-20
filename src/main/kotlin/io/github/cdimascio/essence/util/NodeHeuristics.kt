@@ -1,9 +1,9 @@
 package io.github.cdimascio.essence.util
 
+import com.fleeksoft.ksoup.nodes.Element
+import com.fleeksoft.ksoup.nodes.Node
 import io.github.cdimascio.essence.scorers.Scorer
 import io.github.cdimascio.essence.words.StopWords
-import org.jsoup.nodes.Element
-import org.jsoup.nodes.Node
 
 object NodeHeuristics {
 

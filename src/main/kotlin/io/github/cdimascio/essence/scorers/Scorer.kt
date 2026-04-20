@@ -1,8 +1,8 @@
 package io.github.cdimascio.essence.scorers
 
-import org.jsoup.nodes.Document
-import org.jsoup.nodes.Element
-import org.jsoup.nodes.Node
+import com.fleeksoft.ksoup.nodes.Document
+import com.fleeksoft.ksoup.nodes.Element
+import com.fleeksoft.ksoup.nodes.Node
 
 typealias ScoredElement = Element
 

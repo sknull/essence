@@ -1,8 +1,8 @@
 package io.github.cdimascio.essence.extractors
 
+import com.fleeksoft.ksoup.nodes.Element
 import io.github.cdimascio.essence.Link
 import io.github.cdimascio.essence.util.find
-import org.jsoup.nodes.Element
 
 internal object LinksExtractor {
     fun extract(parentNode: Element?): List<Link> {

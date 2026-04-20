@@ -1,5 +1,6 @@
 package io.github.cdimascio.essence
 
+import com.fleeksoft.ksoup.Ksoup
 import io.github.cdimascio.essence.extractors.AuthorExtractor
 import io.github.cdimascio.essence.extractors.CopyrightExtractor
 import io.github.cdimascio.essence.extractors.DataExtractor
@@ -9,7 +10,6 @@ import io.github.cdimascio.essence.extractors.PublisherExtractor
 import io.github.cdimascio.essence.extractors.SoftTitleExtractor
 import io.github.cdimascio.essence.extractors.TitleExtractor
 import io.github.cdimascio.essence.words.StopWords
-import org.jsoup.Jsoup
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
@@ -21,7 +21,7 @@ class ExtractractorTest {
     @Test
     fun returnsABlankTitle() {
         val html = "<html><head><title></title></head></html>"
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val title = TitleExtractor.extract(d)
         assertEquals("", title)
     }
@@ -29,7 +29,7 @@ class ExtractractorTest {
     @Test
     fun returnsASimpleTitle() {
         val html = "<html><head><title>This is my page</title></head></html>"
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val title = TitleExtractor.extract(d)
         assertEquals("This is my page", title)
     }
@@ -37,7 +37,7 @@ class ExtractractorTest {
     @Test
     fun returnsASimpleChunkTitle() {
         val html = "<html><head><title>This is my page - mysite</title></head></html>"
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val title = TitleExtractor.extract(d)
         assertEquals("This is my page", title)
     }
@@ -45,7 +45,7 @@ class ExtractractorTest {
     @Test
     fun returnsSoftTitleWithoutTruncation() {
         val html = "<html><head><title>University Budgets: Where Your Fees Go | Top Universities</title></head></html>"
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val title = SoftTitleExtractor.extract(d)
         assertEquals("University Budgets: Where Your Fees Go", title)
     }
@@ -53,7 +53,7 @@ class ExtractractorTest {
     @Test
     fun titlePrefersTheMetaTag() {
         val html = "<html><head><title>This is my page - mysite</title><meta property=\"og:title\" content=\"Open graph title\"></head></html>"
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val title = TitleExtractor.extract(d)
         assertEquals("Open graph title", title)
     }
@@ -61,7 +61,7 @@ class ExtractractorTest {
     @Test
     fun fallsbackToTitleIfEmptyMetatag() {
         val html = "<html><head><title>This is my page - mysite</title><meta property=\"og:title\" content=\"\"></head></html>"
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val title = TitleExtractor.extract(d)
         assertEquals("This is my page", title)
     }
@@ -69,7 +69,7 @@ class ExtractractorTest {
     @Test
     fun returnsAnotherSimpleTitleChunk() {
         val html = "<html><head><title>coolsite.com: This is my page</title></head></html>"
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val title = TitleExtractor.extract(d)
         assertEquals("This is my page", title)
     }
@@ -77,7 +77,7 @@ class ExtractractorTest {
     @Test
     fun returnsAnotherSimpleTitleChunkWithoutJunk() {
         val html = "<html><head><title>coolsite.com: &#65533; This&#65533; is my page</title></head></html>"
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val title = TitleExtractor.extract(d)
         assertEquals("This is my page", title)
     }
@@ -85,7 +85,7 @@ class ExtractractorTest {
     @Test
     fun returnsTheFirstTitle() {
         val html = "<html><head><title>This is my page</title></head><svg xmlns=\"http://www.w3.org/2000/svg\"><title>svg title</title></svg></html>"
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val title = TitleExtractor.extract(d)
         assertEquals("This is my page", title)
     }
@@ -93,7 +93,7 @@ class ExtractractorTest {
     @Test
     fun missingFavicon() {
         val html = "<html><head><title></title></head></html>"
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val favicon = FaviconExtractor.extract(d)
         assertEquals("", favicon)
     }
@@ -101,7 +101,7 @@ class ExtractractorTest {
     @Test
     fun returnsTheArticlePublishedMetaDate() {
         val html = "<html><head><meta property=\"article:published_time\" content=\"2014-10-15T00:01:03+00:00\" /></head></html>"
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val date = DataExtractor.extract(d)
         assertEquals("2014-10-15T00:01:03+00:00", date)
     }
@@ -109,7 +109,7 @@ class ExtractractorTest {
     @Test
     fun returnsTheArticleDublinCoreMetaDate() {
         val html = "<html><head><meta name=\"DC.date.issued\" content=\"2014-10-15T00:01:03+00:00\" /></head></html>"
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val date = DataExtractor.extract(d)
         assertEquals("2014-10-15T00:01:03+00:00", date)
     }
@@ -117,7 +117,7 @@ class ExtractractorTest {
     @Test
     fun returnsTheDateInTheTimeElement() {
         val html = "<html><head></head><body><time>24 May, 2010</time></body></html>"
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val date = DataExtractor.extract(d)
         assertEquals( "24 May, 2010", date)
     }
@@ -125,7 +125,7 @@ class ExtractractorTest {
     @Test
     fun returnsTheDateInTheTimeElementDatetimeAttribute() {
         val html = "<html><head></head><body><time datetime=\"2010-05-24T13:47:52+0000\">24 May, 2010</time></body></html>"
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val date = DataExtractor.extract(d)
         assertEquals( "2010-05-24T13:47:52+0000", date)
     }
@@ -133,7 +133,7 @@ class ExtractractorTest {
     @Test
     fun returnsNothingIfDateEqualsNull() {
         val html = "<html><head><meta property=\"article:published_time\" content=\"null\" /></head></html>"
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val date = DataExtractor.extract(d)
         assertEquals( "", date)
     }
@@ -141,7 +141,7 @@ class ExtractractorTest {
     @Test
     fun returnsTheCopyrightLinElement() {
         val html = "<html><head></head><body><div>Some stuff</div><ul><li class='copyright'><!-- // some garbage -->© 2016 The World Bank Group, All Rights Reserved.</li></ul></body></html>"
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val copyright = CopyrightExtractor.extract(d)
         assertEquals( "2016 The World Bank Group", copyright)
     }
@@ -149,7 +149,7 @@ class ExtractractorTest {
     @Test
     fun returnsTheCopyrightFoundInText() {
         val html = "<html><head></head><body><div>Some stuff</div><ul>© 2016 The World Bank Group, All Rights Reserved\nSome garbage following</li></ul></body></html>"
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val copyright = CopyrightExtractor.extract(d)
         assertEquals( "2016 The World Bank Group", copyright)
     }
@@ -157,7 +157,7 @@ class ExtractractorTest {
     @Test
     fun returnsNothingIfNoCopyrightInText() {
         val html = "<html><head></head><body><div>Some stuff</div><ul>© 2016 The World Bank Group, All Rights Reserved\nSome garbage following</li></ul></body></html>"
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val copyright = CopyrightExtractor.extract(d)
         assertEquals( "2016 The World Bank Group", copyright)
     }
@@ -165,7 +165,7 @@ class ExtractractorTest {
     @Test
     fun returnsTheArticlePublishedMetaAuthor() {
         val html = "<html><head><meta property=\"article:author\" content=\"Joe Bloggs\"/></head></html>"
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val authors = AuthorExtractor.extract(d)
         assertTrue( authors.contains("Joe Bloggs"))
     }
@@ -173,7 +173,7 @@ class ExtractractorTest {
     @Test
     fun returnsTheMetaAuthor() {
         val html = "<html><head><meta property=\"article:author\" content=\"Sarah Smith\" /><meta name=\"author\" content=\"Joe Bloggs\" /></head></html>"
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val authors = AuthorExtractor.extract(d)
         assertTrue( authors.contains("Joe Bloggs") && authors.contains("Sarah Smith"))
     }
@@ -181,7 +181,7 @@ class ExtractractorTest {
     @Test
     fun returnsTheNamedAuthorInTheTextAsFallback() {
         val html = "\"<html><head></head><body><span class=\"author\"><a href=\"/author/gary-trust-6318\" class=\"article__author-link\">Gary Trust</a></span></body></html>\""
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val authors = AuthorExtractor.extract(d)
         assertTrue( authors.contains("Gary Trust"))
     }
@@ -189,7 +189,7 @@ class ExtractractorTest {
     @Test
     fun returnsTheMetaAuthorButIgnoreNullValue() {
         val html = """"<html><head><meta property="article:author" content="null" /><meta name="author" content="Joe Bloggs" /></head></html>""""
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val authors = AuthorExtractor.extract(d)
         assertTrue( authors.contains("Joe Bloggs"))
         assertEquals(1, authors.size)
@@ -199,7 +199,7 @@ class ExtractractorTest {
     @Test
     fun returnsTheMetaPublisher() {
         val html = """"<html><head><meta property="og:site_name" content="Polygon" /><meta name="author" content="Griffin McElroy" /></head></html>"""
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val publisher = PublisherExtractor.extract(d)
         assertEquals("Polygon", publisher)
     }
@@ -207,7 +207,7 @@ class ExtractractorTest {
     @Test
     fun returnsNothingIfPublisherEqualsNull() {
         val html = """<html><head><meta property="og:site_name" content="null" /></head></html>"""
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val publisher = PublisherExtractor.extract(d)
         assertEquals("", publisher)
     }
@@ -215,7 +215,7 @@ class ExtractractorTest {
     @Test
     fun returnNothingIfImageEqualsNull() {
         val html = """<html><head><meta property="og:image" content="null" /></head></html>"""
-        val d = Jsoup.parse(html)
+        val d = Ksoup.parse(html)
         val image = ImageExtractor.extract(d)
         assertEquals("", image)
     }

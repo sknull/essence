@@ -1,11 +1,11 @@
 package io.github.cdimascio.essence.scorers
 
+import com.fleeksoft.ksoup.nodes.Document
+import com.fleeksoft.ksoup.nodes.Element
+import com.fleeksoft.ksoup.nodes.Node
 import io.github.cdimascio.essence.util.NodeHeuristics
 import io.github.cdimascio.essence.util.TraversalHelpers
 import io.github.cdimascio.essence.words.StopWords
-import org.jsoup.nodes.Document
-import org.jsoup.nodes.Element
-import org.jsoup.nodes.Node
 import kotlin.math.abs
 import kotlin.math.floor
 import kotlin.math.pow

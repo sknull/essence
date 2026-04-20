@@ -1,6 +1,6 @@
 package io.github.cdimascio.essence.formatters
 
-import org.jsoup.nodes.Element
+import com.fleeksoft.ksoup.nodes.Element
 
 fun interface Formatter {
 

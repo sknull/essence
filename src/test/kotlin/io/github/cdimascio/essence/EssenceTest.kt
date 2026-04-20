@@ -1,7 +1,7 @@
 package io.github.cdimascio.essence
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import org.jsoup.helper.Validate.fail
+import com.fleeksoft.ksoup.helper.Validate.fail
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotEquals
 import org.junit.jupiter.api.Assertions.assertTrue

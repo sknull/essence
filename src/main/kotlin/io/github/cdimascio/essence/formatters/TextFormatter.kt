@@ -1,10 +1,10 @@
 package io.github.cdimascio.essence.formatters
 
+import com.fleeksoft.ksoup.nodes.Element
+import com.fleeksoft.ksoup.nodes.Node
+import com.fleeksoft.ksoup.nodes.TextNode
 import io.github.cdimascio.essence.util.find
 import io.github.cdimascio.essence.words.StopWords
-import org.jsoup.nodes.Element
-import org.jsoup.nodes.Node
-import org.jsoup.nodes.TextNode
 
 class TextFormatter(private val stopWords: StopWords) : Formatter {
 

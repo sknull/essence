@@ -1,7 +1,7 @@
 package io.github.cdimascio.essence.extractors
 
-import org.jsoup.nodes.Document
-import org.jsoup.nodes.Element
+import com.fleeksoft.ksoup.nodes.Document
+import com.fleeksoft.ksoup.nodes.Element
 
 internal object CanonicalExtractor {
     fun extract(doc: Document): String {

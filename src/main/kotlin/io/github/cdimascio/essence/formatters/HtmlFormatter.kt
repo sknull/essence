@@ -1,9 +1,9 @@
 package io.github.cdimascio.essence.formatters
 
+import com.fleeksoft.ksoup.nodes.Element
 import io.github.cdimascio.essence.util.NodeHeuristics
 import io.github.cdimascio.essence.util.find
 import io.github.cdimascio.essence.words.StopWords
-import org.jsoup.nodes.Element
 
 class HtmlFormatter(private val stopWords: StopWords) : Formatter {
 
@@ -21,7 +21,7 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
             // TODO: Combine the following into a single pass
             removeNegativescoresNodes(bestRoot)
             removeFewWordsParagraphs(bestRoot)
-            bestRoot.allElements.forEach { elem ->
+            bestRoot.getAllElements().forEach { elem ->
                 elem.classNames().forEach { cn ->
                     elem.removeClass(cn)
                 }

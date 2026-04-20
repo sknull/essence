@@ -1,9 +1,9 @@
 package io.github.cdimascio.essence
 
 
+import com.fleeksoft.ksoup.Ksoup
+import com.fleeksoft.ksoup.nodes.Node
 import io.github.cdimascio.essence.cleaners.Cleaner
-import org.jsoup.Jsoup
-import org.jsoup.nodes.Node
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
@@ -13,7 +13,7 @@ class CleanerTest {
     @Test
     fun removesBodyClasses() {
         val contents = readFileFull("./fixtures/test_businessWeek1.html")
-        val document = Jsoup.parse(contents)
+        val document = Ksoup.parse(contents)
 
         assertEquals("magazine", document.body().attr("class").trim())
         val cleaned = Cleaner().clean(document)
@@ -24,7 +24,7 @@ class CleanerTest {
     @Test
     fun removeArticleAttrs() {
         val contents = readFileFull("./fixtures/test_gizmodo1.html")
-        val document = Jsoup.parse(contents)
+        val document = Ksoup.parse(contents)
 
         assertEquals(
             "row post js_post_item status-published commented js_amazon_module",
@@ -40,7 +40,7 @@ class CleanerTest {
     @Test
     fun removeEmTagFroImagelessEms() {
         val contents = readFileFull("./fixtures/test_gizmodo1.html")
-        val document = Jsoup.parse(contents)
+        val document = Ksoup.parse(contents)
 
         assertEquals(6, document.select("em").size)
 
@@ -51,7 +51,7 @@ class CleanerTest {
     @Test
     fun removeScripts() {
         val contents = readFileFull("./fixtures/test_businessWeek1.html")
-        val document = Jsoup.parse(contents)
+        val document = Ksoup.parse(contents)
 
         assertEquals(40, document.select("script").size)
         Cleaner().clean(document)
@@ -61,7 +61,7 @@ class CleanerTest {
     @Test
     fun removeComments() {
         val contents = readFileFull("./fixtures/test_gizmodo1.html")
-        val document = Jsoup.parse(contents)
+        val document = Ksoup.parse(contents)
 
         var origComments = 0
         traverse(document) {
@@ -69,7 +69,7 @@ class CleanerTest {
         }
         assertEquals(18, origComments)
 
-        val doc = Jsoup.parse(contents)
+        val doc = Ksoup.parse(contents)
         Cleaner().clean(doc)
 
         var comments = 0
@@ -81,7 +81,7 @@ class CleanerTest {
 
     @Test
     fun replaceChildlessDivsWithPTags() {
-        val doc = Jsoup.parse("<html><body><div>text1</div></body></html>")
+        val doc = Ksoup.parse("<html><body><div>text1</div></body></html>")
         Cleaner().clean(doc)
         assertEquals(0, doc.select("div").size)
         assertEquals(1, doc.select("p").size)
@@ -90,7 +90,7 @@ class CleanerTest {
 
     @Test
     fun replaceChildlessDivsWithPTags2() {
-        val doc = Jsoup.parse("<html><body><div>text1</div><div>more text</div></body></html>")
+        val doc = Ksoup.parse("<html><body><div>text1</div><div>more text</div></body></html>")
         Cleaner().clean(doc)
         assertEquals(0, doc.select("div").size)
         assertEquals(2, doc.select("p").size)
@@ -99,7 +99,7 @@ class CleanerTest {
 
     @Test
     fun replacesUTagsWithPlainText() {
-        val doc = Jsoup.parse("<html><body><u>text1</u></body></html>")
+        val doc = Ksoup.parse("<html><body><u>text1</u></body></html>")
         Cleaner().clean(doc)
         assertEquals(0, doc.select("u").size)
         assertEquals("text1", doc.body().html())
@@ -108,7 +108,7 @@ class CleanerTest {
     @Test
     fun removesDivsByRegExCaption() {
         val contents = readFileFull("./fixtures/test_aolNews.html")
-        val doc = Jsoup.parse(contents)
+        val doc = Ksoup.parse(contents)
 
         assertEquals(1, doc.select("div.caption").size)
 
@@ -120,7 +120,7 @@ class CleanerTest {
     @Test
     fun removeNaughtElmsByRegex() {
         val contents = readFileFull("./fixtures/test_issue28.html")
-        val doc = Jsoup.parse(contents)
+        val doc = Ksoup.parse(contents)
 
         val naughtyElmsOrig = doc.select(".retweet")
         assertEquals(2, naughtyElmsOrig.size)
@@ -134,7 +134,7 @@ class CleanerTest {
     @Test
     fun removeTrashLineBreaksThatWouldntBeRenderedByTheBrowser() {
         val contents = readFileFull("./fixtures/test_sec1.html")
-        val doc = Jsoup.parse(contents)
+        val doc = Ksoup.parse(contents)
 
         Cleaner().clean(doc)
 
@@ -146,7 +146,7 @@ class CleanerTest {
     @Test
     fun inlinesCodeBlocksAsText() {
         val contents = readFileFull("./fixtures/test_github1.html")
-        val doc = Jsoup.parse(contents)
+        val doc = Ksoup.parse(contents)
 
         val codeBlocksOrig = doc.select("code")
         assertEquals(26, codeBlocksOrig.size)

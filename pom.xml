@@ -82,9 +82,9 @@
 
     <!-- html -->
     <dependency>
-      <groupId>org.jsoup</groupId>
-      <artifactId>jsoup</artifactId>
-      <version>1.21.2</version>
+      <groupId>com.fleeksoft.ksoup</groupId>
+      <artifactId>ksoup-jvm</artifactId>
+      <version>0.2.6</version>
     </dependency>
 
     <!-- jackson -->
