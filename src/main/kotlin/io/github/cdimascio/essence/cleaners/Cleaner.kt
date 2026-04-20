@@ -175,10 +175,6 @@ class Cleaner() {
                         nextSibling = nextSibling.nextSibling()
                     }
                 }
-            } else {
-                if (kid is Element) {
-                    nodesToReturn + kid
-                }
             }
         }
 
