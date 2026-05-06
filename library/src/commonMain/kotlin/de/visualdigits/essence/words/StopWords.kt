@@ -17,7 +17,7 @@ class StopWords private constructor(private val stopWords: List<String>) {
     companion object {
 
         suspend fun load(language: Language = Language.en): StopWords {
-            val bytes = Res.readBytes("files//stopwords/stopwords-$language.txt")
+            val bytes = Res.readBytes("files/stopwords/stopwords-$language.txt")
             val words = bytes.decodeToString()
                 .replace("\r\n", "\n")
                 .replace("\r", "\n")
