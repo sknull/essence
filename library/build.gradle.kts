@@ -96,7 +96,7 @@ tasks.withType<Test> {
 }
 
 android {
-    namespace = "de.visualdigits.kmp.components"
+    namespace = "de.visualdigits.essence"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
@@ -112,14 +112,12 @@ android {
 
 publishing {
     publications {
-        // Kotlin Multiplatform registriert seine Veröffentlichungen automatisch.
-        // Wir müssen hier normalerweise nichts manuell hinzufügen.
     }
 
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/sknull/Stephans-KMP-Components")
+            url = uri("https://maven.pkg.github.com/sknull/essence")
             credentials {
                 username = System.getenv("GITHUB_ACTOR")
                 password = System.getenv("GITHUB_TOKEN")
