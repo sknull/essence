@@ -28,7 +28,7 @@ object Essence {
         html: String,
         language: Language? = null
     ): EssenceResult {
-        val document = Ksoup.parse(html)
+        val document = Ksoup.parse(html = html)
         val language = language ?: Language.from(
             LanguageExtractor.extract(
                 document.clone()

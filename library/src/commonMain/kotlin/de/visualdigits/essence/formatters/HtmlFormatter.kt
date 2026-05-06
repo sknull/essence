@@ -70,8 +70,10 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
             val hasEmbed = element.find("embed").isNotEmpty()
             val isEndline = tag == "br" || text == "\\r"
             val isHeadline = NodeHeuristics.isHeadline(element)
+            val isLiInUlOrOl = NodeHeuristics.isLiInUlOrOl(element)
+            val isInline = NodeHeuristics.isInline(element)
             val isLinkInParagraph = tagsToRetainInParagraph.contains(element.tagName()) && element.parent()?.tagName() == "p"
-            if (!isLinkInParagraph && !isHeadline && !isEndline && numStopWords < 3 && !hasObject && !hasEmbed && element.parent() != null) {
+            if (!isLinkInParagraph && !isLiInUlOrOl && !isInline && !isHeadline && !isEndline && numStopWords < 3 && !hasObject && !hasEmbed && element.parent() != null) {
                 element.remove()
             } else {
                 val trimmed = text.trim()

@@ -21,9 +21,12 @@ class ScoreCleaner(private val stopWords: StopWords) {
         val topNode = skipNonTextualTopNodes(element)
         addSiblingsToTopNode(topNode)?.let { updatedElement ->
             updatedElement.children().forEach { child ->
+                val hasHighLinkDensity = NodeHeuristics.hasHighLinkDensity(child)
+                val tableOrListWithNoParagraphs = NodeHeuristics.isTableOrListWithNoParagraphs(child)
+                val thresholdNotMet = !NodeHeuristics.isNodeThresholdMet(updatedElement, child)
+                val hasParent = child.hasParent()
                 if (!isParagraphOrAnchor(child) &&
-                        (NodeHeuristics.hasHighLinkDensity(child) || NodeHeuristics.isTableOrListWithNoParagraphs(child) || !NodeHeuristics.isNodeThresholdMet(updatedElement, child)) &&
-                        child.hasParent()) {
+                        (hasHighLinkDensity || tableOrListWithNoParagraphs || thresholdNotMet) && hasParent) {
                     child.remove()
                 }
             }

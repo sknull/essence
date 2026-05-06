@@ -56,6 +56,13 @@ class GermanPressTest {
     }
 
     @Test
+    fun readNdrW3() = runTest {
+        val html = File(ClassLoader.getSystemResource("germanpress/ndr-story3.html").toURI()).readText()
+        val result = Essence.extract(html)
+        println(result)
+    }
+
+    @Test
     fun readWdr() = runTest {
         val html = File(ClassLoader.getSystemResource("germanpress/wdr-story.html").toURI()).readText()
         val expected = File(ClassLoader.getSystemResource("germanpress/wdr-story_expected.html.txt").toURI()).readText()
