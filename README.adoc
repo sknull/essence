@@ -21,8 +21,10 @@ Minor code was changed in the cleanup logic to make it actually work again.
 
 Besides that all credits still goes to the original author.
 
-Finally as of May 2026 this is now reworked to ksoup instead of jsoup to be usable in modern
+Finally, as of May 2026 this is now reworked to ksoup instead of jsoup to be usable in modern
 Kotlin Multiplatform projects. Next up is to migrate to a real kmp library.
+
+Essence is now Kotlin Multiplatform
 
 == Introduction
 
