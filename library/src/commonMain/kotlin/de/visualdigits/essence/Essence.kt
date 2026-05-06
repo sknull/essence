@@ -2,7 +2,8 @@ package de.visualdigits.essence
 
 import com.fleeksoft.ksoup.Ksoup
 import de.visualdigits.essence.cleaners.Cleaner
-import de.visualdigits.essence.cleaners.ScoreCleaner
+import de.visualdigits.essence.cleaners.HtmlScoreCleaner
+import de.visualdigits.essence.cleaners.TextScoreCleaner
 import de.visualdigits.essence.extractors.AuthorExtractor
 import de.visualdigits.essence.extractors.CanonicalExtractor
 import de.visualdigits.essence.extractors.CopyrightExtractor
@@ -36,7 +37,8 @@ object Essence {
         )
         val stopWords = StopWords.load(language)
         val scorer = DocumentScorer(stopWords)
-        val scoredCleaner = ScoreCleaner(stopWords)
+        val textScoredCleaner = TextScoreCleaner(stopWords)
+        val htmlScoredCleaner = HtmlScoreCleaner(stopWords)
         val textFormatter = TextFormatter(stopWords)
         val htmlFormatter = HtmlFormatter(stopWords)
 
@@ -57,14 +59,12 @@ object Essence {
         val doc = Cleaner().clean(document.clone())
         val node = scorer.score(doc.clone())
 
-        val topNodeText = node?.clone()?.let { n -> scoredCleaner.clean(n) }
+        val topNodeText = node?.clone()?.let { n -> textScoredCleaner.clean(n) }
         val links = topNodeText?.clone()?.let { tn -> LinksExtractor.extract(tn) }?:listOf()
         val text = topNodeText?.clone()?.let { tn -> textFormatter.format(tn) }?:""
 
-        val topNodeHtml = node?.clone()?.let { n -> scoredCleaner.cleanHtml(n) }
-        val html = topNodeHtml?.clone()?.let { tn ->
-            htmlFormatter.formatElement(tn)
-        }
+        val topNodeHtml = node?.clone()?.let { n -> htmlScoredCleaner.cleanHtml(n) }
+        val html = topNodeHtml?.clone()?.let { tn -> htmlFormatter.formatElement(tn) }
 
         return EssenceResult(
             authors = authors,

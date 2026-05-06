@@ -35,12 +35,21 @@ object NodeHeuristics {
         return element.tagName() == "li" && listOf("ul", "ol").contains(element.parent()?.tagName()?:"?")
     }
 
-    fun isNodeThresholdMet(parent: Node, child: Element): Boolean {
+    fun isNodeThresholdMetHtml(parent: Node, child: Element): Boolean {
         val parentNodeScore = Scorer.getScore(parent)
         val childNodeScore = Scorer.getScore(child)
         val thresholdScore = parentNodeScore * 0.08
 
         val isAnExcludeTags = { tag: String -> listOf("h1", "h2", "h3", "h4", "td", "ul", "ol", "blockquote").contains(tag) }
+        return !(childNodeScore < thresholdScore && !isAnExcludeTags(child.tagName()))
+    }
+
+    fun isNodeThresholdMetText(parent: Node, child: Element): Boolean {
+        val parentNodeScore = Scorer.getScore(parent)
+        val childNodeScore = Scorer.getScore(child)
+        val thresholdScore = parentNodeScore * 0.08
+
+        val isAnExcludeTags = { tag: String -> listOf("td", "ul", "ol", "blockquote").contains(tag) }
         return !(childNodeScore < thresholdScore && !isAnExcludeTags(child.tagName()))
     }
 

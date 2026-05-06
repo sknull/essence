@@ -6,6 +6,9 @@
 <ul>
  <li>03.02.26: Von Hackern lernen: Pentesting-Grundlagen und OSINT für proaktive IT-Sicherheit</li>
  <li>10.02.26: Sicherheitslücken aufdecken: Portscans, Schwachstellenscanner und Kali Linux im Einsatz</li>
+ <li>17.02.26: Interne Netzwerke absichern: Active Directory und Co. vor Angreifern schützen</li>
+ <li>24.02.26: OWASP Top 10: Sicherheitslücken in Webanwendungen und Web-APIs aufdecken</li>
+ <li>03.03.26: Cloud-Umgebungen härten: Audit-Tools für AWS, Azure und Google Cloud</li>
 </ul>
 <h3>Praxis- und Expertenwissen – live und für später</h3>
 <p>Die Sessions haben eine Laufzeit von jeweils vier Stunden und finden von 9 bis 13 Uhr statt. Alle Teilnehmenden können sich nicht nur auf viel Praxis und Interaktion freuen, sondern haben auch die Möglichkeit, das Gelernte mit allen Aufzeichnungen und Materialien im Nachgang zu wiederholen und zu vertiefen. Fragen werden direkt im Live-Chat beantwortet und Teilnehmer können sich ebenfalls untereinander zum Thema austauschen. Der nachträgliche Zugang zu den Videos und Übungsmaterialien ist inklusive.</p>  
