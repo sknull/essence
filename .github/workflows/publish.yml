@@ -33,13 +33,19 @@ jobs:
           cache-encryption-key: ${{ secrets.Gradle_Encryption_Key }}
 
       - name: Run Tests
-        run: ./gradlew :library:test :library:desktopTest
+        run: |
+          chmod +x gradlew
+          ./gradlew :library:test :library:desktopTest
 
       - name: Build Library
-        run: ./gradlew :library:assemble
+        run: |
+          chmod +x gradlew
+          ./gradlew :library:assemble
 
       - name: Publish to GitHub Packages
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: ./gradlew clean :library:publishAllPublicationsToGitHubPackagesRepository --no-configuration-cache
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          chmod +x gradlew
+          ./gradlew clean :library:publishAllPublicationsToGitHubPackagesRepository --no-configuration-cache
