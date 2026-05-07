@@ -50,8 +50,6 @@ kotlin {
             implementation(libs.kotlinx.coroutines)
             implementation(libs.ksoup.core)
             implementation(libs.kermit)
-
-            implementation(libs.compose.colorpicker)
         }
 
         commonTest.dependencies {
