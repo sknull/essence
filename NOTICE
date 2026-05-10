@@ -1,0 +1,16 @@
+Essence
+Copyright 2026 Stephan Knull
+
+This product includes software developed by Carmine DiMascio
+originally licensed under Apache 2.0.
+Ported from Java to Kotlin and modified by Stephan Knull.
+
+Modifications made:
+The original heuristic logic for HTML main text extraction was
+retained and adapted for Kotlin Multiplatform.
+
+Also a heuristic was added which extracts a minimal set of html markup
+instead of plain text.
+
+Additionally the original maven project was migrated to gradle to be
+compatible to the Kotlin Multiplatform context.

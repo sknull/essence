@@ -1,19 +1,8 @@
-= Essence
-:doctype: book
-:description: Documentation for essence
-:keywords: kotlin, html, text extraction
-:icons: font
-:toc:
-:toc-title: Contents
-:toclevels: 10
+= essence
 
-== Status
-
-https://github.com/sknull/essence/actions/workflows/github-ci.yml[image:https://github.com/sknull/essence/actions/workflows/github-ci.yml/badge.svg[Essence]]
-
-image::assets/essence.png[]
-
-== Introduction
+image:https://travis-ci.org/cdimascio/essence.svg?branch=master[] image:https://img.shields.io/maven-central/v/io.github.cdimascio/essence.svg?label=Maven%20Central[Maven Central,link=https://search.maven.org/search?q=g:%22io.github.cdimascio%22%20AND%20a:%22essence%22] image:https://camo.githubusercontent.com/208c24da54eea1ae12f8abed5dcc6b84b6ce8440/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d417061636865253230322e302d626c75652e737667[] <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+image:https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square[All Contributors,link=#contributors-]
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 An automatic web page content extractor for _Kotlin_ and _Java_.
 
@@ -21,27 +10,7 @@ Given an HTML document, *essence* automatically extracts the main text content (
 
 https://essence.mybluemix.net[Try out the demo] - _a simple webapp to demonstrate essence_.
 
-_This library is inspired by https://github.com/ageitgey/node-unfluff[node-unfluff] and its <<Credits,lineage>>_
-
-=== Why this fork?
-
-Essence is now unmaintained since 7 years and I wanted to use it in some of my projects. It also turned out that it did not compile anymore with modern jdk and JSoup. So I overhauled it a bit.
-
-Minor code was changed in the cleanup logic to make it actually work again.
-
-Besides that all credits still goes to the original author.
-
-Finally, as of May 2026 this is now reworked to ksoup instead of jsoup to be usable in modern
-Kotlin Multiplatform projects. Next up is to migrate to a real kmp library.
-
-Essence is now Kotlin Multiplatform
-
-=== Difference to the original branch
-
-To make it short: Not much. I just fixed some minor things, updated dependencies to current versions and the only real addition is a new formatter which outputs HTML instead of raw text - so tries to keep at least basic markup such as bold, underline, italic etc. and links. I needed this because I use this in my rss feed https://github.com/sknull/News-Home-Reader[News Home Reader project].
-In the meantime I needed to rework this to make use of ksoup instead of jsoup which is a Kotlin Multiplatform compatible rewrite of jsoup.
-The whole java code was migrated to Kotlin and then converted into a Kotlin Multiplatform
-gradle project.
+_This library is inspired by https://github.com/ageitgey/node-unfluff[node-unfluff] and its <<credits,lineage>>_
 
 == Usage
 
@@ -51,16 +20,9 @@ gradle project.
 ----
 import io.github.cdimascio.essence.Essence;
 
-public class Demo() {
-
-    public void test() {
-        EssenceResult data = Essence.extract(html);
-        System.out.println(data.getText());
-    }
-}
+EssenceResult data = Essence.extract(html);
+System.out.println(data.getText());
 ----
-
-See <<Extracted data elements,Extracted data elements>> for additional extracted metadata.
 
 *Kotlin*
 
@@ -69,6 +31,8 @@ See <<Extracted data elements,Extracted data elements>> for additional extracted
 val data = Essence.extract(html)
 println(data.text)
 ----
+
+See <<Extracted data elements,Extracted data elements>> for additional extracted metadata.
 
 == Install
 
@@ -90,6 +54,14 @@ println(data.text)
 ----
 compile 'io.github.cdimascio:essence:0.13.0'
 ----
+
+== Try the Essence web demo
+
+https://essence.mybluemix.net[Essence web] is a simple web page that fetches content at a given url and passes the HTML to this essence library.
+
+image:https://raw.githubusercontent.com/cdimascio/essence/master/assets/example.png[]
+
+The essence web project lives https://github.com/cdimascio/essence-web[here]
 
 == Extracted data elements
 
@@ -113,7 +85,7 @@ compile 'io.github.cdimascio:essence:0.13.0'
 
 == Credits
 
-* node-unfluff by link:https://github.com/ageitgey[ageitgey]
+* node-unfluff by link:ageitgey[https://github.com/ageitgey]
 * python-goose by https://github.com/grangier[Xavier Grangier]
 * goose by https://github.com/GravityLabs[Gravity Labs]
 
@@ -121,15 +93,7 @@ compile 'io.github.cdimascio:essence:0.13.0'
 
 link:LICENSE[Apache 2.0]
 
-=== Notice
-
-See this legal notice file which states which modifications have been made to the original code.
-
-link:NOTICE[NOTICE]
-
 == Contributors ✨
-
-The essence web project lives https://github.com/cdimascio/essence[here]
 
 Thanks goes to these wonderful people (https://allcontributors.org/docs/en/emoji-key[emoji key]):
 
