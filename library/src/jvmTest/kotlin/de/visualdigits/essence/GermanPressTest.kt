@@ -24,6 +24,13 @@ class GermanPressTest {
     }
 
     @Test
+    fun readFocus1() = runTest {
+        val html = File(ClassLoader.getSystemResource("germanpress/focus_story-1.html").toURI()).readText()
+        val result = Essence.extract(html)
+        println(result.html?.html())
+    }
+
+    @Test
     fun readNtv() = runTest {
         val html = File(ClassLoader.getSystemResource("germanpress/ntv-story.html").toURI()).readText()
         val expected = File(ClassLoader.getSystemResource("germanpress/ntv-story_expected.htm.txt").toURI()).readText()

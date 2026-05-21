@@ -1,6 +1,7 @@
 package de.visualdigits.essence
 
 import com.fleeksoft.ksoup.Ksoup
+import com.fleeksoft.ksoup.nodes.Element
 import de.visualdigits.essence.cleaners.Cleaner
 import de.visualdigits.essence.cleaners.HtmlScoreCleaner
 import de.visualdigits.essence.cleaners.TextScoreCleaner
@@ -22,6 +23,7 @@ import de.visualdigits.essence.formatters.HtmlFormatter
 import de.visualdigits.essence.formatters.TextFormatter
 import de.visualdigits.essence.scorers.DocumentScorer
 import de.visualdigits.essence.words.StopWords
+import java.util.UUID
 
 object Essence {
 
@@ -30,6 +32,7 @@ object Essence {
         language: Language? = null
     ): EssenceResult {
         val document = Ksoup.parse(html = html)
+        val nodeMap = createNodeIds(document)
         val language = language ?: Language.from(
             LanguageExtractor.extract(
                 document.clone()
@@ -63,7 +66,8 @@ object Essence {
         val links = topNodeText?.clone()?.let { tn -> LinksExtractor.extract(tn) }?:listOf()
         val text = topNodeText?.clone()?.let { tn -> textFormatter.format(tn) }?:""
 
-        val topNodeHtml = node?.clone()?.let { n -> htmlScoredCleaner.cleanHtml(n) }
+        // lookup top node from original document
+        val topNodeHtml = nodeMap[node?.attr("essenceNodeId")]
         val html = topNodeHtml?.clone()?.let { tn -> htmlFormatter.formatElement(tn) }
 
         return EssenceResult(
@@ -84,5 +88,16 @@ object Essence {
             keywords = keywords,
             tags = tags
         )
+    }
+
+    /**
+     * appends a unique id to each source element in the document and returns a map of uuid to element.
+     */
+    private fun createNodeIds(element: Element, nodeMap: MutableMap<String, Element> = mutableMapOf()): Map<String, Element> {
+        val essenceNodeId = UUID.randomUUID().toString()
+        nodeMap[essenceNodeId] = element
+        element.attr("essenceNodeId", essenceNodeId)
+        element.childElementsList().forEach { child -> createNodeIds(child, nodeMap) }
+        return nodeMap
     }
 }

@@ -1,4 +1,47 @@
+<div>
+ <div> 
+  <div>AUDIO: HVV-Sonderfahrplan an Weihnachten in Hamburg (1 Min)</div> 
+ </div>
+</div>
+<header>
+ <h1>Weihnachten in Hamburg: Busse und Bahnen fahren eingeschränkt</h1>
+ <p>Busse und Bahnen in Hamburg verkehren an den Feiertagen nach einem ausgedünnten Sonderfahrplan.</p>
+</header>
 <p>U- und S-Bahnen fahren an Heiligabend zunächst wie an einem Sonnabend. Ab 18 Uhr dann fahren sie im 20-Minuten-Takt. Die <strong>Ringlinie U3</strong> verkehrt im 10-Minuten-Takt, die <strong>U4</strong> fährt ab 12 Uhr nur zwischen Elbbrücken und Jungfernstieg.</p>
 <p>Bei den Linien <strong>S3/S5</strong> geht der Fünf-Minuten-Takt gegen 14.30 Uhr in einen 10-Minuten-Takt über, zwischen Neugraben und Stade verkehrt die S-Bahn ab 18.30 Uhr im Stundentakt.</p>
 <p>Die <strong>Busse</strong> fahren an Heiligabend von Betriebsbeginn bis 14 Uhr ebenfalls wie sonnabends, danach gehen viele Linien im Laufe des Nachmittags in einen Sonderfahrplan über.</p>
+<h2>Donnerstag und Freitag wie sonntags</h2>
 <p>Am 1. und 2. Weihnachtstag gilt der Sonntagsfahrplan. In den Nächten zum 25. und 26. Dezember gibt es den üblichen durchgehenden Nachtverkehr der Schnellbahnen und der ergänzenden Buslinien.</p>
+<div>
+ <div>
+  <div>
+   <div>
+    <div>
+     <h2><a href="/nachrichten/hamburg/weihnachten-in-hamburg-wohin-zum-einkaufen-und-bei-notfaellen,hilfe-weihnachten-100.html">Weihnachten in Hamburg: Wohin zum Einkaufen und bei Notfällen?</a></h2>
+    </div>
+    <div>
+     <p>Was ist während der Feiertage eigentlich noch offen? Und wo in der Stadt bekommt man Hilfe? Ein Überblick.</p>
+    </div>
+   </div>
+  </div>
+  <div>
+   <div>
+    <div>
+     <h2><a href="/nachrichten/info/strassenverkehr-im-norden-kaum-probleme-vor-heiligabend,weihnachtsverkehr-100.html">Kaum Weihnachtsstaus - aber Probleme im Fährverkehr</a></h2>
+    </div>
+    <div>
+     <p>Die Stau-Prognosen des ADAC haben sich an den Tagen vor dem Fest nicht bestätigt. Jedoch wirbelt der Ostwind den Fährverkehr auf der Nordsee durcheinander.</p>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<div>
+ <p>Dieses Thema im Programm:</p>
+ <h3>NDR 90,3 | NDR 90,3 Aktuell | 24.12.2025 | 09:00 Uhr</h3>
+</div>
+<div>
+ <h3>Schlagwörter zu diesem Artikel</h3>
+ <h3></h3>
+ <h3></h3>
+</div>

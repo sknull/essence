@@ -1,6 +1,8 @@
 package de.visualdigits.essence.formatters
 
+import com.fleeksoft.ksoup.nodes.Comment
 import com.fleeksoft.ksoup.nodes.Element
+import com.fleeksoft.ksoup.nodes.Node
 import de.visualdigits.essence.util.NodeHeuristics
 import de.visualdigits.essence.util.find
 import de.visualdigits.essence.words.StopWords
@@ -16,12 +18,13 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
     }
 
     fun formatElement(node: Element?): Element? {
-        return node?.let {
-            val bestRoot = drillDownToCruxElement(node)
+        return node?.let { n ->
+//            val bestRoot = drillDownToCruxElement(node)
             // TODO: Combine the following into a single pass
-            removeNegativescoresNodes(bestRoot)
-            removeFewWordsParagraphs(bestRoot)
-            bestRoot.getAllElements().forEach { elem ->
+            removeNegativescoresNodes(n)
+            removeFewWordsParagraphs(n)
+            removeComments(n)
+            n.getAllElements().forEach { elem ->
                 elem.classNames().forEach { cn ->
                     elem.removeClass(cn)
                 }
@@ -31,7 +34,7 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
                         elem.removeAttr(attr.key)
                     }
             }
-            bestRoot
+            n
         }
     }
 
@@ -43,6 +46,16 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
             }
         }
         return node
+    }
+
+    private fun removeComments(node: Node) {
+        node.childNodes().forEach { n ->
+            if (n is Comment) {
+                n.remove()
+            } else {
+                removeComments(n)
+            }
+        }
     }
 
     private fun removeNegativescoresNodes(node: Element) {
@@ -78,7 +91,7 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
             } else {
                 val trimmed = text.trim()
                 val numWords = text.split(" ").size
-                // remove paragraph's that are surrounded entirely by parens and have few-ish words
+                // remove paragraph's that are surrounded entirely by parents and have few-ish words
                 if (trimmed.isNotBlank() && numWords < 25 && trimmed.first() == '(' && trimmed.last() == ')' && element.parent() != null) {
                     element.remove()
                 }
