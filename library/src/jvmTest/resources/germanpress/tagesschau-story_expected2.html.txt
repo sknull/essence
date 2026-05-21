@@ -44,7 +44,6 @@
 </div>
 <h2>Mehr Geld bei Kindern</h2>
 <p>Das Kindergeld wird zum 1. Januar um vier Euro auf 259 Euro pro Monat erhöht.</p>
-<h2></h2>
 <p>Die Pendlerpauschale wird dauerhaft auf 38 Cent ab dem ersten Kilometer erhöht. Aktuell liegt sie für die ersten 20 Kilometer Wegstrecke bei 30 Cent pro Kilometer. Ab dem 21. Kilometer kann man 38 Cent ansetzen.</p>
 <h2>Post von der Bundeswehr</h2>
 <p>Im Zuge des neuen Wehrdienstgesetzes wird eine Wehrerfassung wieder eingeführt. Das bedeutet für alle 18-jährigen Männer und Frauen, dass sie ab Anfang 2026 einen Fragebogen erhalten sollen, mit dem ihre Eignung und ihre Motivation für die Bundeswehr erhoben wird. Männer müssen diesen dann verpflichtend ausfüllen, Frauen können ihn freiwillig abgeben.</p>
@@ -92,7 +91,6 @@
 <p>Gutverdiener sollen turnusmäßig höhere Sozialabgaben zahlen. In der gesetzlichen Rentenversicherung werden künftig voraussichtlich bis zu einem Monatseinkommen von 8.450 Euro Beiträge fällig. Wer mehr verdient, zahlt nur bis zu dieser Grenze Rentenbeiträge. Die Beitragsbemessungsgrenze für die gesetzliche Kranken- und Pflegeversicherung soll auf 5.812,50 Euro pro Monat steigen.</p>
 <h2>Steuerliche Entlastungen für Ehrenamtler</h2>
 <p>Die Steuerpauschale für Übungsleiter steigt von 3.000 auf 3.300 Euro. Die Ehrenamtspauschale wird von 840 auf 960 Euro angehoben. Das betrifft etwa Trainer im Sportverein oder auch ehrenamtliche Chorleiter.</p>
-<h2></h2>
 <div>
  <div>
   <div>

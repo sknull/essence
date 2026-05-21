@@ -1,6 +1,5 @@
 package de.visualdigits.essence.scorers
 
-import com.fleeksoft.ksoup.nodes.Document
 import com.fleeksoft.ksoup.nodes.Element
 import com.fleeksoft.ksoup.nodes.Node
 
@@ -8,7 +7,7 @@ typealias ScoredElement = Element
 
 fun interface Scorer {
 
-    fun score(doc: Document): ScoredElement?
+    fun score(element: Element): ScoredElement?
 
     companion object {
         internal fun getScore(node: Node): Double {

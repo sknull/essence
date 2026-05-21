@@ -32,6 +32,9 @@ object Essence {
         language: Language? = null
     ): EssenceResult {
         val document = Ksoup.parse(html = html)
+
+        val articleElement = document.selectFirst("article")
+
         val nodeMap = createNodeIds(document)
         val language = language ?: Language.from(
             LanguageExtractor.extract(
@@ -61,15 +64,28 @@ object Essence {
         // clean and score document before extracting text, links and video
         val doc = Cleaner().clean(document.clone())
         val node = scorer.score(doc.clone())
+        val nodeArticle = articleElement?.clone()?.let { a -> scorer.score(a) }
 
         val topNodeText = node?.clone()?.let { n -> textScoredCleaner.clean(n) }
         val links = topNodeText?.clone()?.let { tn -> LinksExtractor.extract(tn) }?:listOf()
         val text = topNodeText?.clone()?.let { tn -> textFormatter.format(tn) }?:""
 
-        // lookup top node from original document
-        val topNodeHtml = nodeMap[node?.attr("essenceNodeId")]
-        val html = topNodeHtml?.clone()?.let { tn -> htmlFormatter.formatElement(tn) }
+        val topNodeHtml = node?.clone()?.let { n -> htmlScoredCleaner.cleanHtml(n) }
+        val topNodeHtmlArticle = articleElement?.clone()?.let { n -> htmlScoredCleaner.cleanHtml(n) }
 
+        // lookup top nodes from original document
+        val topNode = nodeMap[topNodeHtml?.attr("essenceNodeId")]
+        val topNodeArticle = nodeMap[topNodeHtmlArticle?.attr("essenceNodeId")]
+
+        // if topNode is contained in article node prefer top node as article probably contains crap around the wanted text
+        // otherwise prefer the longer paragraph
+        val favorite = if (topNodeArticle?.contains(topNode) == true) {
+            topNode
+        } else {
+            listOf(topNode, topNodeArticle).maxBy { n -> n.toString().length }
+        }
+
+        val html = favorite?.clone()?.let { tn -> htmlFormatter.formatElement(tn) }
         return EssenceResult(
             authors = authors,
             title = title,

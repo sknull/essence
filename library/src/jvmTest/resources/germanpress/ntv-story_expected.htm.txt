@@ -24,11 +24,7 @@
 <section>
  <div>
   <article>
-   <a href="/mediathek/videos/politik/Korruptionsproblem-der-Ukraine-ist-gross-article25942284.html">
-    <div>
-     <div></div>
-    </div>
-   </a>
+   <a href="/mediathek/videos/politik/Korruptionsproblem-der-Ukraine-ist-gross-article25942284.html"></a>
   </article>
  </div>
 </section>

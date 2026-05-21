@@ -41,7 +41,5 @@
  <h3>NDR 90,3 | NDR 90,3 Aktuell | 24.12.2025 | 09:00 Uhr</h3>
 </div>
 <div>
- <h3>Schlagwörter zu diesem Artikel</h3>
- <h3></h3>
- <h3></h3>
+ <h3>Schlagwörter zu diesem Artikel</h3> 
 </div>

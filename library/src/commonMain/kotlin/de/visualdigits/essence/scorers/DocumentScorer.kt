@@ -1,6 +1,5 @@
 package de.visualdigits.essence.scorers
 
-import com.fleeksoft.ksoup.nodes.Document
 import com.fleeksoft.ksoup.nodes.Element
 import com.fleeksoft.ksoup.nodes.Node
 import de.visualdigits.essence.util.NodeHeuristics
@@ -12,9 +11,9 @@ import kotlin.math.pow
 
 class DocumentScorer(private val stopWords: StopWords) : Scorer {
 
-    override fun score(doc: Document): ScoredElement? {
+    override fun score(element: Element): ScoredElement? {
         val nodesWithText = mutableListOf<Element>()
-        val nodesToCheck = doc.select("p, pre, td")
+        val nodesToCheck = element.select("p, pre, td")
         nodesToCheck.forEach { node ->
             val text = node.text()
             val wordStats = stopWords.statistics(text)
@@ -42,7 +41,6 @@ class DocumentScorer(private val stopWords: StopWords) : Scorer {
                 val booster = bottomNegativeScoreNodes - (numNodesWithText - 1)
                 boostScore = -1.0 * booster.pow(2.0)
                 val negScore = abs(boostScore) + negativeScoring
-
                 if (negScore > 40) {
                     boostScore = 5.0
                 }

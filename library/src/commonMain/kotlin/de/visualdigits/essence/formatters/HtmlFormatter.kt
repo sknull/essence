@@ -3,6 +3,7 @@ package de.visualdigits.essence.formatters
 import com.fleeksoft.ksoup.nodes.Comment
 import com.fleeksoft.ksoup.nodes.Element
 import com.fleeksoft.ksoup.nodes.Node
+import com.fleeksoft.ksoup.nodes.TextNode
 import de.visualdigits.essence.util.NodeHeuristics
 import de.visualdigits.essence.util.find
 import de.visualdigits.essence.words.StopWords
@@ -10,7 +11,7 @@ import de.visualdigits.essence.words.StopWords
 class HtmlFormatter(private val stopWords: StopWords) : Formatter {
 
     companion object {
-        private val tagsToRetainInParagraph = listOf("a", "b", "u", "i", "strong")
+        private val tagsToRetainInParagraph = listOf("a", "b", "u", "i", "strong", "br")
     }
 
     override fun format(node: Element?): String {
@@ -55,6 +56,9 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
             } else {
                 removeComments(n)
             }
+        }
+        if (node is Element && node.childElementsList().isEmpty() && node.childNodes().isEmpty() && !tagsToRetainInParagraph.contains(node.tagName().lowercase())) {
+            node.remove()
         }
     }
 

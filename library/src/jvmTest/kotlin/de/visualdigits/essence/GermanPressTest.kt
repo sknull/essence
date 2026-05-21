@@ -24,6 +24,27 @@ class GermanPressTest {
     }
 
     @Test
+    fun readHr1() = runTest {
+        val html = File(ClassLoader.getSystemResource("germanpress/hr-story-1.html").toURI()).readText()
+        val result = Essence.extract(html)
+        println(result.html?.html())
+    }
+
+    @Test
+    fun readSpiegel1() = runTest {
+        val html = File(ClassLoader.getSystemResource("germanpress/spiegel-story-1.html").toURI()).readText()
+        val result = Essence.extract(html)
+        println(result.html?.html())
+    }
+
+    @Test
+    fun readSpiegel2() = runTest {
+        val html = File(ClassLoader.getSystemResource("germanpress/spiegel-story-2.html").toURI()).readText()
+        val result = Essence.extract(html)
+        println(result.html?.html())
+    }
+
+    @Test
     fun readFocus1() = runTest {
         val html = File(ClassLoader.getSystemResource("germanpress/focus_story-1.html").toURI()).readText()
         val result = Essence.extract(html)
