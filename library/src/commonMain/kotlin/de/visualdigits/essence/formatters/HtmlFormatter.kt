@@ -3,7 +3,6 @@ package de.visualdigits.essence.formatters
 import com.fleeksoft.ksoup.nodes.Comment
 import com.fleeksoft.ksoup.nodes.Element
 import com.fleeksoft.ksoup.nodes.Node
-import com.fleeksoft.ksoup.nodes.TextNode
 import de.visualdigits.essence.util.NodeHeuristics
 import de.visualdigits.essence.util.find
 import de.visualdigits.essence.words.StopWords
@@ -11,7 +10,7 @@ import de.visualdigits.essence.words.StopWords
 class HtmlFormatter(private val stopWords: StopWords) : Formatter {
 
     companion object {
-        private val tagsToRetainInParagraph = listOf("a", "b", "u", "i", "strong", "br")
+        private val tagsToRetainInParagraph = listOf("a", "b", "u", "i", "strong", "br", "span", "img")
     }
 
     override fun format(node: Element?): String {
@@ -21,21 +20,21 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
     fun formatElement(node: Element?): Element? {
         return node?.let { n ->
 //            val bestRoot = drillDownToCruxElement(node)
-            // TODO: Combine the following into a single pass
             removeNegativescoresNodes(n)
             removeFewWordsParagraphs(n)
             removeComments(n)
-            n.getAllElements().forEach { elem ->
-                elem.classNames().forEach { cn ->
-                    elem.removeClass(cn)
-                }
-                elem.attributes()
-                    .filter { attr -> attr.key != "href" }
-                    .forEach { attr ->
-                        elem.removeAttr(attr.key)
-                    }
-            }
+            cleanupAttributes(n)
             n
+        }
+    }
+
+    private fun cleanupAttributes(n: Element) {
+        n.getAllElements().forEach { elem ->
+            elem.attributes()
+                .filter { attr -> attr.key != "href" }
+                .forEach { attr ->
+                    elem.removeAttr(attr.key)
+                }
         }
     }
 
@@ -87,18 +86,24 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
             val hasEmbed = element.find("embed").isNotEmpty()
             val isEndline = tag == "br" || text == "\\r"
             val isHeadline = NodeHeuristics.isHeadline(element)
+            val isFigure = NodeHeuristics.isFigure(element)
             val isLiInUlOrOl = NodeHeuristics.isLiInUlOrOl(element)
             val isInline = NodeHeuristics.isInline(element)
-            val isLinkInParagraph = tagsToRetainInParagraph.contains(element.tagName()) && element.parent()?.tagName() == "p"
-            if (!isLinkInParagraph && !isLiInUlOrOl && !isInline && !isHeadline && !isEndline && numStopWords < 3 && !hasObject && !hasEmbed && element.parent() != null) {
+            val parents = element.parents().map { e -> e.tagName() }
+            val retainElement = tagsToRetainInParagraph.contains(element.tagName()) || parents.any { p -> tagsToRetainInParagraph.contains(p) }
+            if (
+                (!retainElement &&
+                !isLiInUlOrOl &&
+                !isInline &&
+                !isHeadline &&
+                !isEndline &&
+                numStopWords < 3 &&
+                !hasObject &&
+                !hasEmbed
+                && element.parent() != null) ||
+                isFigure
+            ) {
                 element.remove()
-            } else {
-                val trimmed = text.trim()
-                val numWords = text.split(" ").size
-                // remove paragraph's that are surrounded entirely by parents and have few-ish words
-                if (trimmed.isNotBlank() && numWords < 25 && trimmed.first() == '(' && trimmed.last() == ')' && element.parent() != null) {
-                    element.remove()
-                }
             }
         }
     }
