@@ -72,5 +72,8 @@
  <h3>NDR Fernsehen | Hamburg Journal | 12.11.2025 | 19:30 Uhr</h3>
 </div>
 <div>
- <h3>Schlagwörter zu diesem Artikel</h3>  
+ <h3>Schlagwörter zu diesem Artikel</h3>
+ <h3><a href="/nachrichten/info/Klimaschutz,klimaschutz358.html">Klimaschutz</a></h3>
+ <h3><a href="/ratgeber/reise/hamburg">Hamburg</a></h3>
+ <h3><a href="/nachrichten/info/Gruene,gruene439.html">Grüne</a></h3>
 </div>

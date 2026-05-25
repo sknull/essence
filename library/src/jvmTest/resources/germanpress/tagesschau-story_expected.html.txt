@@ -1,7 +1,7 @@
 <div> 
  <div>
   <div>
-   <h1> <span>"Wir sind viel besser als der Ruf"</span></h1>
+   <h1><span>Pistorius über die Bundeswehr</span> <span>"Wir sind viel besser als der Ruf"</span></h1>
   </div>
  </div>
 </div>
@@ -16,17 +16,18 @@
    <div>
     <a href="/inland/innenpolitik/bundeswehr-reform-104.html"> 
      <div>
-      <h3> <span>Bundeswehr soll mutiger, moderner und agiler werden</span></h3>
+      <p><span>07.11.2025</span></p>
+      <h3><span>Pistorius fordert Reformen</span> <span>Bundeswehr soll mutiger, moderner und agiler werden</span></h3>
      </div> 
      <div>
-      <p>"Es ist kein Alarmismus, um es deutlich zu sagen, wenn ich sage, unsere Art zu leben ist in Gefahr", sagte Pistorius. </p>
+      <p>"Es ist kein Alarmismus, um es deutlich zu sagen, wenn ich sage, unsere Art zu leben ist in Gefahr", sagte Pistorius. <span>mehr</span></p>
      </div> 
     </a>
    </div>
   </div>
  </div>
 </div>
-<h2>Entscheidung bis Ende der Woche</h2>
+<h2><span>Wehrdienstgesetz:</span> Entscheidung bis Ende der Woche</h2>
 <p>In Berlin finden heute offizielle Feierlichkeiten zum 70. Jahrestag der Gründung der Bundeswehr statt. Den Auftakt bildet ein feierliches Gelöbnis mit 280 Soldatinnen und Soldaten auf dem Platz zwischen Kanzleramt und Bundestag.&nbsp;Am späteren Nachmittag folgt eine halbstündige Debatte im Bundestag. Dabei dürfte es auch um die aktuelle Diskussion um einen neuen Wehrdienst gehen.&nbsp;Mit Blick auf das neue Wehrdienstgesetz bekräftigte Pistorius, dass er bis "spätestens Ende der Woche" mit einer Einigung rechne.</p>
 <div>
  <div>
@@ -43,10 +44,11 @@
    <div>
     <a href="/inland/gesellschaft/bundeswehr-verteidigung-musterung-pistorius-100.html"> 
      <div>
-      <h3> <span>Pistorius hofft auf Einigung in dieser Woche </span></h3>
+      <p><span>10.11.2025</span></p>
+      <h3><span>Debatte um Wehrdienst</span> <span>Pistorius hofft auf Einigung in dieser Woche </span></h3>
      </div> 
      <div>
-      <p>In der Debatte um den Wehrdienst rechnet der Verteidigungsminister mit einer Lösung noch in dieser Woche. </p>
+      <p>In der Debatte um den Wehrdienst rechnet der Verteidigungsminister mit einer Lösung noch in dieser Woche. <span>mehr</span></p>
      </div> 
     </a>
    </div>
@@ -62,10 +64,11 @@
    <div>
     <a href="https://www.ndr.de/geschichte/chronologie/vor-70-jahren-wird-die-bundeswehr-gegruendet,bundeswehr2404.html"> 
      <div>
-      <h3> <span>Vor 70 Jahren wird die Bundeswehr gegründet</span></h3>
+      <p><span>12.11.2025</span></p>
+      <h3><span></span> <span>Vor 70 Jahren wird die Bundeswehr gegründet</span></h3>
      </div> 
      <div>
-      <p>Die deutsche Wiederbewaffnung wird in den 50ern zur Streitfrage. Am 12. November 1955 erhalten die ersten 101 Freiwilligen ihre Ernennungsurkunden als Soldaten. </p>
+      <p>Die deutsche Wiederbewaffnung wird in den 50ern zur Streitfrage. Am 12. November 1955 erhalten die ersten 101 Freiwilligen ihre Ernennungsurkunden als Soldaten. <span>ndr</span></p>
      </div> 
     </a>
    </div>

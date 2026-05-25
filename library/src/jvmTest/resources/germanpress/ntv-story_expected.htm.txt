@@ -1,6 +1,3 @@
-<figure>
- <figcaption>Was wusste er? Justizminister Haluschtschenko war zuvor Energieminister der Ukraine. (Foto: -/kyodo/dpa)</figcaption>
-</figure>
 <p>Der Skandal schlägt hohe Wellen: Beim ukrainischen Atomenergiekonzern Energoatom soll es ein Schmiergeldsystem in Millionenhöhe gegeben haben. Nun gibt es erste Konsequenzen für die hochrangigen Verdächtigen.</p>
 <p>Die Ukraine hat Justizminister Herman Haluschtschenko mitten im Korruptionsskandal um den heimischen Atomenergiekonzern Energoatom von seinen Aufgaben entbunden. Er werde wegen Korruptionsverdachts vom Dienst suspendiert, teilte sein Ministerium mit. Ob dies im Zusammenhang mit dem von der Nationalen Anti-Korruptionsbehörde untersuchten Fall im Energiesektor stehe, wurde jedoch nicht präzisiert.</p>
 <section>
@@ -8,8 +5,14 @@
   <article>
    <a href="/politik/Selenskyj-faellt-auf-die-Fuesse-dass-er-die-Korruptionsermittler-entmachten-wollte-id30009339.html">
     <div>
+     <img src="/logo_grey.svg">
+    </div>
+    <div>
      <div>
-      <span> Selenskyj fällt auf die Füße, dass er die Korruptionsermittler entmachten wollte</span>
+      <span>Skandal in der Ukraine</span><span> Selenskyj fällt auf die Füße, dass er die Korruptionsermittler entmachten wollte</span>
+     </div>
+     <div>
+      <span>Von Denis Trubetskoy, Kiew</span>
      </div>
     </div>
    </a>
@@ -24,7 +27,19 @@
 <section>
  <div>
   <article>
-   <a href="/mediathek/videos/politik/Korruptionsproblem-der-Ukraine-ist-gross-article25942284.html"></a>
+   <a href="/mediathek/videos/politik/Korruptionsproblem-der-Ukraine-ist-gross-article25942284.html">
+    <div>
+     <img src="/logo_grey.svg">
+     <div>
+      <span>04:25 min</span>
+     </div>
+    </div>
+    <div>
+     <div>
+      <span>Festnahme nach Schmiergeld-Verdacht</span><span> "Korruptionsproblem der Ukraine ist groß"</span>
+     </div>
+    </div>
+   </a>
   </article>
  </div>
 </section>
@@ -36,8 +51,11 @@
   <article>
    <a href="/ticker/Festnahmen-wegen-Korruption-bei-Drohnen-Kauf-in-der-Ukraine-article25941886.html">
     <div>
+     <img src="/logo_grey.svg">
+    </div>
+    <div>
      <div>
-      <span> Festnahmen wegen Korruption bei Drohnen-Kauf in der Ukraine</span>
+      <span>Anti-Korruptions-Kämpfer</span><span> Festnahmen wegen Korruption bei Drohnen-Kauf in der Ukraine</span>
      </div>
     </div>
    </a>

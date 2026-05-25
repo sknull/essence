@@ -10,7 +10,8 @@ import de.visualdigits.essence.words.StopWords
 class HtmlFormatter(private val stopWords: StopWords) : Formatter {
 
     companion object {
-        private val tagsToRetainInParagraph = listOf("a", "b", "u", "i", "strong", "br", "span", "img")
+        private val tagsToRetain = listOf("a", "b", "u", "i", "strong", "br", "span", "img")
+        private val attributesToRetain = listOf("href", "src", "target")
     }
 
     override fun format(node: Element?): String {
@@ -31,7 +32,7 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
     private fun cleanupAttributes(n: Element) {
         n.getAllElements().forEach { elem ->
             elem.attributes()
-                .filter { attr -> attr.key != "href" }
+                .filter { attr -> !attributesToRetain.contains(attr.key) }
                 .forEach { attr ->
                     elem.removeAttr(attr.key)
                 }
@@ -56,7 +57,7 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
                 removeComments(n)
             }
         }
-        if (node is Element && node.childElementsList().isEmpty() && node.childNodes().isEmpty() && !tagsToRetainInParagraph.contains(node.tagName().lowercase())) {
+        if (node is Element && node.childElementsList().isEmpty() && node.childNodes().isEmpty() && !tagsToRetain.contains(node.tagName().lowercase())) {
             node.remove()
         }
     }
@@ -90,7 +91,7 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
             val isLiInUlOrOl = NodeHeuristics.isLiInUlOrOl(element)
             val isInline = NodeHeuristics.isInline(element)
             val parents = element.parents().map { e -> e.tagName() }
-            val retainElement = tagsToRetainInParagraph.contains(element.tagName()) || parents.any { p -> tagsToRetainInParagraph.contains(p) }
+            val retainElement = tagsToRetain.contains(element.tagName()) || parents.any { p -> tagsToRetain.contains(p) }
             if (
                 (!retainElement &&
                 !isLiInUlOrOl &&

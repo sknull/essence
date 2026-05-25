@@ -41,5 +41,7 @@
  <h3>NDR 90,3 | NDR 90,3 Aktuell | 24.12.2025 | 09:00 Uhr</h3>
 </div>
 <div>
- <h3>Schlagwörter zu diesem Artikel</h3> 
+ <h3>Schlagwörter zu diesem Artikel</h3>
+ <h3><a href="/verkehr/oeffentlicher-nahverkehr,oeffentlichernahverkehr101.html">Öffentlicher Nahverkehr</a></h3>
+ <h3><a href="/ratgeber/weihnachten-rezepte-deko-und-veranstaltungs-tipps,weihnachten971.html">Weihnachten</a></h3>
 </div>
