@@ -27,10 +27,6 @@ object NodeHeuristics {
         return listOf("h1", "h2", "h3", "h4").contains(element.tagName())
     }
 
-    fun isFigure(element: Element): Boolean {
-        return listOf("figure").contains(element.tagName())
-    }
-
     fun isInline(element: Element): Boolean {
         return listOf("b", "i", "u", "strong").contains(element.tagName())
     }

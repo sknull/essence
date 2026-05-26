@@ -12,37 +12,5 @@
 </ul>
 <h3>Praxis- und Expertenwissen – live und für später</h3>
 <p>Die Sessions haben eine Laufzeit von jeweils vier Stunden und finden von 9 bis 13 Uhr statt. Alle Teilnehmenden können sich nicht nur auf viel Praxis und Interaktion freuen, sondern haben auch die Möglichkeit, das Gelernte mit allen Aufzeichnungen und Materialien im Nachgang zu wiederholen und zu vertiefen. Fragen werden direkt im Live-Chat beantwortet und Teilnehmer können sich ebenfalls untereinander zum Thema austauschen. Der nachträgliche Zugang zu den Videos und Übungsmaterialien ist inklusive.</p>  
-<p>Weitere Informationen und Tickets finden Interessierte auf der<a href="https://heise-academy.de/classrooms/ethical-hacking226?wt_mc=intern.academy.academy.cr_ethical-hacking.ticker-1.link.link" target="_blank"> Website des Classrooms</a>.</p>
-<div>
- <div>
-  <div>
-   <div>
-    <div>
-     <div>
-      <h3>E-Mail-Adresse</h3>
-      <p>Ausführliche Informationen zum Versandverfahren und zu Ihren Widerrufsmöglichkeiten erhalten Sie in unserer <a href="https://www.heise.de/Datenschutzerklaerung-der-Heise-Medien-GmbH-Co-KG-4860.html#datenschutz-newsletter">Datenschutzerklärung</a>.</p>
-     </div>
-    </div>
-   </div>
-  </div>
- </div>
-</div> 
-<a-gift>
- <div>
-  <div>
-   <aside> 
-    <div>Dieser Link ist leider nicht mehr gültig.</div>
-    <div>Links zu verschenkten Artikeln werden ungültig, wenn diese älter als 7&nbsp;Tage sind oder zu oft aufgerufen wurden.</div>
-    <div>
-     <strong>Sie benötigen ein heise+ Paket, um diesen Artikel zu lesen. Jetzt eine Woche unverbindlich testen – ohne Verpflichtung!</strong>
-    </div>
-    <div>
-     Sie haben heise+ bereits abonniert? <a href="/sso/login?forward=https%3A%2F%2Fwww.heise.de%2Fnews%2FProaktive-IT-Security-mit-Pentesting-Ethical-Hacking-fuer-Admins-11070849.html"> Hier anmelden. </a>
-    </div>
-    <div>
-     Oder benötigen Sie <a href="/plus/abo?referrerUrl=/news/Proaktive-IT-Security-mit-Pentesting-Ethical-Hacking-fuer-Admins-11070849.html"> mehr Informationen zum heise+ Abo </a>
-    </div>
-   </aside>
-  </div>
- </div>
-</a-gift>
+<p>Weitere Informationen und Tickets finden Interessierte auf der<a href="https://heise-academy.de/classrooms/ethical-hacking226?wt_mc=intern.academy.academy.cr_ethical-hacking.ticker-1.link.link" target="_blank"> Website des Classrooms</a>.</p>  
+<a-gift>  </a-gift>

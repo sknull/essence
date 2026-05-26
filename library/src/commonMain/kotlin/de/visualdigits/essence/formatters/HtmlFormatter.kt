@@ -87,7 +87,8 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
             val hasEmbed = element.find("embed").isNotEmpty()
             val isEndline = tag == "br" || text == "\\r"
             val isHeadline = NodeHeuristics.isHeadline(element)
-            val isFigure = NodeHeuristics.isFigure(element)
+            val isFigure = element.tagName() == "figure"
+            val isDiv = element.tagName() == "div"
             val isLiInUlOrOl = NodeHeuristics.isLiInUlOrOl(element)
             val isInline = NodeHeuristics.isInline(element)
             val parents = element.parents().map { e -> e.tagName() }
@@ -102,7 +103,8 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
                 !hasObject &&
                 !hasEmbed
                 && element.parent() != null) ||
-                isFigure
+                isFigure ||
+                isDiv
             ) {
                 element.remove()
             }
