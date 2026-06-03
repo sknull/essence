@@ -2,10 +2,8 @@
 agp = "8.13.2"
 android-compileSdk = "36"
 android-minSdk = "26"
-tvMaterial = "1.0.1"
 
 version-androidx-activityCompose = "1.13.0"
-version-colorpicker = "1.1.3"
 version-gradle-pdf = "4.0.5"
 version-jetbrains-kotlin = "1.10.3"
 version-junit = "6.0.3"
@@ -15,22 +13,15 @@ version-kermit = "2.1.0"
 version-kotlin = "2.3.20" # DO NOT UPGRADE FOR NOW
 version-kotlin-coroutines = "1.10.2"
 version-kotlinx-coroutines-test = "1.9.0"
-version-material3 = "1.9.0"
 
 [libraries]
-androidx-tv-material = { group = "androidx.tv", name = "tv-material", version.ref = "tvMaterial" }
-androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "version-kotlin" }
 
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "version-androidx-activityCompose" }
 
 compose-components = { module = "org.jetbrains.compose.components:components-resources", version.ref = "version-jetbrains-kotlin" }
 compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "version-jetbrains-kotlin" }
-compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "version-material3" }
 compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "version-jetbrains-kotlin" }
-compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "version-jetbrains-kotlin" }
-compose-ui-tooling = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "version-jetbrains-kotlin" }
 
 junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "version-junit" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "version-junit" }
@@ -43,8 +34,6 @@ kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-t
 kermit = { module = "co.touchlab:kermit", version.ref = "version-kermit" }
 ksoup-core = { module = "com.fleeksoft.ksoup:ksoup", version.ref = "version-ksoup" }
 
-compose-colorpicker = { module = "com.github.skydoves:colorpicker-compose", version.ref = "version-colorpicker" }
-
 kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "version-kotlin-coroutines" }
 
 [plugins]
@@ -53,13 +42,3 @@ kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref =
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "version-kotlin" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "version-jetbrains-kotlin" }
 gradle-pdf = { id = "org.asciidoctor.jvm.pdf", version.ref = "version-gradle-pdf" }
-
-[bundles]
-compose = [
-    "compose-components",
-    "compose-foundation",
-    "compose-material3",
-    "compose-runtime",
-    "compose-ui",
-    "compose-ui-tooling"
-]

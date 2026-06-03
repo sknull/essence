@@ -32,21 +32,14 @@ kotlin {
     sourceSets {
         val androidMain by getting {
             dependencies {
-                // android
-                implementation(compose.preview)
                 implementation(libs.androidx.activity.compose)
-
-                // android tv
-                implementation(project.dependencies.platform("androidx.compose:compose-bom:2026.03.00"))
-                implementation(libs.androidx.tv.material)
-                implementation(libs.androidx.ui.tooling)
-                implementation(libs.androidx.ui.tooling.preview)
             }
         }
 
         commonMain.dependencies {
-            implementation(compose.components.resources)
-            implementation(libs.bundles.compose)
+            implementation(libs.compose.components)
+            implementation(libs.compose.foundation)
+            implementation(libs.compose.runtime)
             implementation(libs.kotlinx.coroutines)
             implementation(libs.ksoup.core)
             implementation(libs.kermit)
