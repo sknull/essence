@@ -1,17 +1,17 @@
 package de.visualdigits.essence
 
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fleeksoft.ksoup.helper.Validate.fail
+import de.visualdigits.essence.model.Expectations
 import kotlinx.coroutines.test.runTest
+import kotlinx.serialization.json.Json
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotEquals
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
+import java.io.File
 
 
 class EssenceTest {
-
-    private val om = jacksonObjectMapper()
 
     @Test
     fun readsFavicon() {
@@ -222,18 +222,19 @@ class EssenceTest {
     }
 
     fun checkFixture(site: String, fields: List<String>) = runTest {
-        val html = readFileFull("./fixtures/test_$site.html")
-        val orig = om.readTree(readFileFull("./fixtures/test_$site.json"))
+        val html = File(ClassLoader.getSystemResource("./fixtures/test_$site.html").toURI()).readLines()
+            .joinToString<String>(" ")
+        val orig = Json.decodeFromString<Expectations>(File(ClassLoader.getSystemResource("./fixtures/test_$site.json").toURI()).readText())
         val data = Essence.extract(html)
 
-        val expected = orig["expected"]
+        val expected = orig.expected
         for (field in fields) {
             when (field) {
                 "title" -> {
-                    assertEquals(expected["title"].asText(), data.title)
+                    assertEquals(expected.title, data.title)
                 }
                 "cleaned_text" -> {
-                    val origText = cleanOrigText(expected["cleaned_text"].asText())
+                    val origText = cleanOrigText(expected.cleanedText?:"")
                     val newText = cleanTestingTest(data.text, origText)
                     assertNotEquals("text should not be null", "", newText)
 
@@ -246,33 +247,33 @@ class EssenceTest {
                     assertEquals(origText, newText)
                 }
                 "link" -> {
-                    assertEquals(expected["final_url"].asText(), data.canonicalLink)
+                    assertEquals(expected.finalUrl, data.canonicalLink)
                 }
                 "image" -> {
-                    assertEquals(expected["image"].asText().trim(), data.image)
+                    assertEquals(expected.image?.trim(), data.image)
                 }
                 "description" -> {
-                    assertEquals(expected["meta_description"].asText(), data.description)
+                    assertEquals(expected.metaDescription, data.description)
                 }
                 "lang" -> {
-                    assertEquals(expected["meta_lang"].asText(), data.language)
+                    assertEquals(expected.metaLang, data.language)
                 }
                 "keywords" -> {
-                    assertEquals(expected["meta_keywords"].asText(), data.keywords)
+                    assertEquals(expected.metaKeywords, data.keywords)
                 }
                 "favicon" -> {
-                    assertEquals(expected["meta_favicon"].asText(), data.favicon)
+                    assertEquals(expected.metaFavicon, data.favicon)
                 }
                 "tags" -> {
                     val tags = data.tags.sorted()
-                    val expectedTags = expected["tags"]?.map { it.asText() }?.sorted() ?: emptyList()
+                    val expectedTags = expected.tags?.map { it as String }?.sorted() ?: emptyList()
                     expectedTags.zip(tags).forEach { (expected, actual) ->
                         assertEquals(expected, actual)
                     }
                 }
                 "links" -> {
                     val links = data.links.sortedBy { it.text }
-                    val expectedLinks = expected["links"]?.map { Link(it["href"].asText(), it["text"].asText()) }
+                    val expectedLinks = expected.links.map { Link(it.href, it.text) }
                         ?: emptyList()
                     links.zip(expectedLinks).forEach { (actual, expected) ->
                         assertEquals(expected.text, actual.text)

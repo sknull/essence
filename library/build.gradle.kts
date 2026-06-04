@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlin.serialization)
     id("com.android.library")
     `maven-publish`
 }
@@ -50,34 +51,20 @@ kotlin {
             implementation(libs.junit.jupiter.api)
             implementation(libs.junit.jupiter.engine)
             implementation(libs.junit.platform.launcher)
-            implementation(libs.jackson.core)
-            implementation(libs.jackson.module.kotlin)
+            implementation(libs.kotlinx.serialization.json)
             implementation(libs.kotlinx.coroutines.test)
         }
 
         val jvmMain by creating {
             dependsOn(commonMain.get())
-        }
-        val desktopMain by getting {
-            dependsOn(jvmMain)
 
             dependencies {
-                implementation("org.jetbrains.compose.foundation:foundation:1.10.3")
+                implementation("org.jetbrains.compose.foundation:foundation:${libs.versions.version.jetbrains.kotlin.get()}")
             }
         }
 
         val jvmTest by creating {
             dependsOn(commonTest.get())
-            dependencies {
-                implementation(libs.kotlin.test)
-                implementation(libs.junit.jupiter.api)
-                implementation(libs.junit.jupiter.engine)
-                implementation(libs.junit.platform.launcher)
-            }
-        }
-
-        val desktopTest by getting {
-            dependsOn(jvmTest)
         }
     }
 }

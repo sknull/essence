@@ -7,6 +7,7 @@ import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
+import java.io.File
 
 class FormatterTest {
 
@@ -15,7 +16,8 @@ class FormatterTest {
         val stopWords = StopWords.load(Language.en)
         val formatter = TextFormatter(stopWords)
 
-        val contents = readFileFull("./fixtures/test_businessWeek1.html")
+        val contents = File(ClassLoader.getSystemResource("./fixtures/test_businessWeek1.html").toURI()).readLines()
+            .joinToString<String>(" ")
         val doc = Ksoup.parse(contents)
 
         val originalLinks = doc.select("a")
@@ -32,7 +34,8 @@ class FormatterTest {
         val stopWords = StopWords.load(Language.en)
         val formatter = TextFormatter(stopWords)
 
-        val contents = readFileFull("./fixtures/test_wikipedia1.html")
+        val contents = File(ClassLoader.getSystemResource("./fixtures/test_wikipedia1.html").toURI()).readLines()
+            .joinToString<String>(" ")
         val doc = Ksoup.parse(contents)
 
         formatter.format(doc)

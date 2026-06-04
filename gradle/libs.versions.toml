@@ -5,14 +5,11 @@ android-minSdk = "26"
 
 version-androidx-activityCompose = "1.13.0"
 version-gradle-pdf = "4.0.5"
-version-jetbrains-kotlin = "1.10.3"
+version-jetbrains-kotlin = "1.11.0"
 version-junit = "6.0.3"
-version-jackson = "2.21.2"
 version-ksoup = "0.2.6"
 version-kermit = "2.1.0"
 version-kotlin = "2.3.20" # DO NOT UPGRADE FOR NOW
-version-kotlin-coroutines = "1.10.2"
-version-kotlinx-coroutines-test = "1.9.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "version-kotlin" }
@@ -27,14 +24,13 @@ junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.re
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "version-junit" }
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "version-junit" }
 
-jackson-core = { module = "com.fasterxml.jackson.core:jackson-core", version.ref="version-jackson" }
-jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref="version-jackson" }
-kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "version-kotlinx-coroutines-test" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "version-jetbrains-kotlin" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "version-jetbrains-kotlin" }
 
 kermit = { module = "co.touchlab:kermit", version.ref = "version-kermit" }
 ksoup-core = { module = "com.fleeksoft.ksoup:ksoup", version.ref = "version-ksoup" }
 
-kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "version-kotlin-coroutines" }
+kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "version-jetbrains-kotlin" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -42,3 +38,4 @@ kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref =
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "version-kotlin" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "version-jetbrains-kotlin" }
 gradle-pdf = { id = "org.asciidoctor.jvm.pdf", version.ref = "version-gradle-pdf" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "version-kotlin" }
