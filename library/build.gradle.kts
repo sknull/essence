@@ -44,6 +44,7 @@ kotlin {
             implementation(libs.kotlinx.coroutines)
             implementation(libs.ksoup.core)
             implementation(libs.kermit)
+            implementation("org.jetbrains.compose.foundation:foundation:${libs.versions.version.jetbrains.kotlin.get()}")
         }
 
         commonTest.dependencies {
@@ -57,14 +58,17 @@ kotlin {
 
         val jvmMain by creating {
             dependsOn(commonMain.get())
-
-            dependencies {
-                implementation("org.jetbrains.compose.foundation:foundation:${libs.versions.version.jetbrains.kotlin.get()}")
-            }
+        }
+        val desktopMain by getting {
+            dependsOn(jvmMain)
         }
 
         val jvmTest by creating {
             dependsOn(commonTest.get())
+        }
+
+        val desktopTest by getting {
+            dependsOn(jvmTest)
         }
     }
 }

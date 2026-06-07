@@ -106,8 +106,15 @@ class GermanPressTest {
     }
 
     @Test
-    fun readWdNbsp() = runTest {
+    fun readWdrNbsp() = runTest {
         val html = File(ClassLoader.getSystemResource("germanpress/wdr-story-nbsp.html").toURI()).readText()
+        val result = Essence.extract(html)
+        println(result)
+    }
+
+    @Test
+    fun readHrNbsp() = runTest {
+        val html = File(ClassLoader.getSystemResource("germanpress/hr-story-nbsp.html").toURI()).readText()
         val result = Essence.extract(html)
         println(result)
     }
