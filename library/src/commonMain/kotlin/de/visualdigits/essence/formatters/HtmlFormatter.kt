@@ -3,15 +3,36 @@ package de.visualdigits.essence.formatters
 import com.fleeksoft.ksoup.nodes.Comment
 import com.fleeksoft.ksoup.nodes.Element
 import com.fleeksoft.ksoup.nodes.Node
-import de.visualdigits.essence.util.NodeHeuristics
 import de.visualdigits.essence.util.find
 import de.visualdigits.essence.words.StopWords
 
 class HtmlFormatter(private val stopWords: StopWords) : Formatter {
 
     companion object {
-        private val tagsToRetain = listOf("a", "b", "u", "i", "strong", "br", "span", "img")
-        private val attributesToRetain = listOf("href", "src", "target")
+        private val tagsToRetain = listOf(
+            "a",
+            "b",
+            "br",
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "i",
+            "img",
+            "li",
+            "p",
+            "span",
+            "strong",
+            "u",
+            "ul",
+            "ol"
+        )
+
+        private val attributesToRetain = listOf(
+            "href",
+            "src",
+            "target"
+        )
     }
 
     override fun format(node: Element?): String {
@@ -20,7 +41,6 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
 
     fun formatElement(node: Element?): Element? {
         return node?.let { n ->
-//            val bestRoot = drillDownToCruxElement(node)
             removeNegativescoresNodes(n)
             removeFewWordsParagraphs(n)
             removeComments(n)
@@ -37,16 +57,6 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
                     elem.removeAttr(attr.key)
                 }
         }
-    }
-
-    private fun drillDownToCruxElement(node: Element): Element {
-        if (node.ownText().isBlank() && node.childNodeSize() == 1) {
-            val onlyChild = node.childNode(0)
-            if (onlyChild is Element) {
-                drillDownToCruxElement(onlyChild)
-            }
-        }
-        return node
     }
 
     private fun removeComments(node: Node) {
@@ -86,25 +96,14 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
             val hasObject = element.find("object").isNotEmpty()
             val hasEmbed = element.find("embed").isNotEmpty()
             val isEndline = tag == "br" || text == "\\r"
-            val isHeadline = NodeHeuristics.isHeadline(element)
-            val isFigure = element.tagName() == "figure"
-            val isDiv = element.tagName() == "div"
-            val isLiInUlOrOl = NodeHeuristics.isLiInUlOrOl(element)
-            val isInline = NodeHeuristics.isInline(element)
             val parents = element.parents().map { e -> e.tagName() }
             val retainElement = tagsToRetain.contains(element.tagName()) || parents.any { p -> tagsToRetain.contains(p) }
-            if (
-                (!retainElement &&
-                !isLiInUlOrOl &&
-                !isInline &&
-                !isHeadline &&
+            if (!retainElement &&
                 !isEndline &&
                 numStopWords < 3 &&
                 !hasObject &&
-                !hasEmbed
-                && element.parent() != null) ||
-                isFigure ||
-                isDiv
+                !hasEmbed &&
+                element.parent() != null
             ) {
                 element.remove()
             }
