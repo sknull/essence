@@ -1,5 +1,6 @@
 <header>
  <h1>Weihnachten in Hamburg: Busse und Bahnen fahren eingeschränkt</h1>
+ <div>Stand: 24.12.2025 09:51 Uhr</div>
  <p>Busse und Bahnen in Hamburg verkehren an den Feiertagen nach einem ausgedünnten Sonderfahrplan.</p>
 </header>
 <p>U- und S-Bahnen fahren an Heiligabend zunächst wie an einem Sonnabend. Ab 18 Uhr dann fahren sie im 20-Minuten-Takt. Die <strong>Ringlinie U3</strong> verkehrt im 10-Minuten-Takt, die <strong>U4</strong> fährt ab 12 Uhr nur zwischen Elbbrücken und Jungfernstieg.</p>

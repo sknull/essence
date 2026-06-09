@@ -1,5 +1,6 @@
 <header>
  <h1>Hamburger Zukunftsentscheid: Welche Konsequenzen die Grünen planen</h1>
+ <div>Stand: 12.11.2025 06:30 Uhr</div>
  <p>Klimaneutralität bis 2040: Die Grünen wollen als erste Hamburger Partei Konsequenzen aus dem Volksentscheid zum Klimaschutz ziehen. Auf einem kleinen Parteitag in der kommenden Woche sollen konkrete Maßnahmen zur Umsetzung beschlossen werden.</p>
 </header>
 <p>Auffällig deutlich betont der Landesvorstand der Grünen in seinem Leitantrag, dass schnellerer Klimaschutz sozialverträglich und für alle bezahlbar bleiben müsse. Mögliche hohe Kosten waren ein Hauptkritikpunkt am sogenannten Zukunftsentscheid gewesen.</p>

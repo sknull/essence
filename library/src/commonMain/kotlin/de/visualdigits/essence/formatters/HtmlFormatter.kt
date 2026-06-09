@@ -1,8 +1,11 @@
 package de.visualdigits.essence.formatters
 
 import com.fleeksoft.ksoup.nodes.Comment
+import com.fleeksoft.ksoup.nodes.DataNode
 import com.fleeksoft.ksoup.nodes.Element
+import com.fleeksoft.ksoup.nodes.LeafNode
 import com.fleeksoft.ksoup.nodes.Node
+import com.fleeksoft.ksoup.nodes.TextNode
 import de.visualdigits.essence.util.find
 import de.visualdigits.essence.words.StopWords
 
@@ -17,6 +20,7 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
             "h2",
             "h3",
             "h4",
+            "header",
             "i",
             "img",
             "li",
@@ -44,6 +48,7 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
             removeNegativescoresNodes(n)
             removeFewWordsParagraphs(n)
             removeComments(n)
+            removeEmptyTags(n)
             cleanupAttributes(n)
             n
         }
@@ -56,6 +61,13 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
                 .forEach { attr ->
                     elem.removeAttr(attr.key)
                 }
+        }
+    }
+
+    private fun removeEmptyTags(node: Node) {
+        node.childNodes().forEach { child -> removeEmptyTags(child) }
+        if ((node !is LeafNode && node.childNodes().isEmpty()) || (node is LeafNode && node.coreValue().trim().isEmpty())) {
+            node.remove()
         }
     }
 
@@ -92,7 +104,6 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
         elements.forEach { element ->
             val tag = element.tagName()
             val text = element.text()
-            val numStopWords = stopWords.statistics(text).stopWords.size
             val hasObject = element.find("object").isNotEmpty()
             val hasEmbed = element.find("embed").isNotEmpty()
             val isEndline = tag == "br" || text == "\\r"
@@ -100,7 +111,6 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
             val retainElement = tagsToRetain.contains(element.tagName()) || parents.any { p -> tagsToRetain.contains(p) }
             if (!retainElement &&
                 !isEndline &&
-                numStopWords < 3 &&
                 !hasObject &&
                 !hasEmbed &&
                 element.parent() != null
