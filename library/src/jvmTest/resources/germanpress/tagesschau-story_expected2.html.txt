@@ -1,7 +1,20 @@
+<div>
+ <h1><span>Ausblick auf 2026</span><span>Was sich im neuen Jahr ändert</span></h1>
+ <p>Stand: 30.12.2025 10:37 Uhr</p>
+ <p><strong>Von Aktivrente bis Wehrdienst: 2026 wird sich im Alltag vieler Menschen etwas ändern. Die Bundesregierung hat bis zuletzt viele Gesetze verabschiedet, die auf Leben und Geldbeutel Auswirkungen haben werden. Ein Überblick.</strong></p>
+</div>
 <h2>Höherer Mindestlohn</h2>
 <p>Der Mindestlohn <a href="/inland/innenpolitik/mindestlohn-steigerung-100.html">steigt zum 1. Januar auf 13,90 Euro pro Stunde</a>. Auch für Auszubildende ist etwas mehr Geld drin. Die Mindestvergütung im ersten Lehrjahr steigt auf 724 Euro. Auch in den weiteren Ausbildungsjahren gibt es höhere Mindestsätze: im zweiten Jahr 854 Euro, im dritten 977 und bei einem vierten Ausbildungsjahr 1.014 Euro monatlich.</p>
 <h2>Höhere Minijob-Grenze</h2>
 <p>Parallel zur Mindestlohnerhöhung steigt auch die Obergrenze für sogenannte Minijobs. Diese erhöht sich <a href="/wirtschaft/arbeitsmarkt/minijobs-mindestlohn-anpassung-verdienstgrenze-100.html">ab Januar von 556 auf 603 Euro im Monat</a>.</p>
+<div>
+ <a href="/video/video-1540080.html">
+  <div>
+   <h3>Was ändert sich positiv in 2026?</h3>
+   Alexander Noodt, Radio Bremen, Morgenmagazin, Das Erste, 30.12.2025 08:00 Uhr
+  </div>
+ </a>
+</div>
 <h2><span>Deutschlandticket </span>wird teurer</h2>
 <p>Ein Jahr nach der ersten Preiserhöhung wird das Deutschlandticket noch mal teurer: Von Januar an steigt der Preis von 58 <a href="/wissen/klima/deutschlandticket-klimaauswirkung-100.html">auf 63 Euro pro Monat</a>. Rund 14 Millionen Menschen nutzen nach Branchenangaben das Abo, das bundesweit Fahrten im Regional- und Nahverkehr ermöglicht.</p>
 <h2><span>Steuerfreibetrag </span>steigt</h2>
@@ -10,6 +23,17 @@
 <p>Gute Nachrichten bringt 2026 für Rentnerinnen und Rentner. Sie können sich vom 1. Juli des neuen Jahres an auf mehr Geld freuen. Wie stark die Rentenerhöhung sein wird, legt das Bundeskabinett aber erst im Frühjahr fest, nach aktueller Konjunkturlage und Lohnentwicklung. Die Erhöhung könnte sich um die 3,7 Prozent bewegen, wie aus einem Entwurf für den jährlichen Rentenversicherungsbericht hervorgeht. Der Wert ist aber nur eine Schätzung.</p>
 <h2>Aktivrente</h2>
 <p>Wer sich in der Rente noch etwas dazuverdienen möchte, bekommt steuerliche Vorteile. Beschäftigte im Rentenalter dürfen mit der sogenannten Aktivrente bis zu 2.000 Euro monatlich steuerfrei dazuverdienen. Die Vorteile gelten nicht für Selbstständige, Freiberufler, Land- und Forstwirte, Minijobber und Beamte.</p>
+<div>
+ <a href="/inland/innenpolitik/bundesrat-beschluesse-rentenpaket-100.html">
+  <div>
+   <p><span>19.12.2025</span></p>
+   <h3><span>Beschlüsse des Bundesrats</span><span>Rentenpaket, Wehrdienst und <span>Pendlerpauschale </span>kommen</span></h3>
+  </div>
+  <div>
+   <p>Endspurt im Bundesrat: In seiner letzten Sitzung des Jahres wurden noch zahlreiche Gesetze verabschiedet. <span>mehr</span></p>
+  </div>
+ </a>
+</div>
 <h2>Mehr Geld bei Kindern</h2>
 <p>Das Kindergeld wird zum 1. Januar um vier Euro auf 259 Euro pro Monat erhöht.</p>
 <h2><span>Pendlerpauschale</span></h2>
@@ -17,23 +41,71 @@
 <h2>Post von der Bundeswehr</h2>
 <p>Im Zuge des neuen Wehrdienstgesetzes wird eine Wehrerfassung wieder eingeführt. Das bedeutet für alle 18-jährigen Männer und Frauen, dass sie ab Anfang 2026 einen Fragebogen erhalten sollen, mit dem ihre Eignung und ihre Motivation für die Bundeswehr erhoben wird. Männer müssen diesen dann verpflichtend ausfüllen, Frauen können ihn freiwillig abgeben.</p>
 <p>Verteidigungsminister Boris Pistorius, SPD, hofft so auf genügend Freiwillige.&nbsp;"Es sind viel mehr bereit, Verantwortung zu übernehmen, als uns Teile des Parlaments oder Teile der Öffentlichkeit uns&nbsp;glauben&nbsp;machen wollen. Es gibt das Gefühl für Verantwortung."</p>
+<div>
+ <a href="/inland/gesellschaft/wehrdienst-fragebogen-strafe-100.html">
+  <div>
+   <p><span>23.12.2025</span></p>
+   <h3><span>Neues Wehrdienstgesetz</span><span>Ignorieren von Fragebogen kann teuer werden</span></h3>
+  </div>
+  <div>
+   <p>Wer das Formular zur Wehrdiensterfassung oder die Aufforderung zur Musterung ignoriert, dem drohen Konsequenzen. <span>mehr</span></p>
+  </div>
+ </a>
+</div>
 <h2>Recht auf <span>Ganztagsbetreuung</span></h2>
 <p>Wenn Kinder vom Kindergarten in die Grundschule kommen, kann das für Eltern zu Engpässen in der Kinderbetreuung führen. Ab dem Schuljahr 2026/2027 sollen zunächst alle Erstklässlerinnen und Erstklässler einen Rechtsanspruch auf <a href="/inland/gesellschaft/grundschule-ganztag-ifo-institut-100.html">Ganztagsbetreuung in den Schulen</a> haben. Dieser Anspruch wird in den kommenden Jahren um je eine Klassenstufe pro Jahr ausgeweitet.</p>
 <h2>Aus Bürgergeld wird Grundsicherung - strengere Sanktionen</h2>
 <p>Das Bürgergeld soll künftig Grundsicherung heißen, und wer Termine im Jobcenter ohne zwingenden Grund versäumt oder eine Arbeitsaufnahme verweigert, soll dies härter zu spüren bekommen. Künftig soll direkt mit einer 30-prozentigen Kürzung bestraft werden können, falls jemand zum Beispiel eine Weiterbildung abbricht oder Bewerbungen nicht abschickt.</p>
 <p>Wer Termine im Jobcenter ohne wichtigen Grund nicht wahrnimmt, dem droht ab dem zweiten verpassten Termin ebenfalls eine Kürzung um 30 Prozent, ab dem dritten Termin eine komplette Streichung der Zahlung. Das Gesetz soll großteils am 1. Juli 2026 in Kraft treten. Zunächst wird der Entwurf nun in Bundestag und Bundesrat beraten.</p>
+<div>
+ <a href="/inland/gesellschaft/buergergeld-grundsicherung-100.html">
+  <div>
+   <p><span>30.12.2025</span></p>
+   <h3><span>Geplante Änderungen beim Bürgergeld</span><span>Neue Grundsicherung - neue Probleme</span></h3>
+  </div>
+  <div>
+   <p>Weniger Geld bei Verstößen: 2026 soll die Grundsicherung das Bürgergeld ersetzen. <span>mehr</span></p>
+  </div>
+ </a>
+</div>
 <h2>Mehrwertsteuer für die Gastronomie</h2>
 <p>Die Umsatzsteuer für Speisen in der Gastronomie wird dauerhaft von 19 auf sieben Prozent reduziert. Das galt auch schon während der Corona-Pandemie. Ob die Änderung Verbraucherinnen und Verbraucher auch spüren, ist unklar. <a href="/wirtschaft/mehrwehrsteuer-senkung-gastronomie-100.html">Gastronomen dämpften vor dem Beschluss die Hoffnungen, dass mit der Steuer auch die Preise sinken.</a></p>
 <h2>Höhere Sozialabgaben für Gutverdiener</h2>
 <p>Gutverdiener sollen turnusmäßig höhere Sozialabgaben zahlen. In der gesetzlichen Rentenversicherung werden künftig voraussichtlich bis zu einem Monatseinkommen von 8.450 Euro Beiträge fällig. Wer mehr verdient, zahlt nur bis zu dieser Grenze Rentenbeiträge. Die Beitragsbemessungsgrenze für die gesetzliche Kranken- und Pflegeversicherung soll auf 5.812,50 Euro pro Monat steigen.</p>
 <h2>Steuerliche Entlastungen für Ehrenamtler</h2>
 <p>Die Steuerpauschale für Übungsleiter steigt von 3.000 auf 3.300 Euro. Die Ehrenamtspauschale wird von 840 auf 960 Euro angehoben. Das betrifft etwa Trainer im Sportverein oder auch ehrenamtliche Chorleiter.</p>
+<div>
+ <a href="/inland/innenpolitik/bundestag-steuer-100.html">
+  <div>
+   <p><span>04.12.2025</span></p>
+   <h3><span>Pendler, Gastronomen, Ehrenamtliche</span><span>Bundestag beschließt <span>Steuererleichterungen</span></span></h3>
+  </div>
+  <div>
+   <p>Der Bundestag hat mehrere steuerliche Erleichterungen beschlossen. <span>mehr</span></p>
+  </div>
+ </a>
+</div>
 <h2>Lachgas-Verbot für Minderjährige</h2>
 <p>Das als Partydroge populäre Lachgas wird für Kinder und Jugendliche künftig verboten. Das heißt, die Abgabe an Kinder ist nicht erlaubt, auch der Online-Handel und der Kauf an Selbstbedienungsautomaten werden verboten. Gelten sollen die neuen Vorgaben voraussichtlich ab April 2026.</p>
+<div>
+ <a href="/multimedia/audio/audio-372198.html">
+  <div>Silvia Chike, ARD Berlin, tagesschau, 30.12.2025 09:22 Uhr</div>
+ </a>
+</div>
 <h2>Zusatzbeiträge steigen</h2>
 <p>Millionen Versicherte müssen mit höheren Zusatzbeiträgen rechnen. Nach einer Auswertung des Vergleichsportals Verivox mit Stand 23. Dezember haben schon 31 Krankenkassen einen Anstieg für ihre Kunden angekündigt. Betroffen sind etwa Versicherte der zwei großen bundesweiten Krankenkassen. Bei der Techniker Krankenkasse (TK) steigt der Zusatzbeitrag von 2,45 Prozent auf 2,69 Prozent. Die DAK-Gesundheit erhöht ihn von 2,8 Prozent auf 3,2 Prozent.</p>
+<div>
+ <a href="/tagesschau_20_uhr/video-1412344.html">
+  <div>
+   <h3>Verbände erwarten höhere Zusatzbeiträge bei gesetzliche Krankenkassen</h3>
+   Kerstin Breinig, ARD Berlin , tagesschau, Das Erste, 13.12.2024 20:00 Uhr
+  </div>
+ </a>
+</div>
 <h2>Weniger Kosten für Gas?</h2>
 <p>Ab Januar fällt die Gasspeicherumlage für Gaskunden weg. Bislang kostete sie einen Vierpersonenhaushalt je nach Verbrauch rund 30 bis 60 Euro pro Jahr. Die Umlage diente dazu, die staatlich angeordnete Befüllung der Gasspeicher nach der Energiekrise 2022 zu finanzieren und machte bei Privatkunden rund 2,4 Prozent des Gaspreises aus. Die Kosten übernimmt nun einmalig der Bund. Da sich der Gaspreis aus mehreren Bestandteilen zusammensetzt, sinken die Endpreise nicht automatisch.</p>
 <h2>Wahljahr</h2>
 <p>Fünf Bundesländer wählen absehbar neue Landesparlamente. Baden-Württemberg beginnt am 8. März, am 22. März wählen die Menschen in Rheinland-Pfalz einen neuen Landtag, am 6. September ist dann Sachsen-Anhalt dran. Am 20. September gibt es Wahlen in Berlin und Mecklenburg-Vorpommern.</p>
-<p><em>Mit Informationen von Nicole Markwald, ARD-Hauptstadtstudio, und Material der Nachrichtenagentur dpa</em></p>
+<div>
+ <p><span>Dieses Thema im Programm: </span>Das Erste | ARD-Morgenmagazin | 30.12.2025 | 05:30 Uhr, tagesschau.de | Ausblick 2026 - Was ändert sich alles im neuen Jahr? | 30.12.2025 | 08:29 Uhr</p>
+</div>

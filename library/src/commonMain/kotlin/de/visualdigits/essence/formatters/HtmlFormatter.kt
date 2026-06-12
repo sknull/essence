@@ -1,32 +1,37 @@
 package de.visualdigits.essence.formatters
 
-import com.fleeksoft.ksoup.nodes.Comment
-import com.fleeksoft.ksoup.nodes.DataNode
 import com.fleeksoft.ksoup.nodes.Element
 import com.fleeksoft.ksoup.nodes.LeafNode
 import com.fleeksoft.ksoup.nodes.Node
-import com.fleeksoft.ksoup.nodes.TextNode
 import de.visualdigits.essence.util.find
 import de.visualdigits.essence.words.StopWords
 
 class HtmlFormatter(private val stopWords: StopWords) : Formatter {
 
     companion object {
+        private val tagsToDelete = listOf(
+            "aside"
+        )
         private val tagsToRetain = listOf(
+            "#text",
             "a",
+            "abbr",
             "b",
             "br",
+            "div",
+            "embed",
             "h1",
             "h2",
             "h3",
             "h4",
-            "header",
             "i",
             "img",
             "li",
+            "object",
             "p",
             "span",
             "strong",
+            "svg",
             "u",
             "ul",
             "ol"
@@ -39,23 +44,23 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
         )
     }
 
-    override fun format(node: Element?): String {
-        return formatElement(node)?.html()?:""
+    override fun format(element: Element?): String {
+        return formatElement(element)?.html()?:""
     }
 
-    fun formatElement(node: Element?): Element? {
-        return node?.let { n ->
+    fun formatElement(element: Element?): Element? {
+        return element?.let { n ->
             removeNegativescoresNodes(n)
-            removeFewWordsParagraphs(n)
-            removeComments(n)
+            cleanupTags(n)
             removeEmptyTags(n)
+            cleanupDivs(n)
             cleanupAttributes(n)
             n
         }
     }
 
-    private fun cleanupAttributes(n: Element) {
-        n.getAllElements().forEach { elem ->
+    private fun cleanupAttributes(element: Element) {
+        element.getAllElements().forEach { elem ->
             elem.attributes()
                 .filter { attr -> !attributesToRetain.contains(attr.key) }
                 .forEach { attr ->
@@ -71,25 +76,12 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
         }
     }
 
-    private fun removeComments(node: Node) {
-        node.childNodes().forEach { n ->
-            if (n is Comment) {
-                n.remove()
-            } else {
-                removeComments(n)
-            }
-        }
-        if (node is Element && node.childElementsList().isEmpty() && node.childNodes().isEmpty() && !tagsToRetain.contains(node.tagName().lowercase())) {
-            node.remove()
-        }
-    }
-
-    private fun removeNegativescoresNodes(node: Element) {
-        val gravityElements = node.find("*[gravityScore]")
+    private fun removeNegativescoresNodes(element: Element) {
+        val gravityElements = element.find("*[gravityScore]")
         gravityElements.forEach {
             val score = try {
                 it.attr("gravityScore").toDouble()
-            } catch (e: NumberFormatException) {
+            } catch (_: NumberFormatException) {
                 0.0
             }
 
@@ -99,24 +91,19 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
         }
     }
 
-    private fun removeFewWordsParagraphs(node: Element) {
-        val elements = node.find("*")
-        elements.forEach { element ->
-            val tag = element.tagName()
-            val text = element.text()
-            val hasObject = element.find("object").isNotEmpty()
-            val hasEmbed = element.find("embed").isNotEmpty()
-            val isEndline = tag == "br" || text == "\\r"
-            val parents = element.parents().map { e -> e.tagName() }
-            val retainElement = tagsToRetain.contains(element.tagName()) || parents.any { p -> tagsToRetain.contains(p) }
-            if (!retainElement &&
-                !isEndline &&
-                !hasObject &&
-                !hasEmbed &&
-                element.parent() != null
-            ) {
-                element.remove()
-            }
+    private fun cleanupTags(node: Node) {
+        node.childNodes().forEach { ce -> cleanupTags(ce) }
+        val tagName = node.nodeName().lowercase()
+        val retainElement = tagsToRetain.contains(tagName)
+        if (!retainElement) {
+            node.remove()
+        }
+    }
+
+    fun cleanupDivs(element: Node) {
+        element.childNodes().forEach { c -> cleanupDivs(c) }
+        if (element.nodeName().lowercase() == "div" && element.parent()?.nodeName()?.lowercase() == "div") {
+            element.unwrap()
         }
     }
 }
