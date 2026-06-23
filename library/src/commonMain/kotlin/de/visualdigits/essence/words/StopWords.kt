@@ -2,10 +2,6 @@ package de.visualdigits.essence.words
 
 import de.visualdigits.essence.Language
 import de.visualdigits.library.generated.resources.Res
-import java.io.BufferedReader
-import java.io.IOException
-import java.io.InputStream
-import java.io.InputStreamReader
 
 
 data class StopWordsStatistics(
@@ -24,18 +20,6 @@ class StopWords private constructor(private val stopWords: List<String>) {
                 .split("\n")
                 .map { line -> line.trim().lowercase() }
             return StopWords(words)
-        }
-
-        private fun readFromInputStream(inputStream: InputStream): List<String> {
-            val words = mutableListOf<String>()
-            BufferedReader(InputStreamReader(inputStream)).use { br ->
-                var line = br.readLine()
-                while (line != null) {
-                    words += line
-                    line = br.readLine()
-                }
-            }
-            return words
         }
     }
 

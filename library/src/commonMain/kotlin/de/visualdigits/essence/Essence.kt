@@ -23,7 +23,8 @@ import de.visualdigits.essence.formatters.HtmlFormatter
 import de.visualdigits.essence.formatters.TextFormatter
 import de.visualdigits.essence.scorers.DocumentScorer
 import de.visualdigits.essence.words.StopWords
-import java.util.UUID
+import kotlin.uuid.ExperimentalUuidApi
+import kotlin.uuid.Uuid
 
 object Essence {
 
@@ -109,8 +110,9 @@ object Essence {
     /**
      * appends a unique id to each source element in the document and returns a map of uuid to element.
      */
+    @OptIn(ExperimentalUuidApi::class)
     private fun createNodeIds(element: Element, nodeMap: MutableMap<String, Element> = mutableMapOf()): Map<String, Element> {
-        val essenceNodeId = UUID.randomUUID().toString()
+        val essenceNodeId = Uuid.random().toString()
         nodeMap[essenceNodeId] = element
         element.attr("essenceNodeId", essenceNodeId)
         element.childElementsList().forEach { child -> createNodeIds(child, nodeMap) }
