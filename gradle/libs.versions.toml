@@ -7,35 +7,29 @@ version-androidx-activityCompose = "1.13.0"
 version-gradle-pdf = "4.0.5"
 version-jetbrains-kotlin = "1.11.0"
 version-junit = "6.0.3"
-version-ksoup = "0.2.6"
 version-kermit = "2.1.0"
 version-kotlin = "2.3.20" # DO NOT UPGRADE FOR NOW
+version-ksoup = "0.2.6"
 
 [libraries]
-kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "version-kotlin" }
-
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "version-androidx-activityCompose" }
-
 compose-components = { module = "org.jetbrains.compose.components:components-resources", version.ref = "version-jetbrains-kotlin" }
 compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "version-jetbrains-kotlin" }
 compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "version-jetbrains-kotlin" }
-
 junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "version-junit" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "version-junit" }
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "version-junit" }
-
-kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "version-jetbrains-kotlin" }
-kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "version-jetbrains-kotlin" }
-
 kermit = { module = "co.touchlab:kermit", version.ref = "version-kermit" }
-ksoup-core = { module = "com.fleeksoft.ksoup:ksoup", version.ref = "version-ksoup" }
-
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "version-kotlin" }
 kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "version-jetbrains-kotlin" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "version-jetbrains-kotlin" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "version-jetbrains-kotlin" }
+ksoup-core = { module = "com.fleeksoft.ksoup:ksoup", version.ref = "version-ksoup" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
-kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "version-kotlin" }
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "version-kotlin" }
-jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "version-jetbrains-kotlin" }
 gradle-pdf = { id = "org.asciidoctor.jvm.pdf", version.ref = "version-gradle-pdf" }
+jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "version-jetbrains-kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "version-kotlin" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "version-kotlin" }
