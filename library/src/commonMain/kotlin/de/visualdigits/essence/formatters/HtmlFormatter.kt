@@ -18,6 +18,7 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
             "abbr",
             "b",
             "br",
+            "cite",
             "div",
             "embed",
             "h1",
