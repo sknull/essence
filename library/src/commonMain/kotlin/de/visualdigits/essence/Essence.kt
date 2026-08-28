@@ -85,7 +85,7 @@ object Essence {
             listOf(topNode, topNodeArticle).maxBy { n -> n.toString().length }
         }
 
-        val html = favorite?.clone()?.let { tn -> htmlFormatter.formatElement(tn) }
+        val html = favorite?.clone()?.let { tn -> htmlFormatter.formatElement(tn) } ?: Element("html")
         val images = favorite
             ?.select("img")
             ?.map { image ->
