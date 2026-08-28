@@ -5,6 +5,7 @@ import com.fleeksoft.ksoup.nodes.Element
 data class EssenceResult(
     val text: String,
     val html: Element?,
+    val images: List<Link>,
     val language: String,
     val authors: List<String>,
     val title: String,
@@ -19,5 +20,4 @@ data class EssenceResult(
     val canonicalLink: String,
     val keywords: String,
     val tags: List<String>
-
 )

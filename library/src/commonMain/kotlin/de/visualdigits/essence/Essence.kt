@@ -65,7 +65,6 @@ object Essence {
         // clean and score document before extracting text, links and video
         val doc = Cleaner().clean(document.clone())
         val node = scorer.score(doc.clone())
-        val nodeArticle = articleElement?.clone()?.let { a -> scorer.score(a) }
 
         val topNodeText = node?.clone()?.let { n -> textScoredCleaner.clean(n) }
         val links = topNodeText?.clone()?.let { tn -> LinksExtractor.extract(tn) }?:listOf()
@@ -87,6 +86,15 @@ object Essence {
         }
 
         val html = favorite?.clone()?.let { tn -> htmlFormatter.formatElement(tn) }
+        val images = favorite
+            ?.select("img")
+            ?.map { image ->
+                Link(
+                    href = image.attr("src"),
+                    text = if (image.hasAttr("alt")) image.attr("alt") else image.attr("title")
+                )
+            } ?: listOf()
+
         return EssenceResult(
             authors = authors,
             title = title,
@@ -98,6 +106,7 @@ object Essence {
             language = language.name,
             text = text,
             html = html,
+            images = images,
             favicon = favicon,
             image = image,
             links = links,
