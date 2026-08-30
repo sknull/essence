@@ -8,8 +8,8 @@ import de.visualdigits.essence.words.StopWords
 
 class TextFormatter(private val stopWords: StopWords) : Formatter {
 
-    override fun format(node: Element?) = node?.let {
-        val bestRoot = drillDownToCruxElement(node)
+    override fun format(element: Element?) = element?.let {
+        val bestRoot = drillDownToCruxElement(element)
         // TODO: Combine the following into a single pass
         removeNegativescoresNodes(bestRoot)
         superSubScriptToText(bestRoot)

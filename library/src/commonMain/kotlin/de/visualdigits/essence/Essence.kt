@@ -47,7 +47,7 @@ object Essence {
         val textScoredCleaner = TextScoreCleaner(stopWords)
         val htmlScoredCleaner = HtmlScoreCleaner(stopWords)
         val textFormatter = TextFormatter(stopWords)
-        val htmlFormatter = HtmlFormatter(stopWords)
+        val htmlFormatter = HtmlFormatter()
 
         val title = TitleExtractor.extract(document.clone())
         val softTitle = SoftTitleExtractor.extract(document.clone())
@@ -85,15 +85,7 @@ object Essence {
             listOf(topNode, topNodeArticle).maxBy { n -> n.toString().length }
         }
 
-        val html = favorite?.clone()?.let { tn -> htmlFormatter.formatElement(tn) } ?: Element("html")
-        val images = favorite
-            ?.select("img")
-            ?.map { image ->
-                Link(
-                    href = image.attr("src"),
-                    text = if (image.hasAttr("alt")) image.attr("alt") else image.attr("title")
-                )
-            } ?: listOf()
+        val (html, parts) = favorite?.clone()?.let { fav -> htmlFormatter.formatElement(fav) } ?: Pair(Element("div") , listOf())
 
         return EssenceResult(
             authors = authors,
@@ -106,7 +98,7 @@ object Essence {
             language = language.name,
             text = text,
             html = html,
-            images = images,
+            parts = parts,
             favicon = favicon,
             image = image,
             links = links,

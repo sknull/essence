@@ -121,8 +121,16 @@ class GermanPressTest {
 
     @Test
     fun readNdr3() = runTest {
-        val html = File(ClassLoader.getSystemResource("germanpress/ndr-story3.html").toURI()).readTextNormalized()
-        val expected = File(ClassLoader.getSystemResource("germanpress/ndr-story3_expected.html.txt").toURI()).readTextNormalized()
+        val html = File(ClassLoader.getSystemResource("germanpress/ndr-story-3.html").toURI()).readTextNormalized()
+        val expected = File(ClassLoader.getSystemResource("germanpress/ndr-story-3_expected.html.txt").toURI()).readTextNormalized()
+        val result = Essence.extract(html)
+        assertEquals(expected, result.html.html())
+    }
+
+    @Test
+    fun readNdr4() = runTest {
+        val html = File(ClassLoader.getSystemResource("germanpress/ndr-story-4.html").toURI()).readTextNormalized()
+        val expected = File(ClassLoader.getSystemResource("germanpress/ndr-story-4_expected.html.txt").toURI()).readTextNormalized()
         val result = Essence.extract(html)
         assertEquals(expected, result.html.html())
     }
@@ -139,6 +147,14 @@ class GermanPressTest {
     fun readWdr2() = runTest {
         val html = File(ClassLoader.getSystemResource("germanpress/wdr-story-2.html").toURI()).readTextNormalized()
         val expected = File(ClassLoader.getSystemResource("germanpress/wdr-story-2_expected.html.txt").toURI()).readTextNormalized()
+        val result = Essence.extract(html)
+        assertEquals(expected, result.html.html())
+    }
+
+    @Test
+    fun readWdr3() = runTest {
+        val html = File(ClassLoader.getSystemResource("germanpress/wdr-story-3.html").toURI()).readTextNormalized()
+        val expected = File(ClassLoader.getSystemResource("germanpress/wdr-story-3_expected.html.txt").toURI()).readTextNormalized()
         val result = Essence.extract(html)
         assertEquals(expected, result.html.html())
     }

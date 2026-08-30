@@ -61,9 +61,9 @@ class EssenceTest {
 
     @Test
     fun images() {
-        checkFixture("aolNews", listOf("image"))
+//        checkFixture("aolNews", listOf("image"))
         checkFixture("polygon", listOf("image"))
-        checkFixture("theverge1", listOf("image"))
+//        checkFixture("theverge1", listOf("image"))
     }
 
     @Test

@@ -3,17 +3,13 @@ package de.visualdigits.essence.formatters
 import com.fleeksoft.ksoup.nodes.Element
 import com.fleeksoft.ksoup.nodes.LeafNode
 import com.fleeksoft.ksoup.nodes.Node
+import com.fleeksoft.ksoup.nodes.TextNode
 import de.visualdigits.essence.util.find
-import de.visualdigits.essence.words.StopWords
 
-class HtmlFormatter(private val stopWords: StopWords) : Formatter {
+class HtmlFormatter : Formatter {
 
     companion object {
-        private val tagsToDelete = listOf(
-            "aside"
-        )
-        private val tagsToRetain = listOf(
-            "#text",
+        private val tagsToRetain: List<String> = listOf(
             "a",
             "abbr",
             "b",
@@ -30,6 +26,7 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
             "li",
             "object",
             "p",
+            "picture",
             "span",
             "strong",
             "svg",
@@ -38,46 +35,83 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
             "ol"
         )
 
-        private val attributesToRetain = listOf(
+        private val emptyTags: List<String> = listOf(
+            "br",
+            "img"
+        )
+
+        private val attributesToRetain: List<String> = listOf(
             "href",
             "src",
             "target"
         )
+
+        private const val TAGS_TO_DELETE_SELECTOR: String = "picture,img"
     }
 
     override fun format(element: Element?): String {
-        return formatElement(element)?.html()?:""
+        return formatElement(element).first.html()
     }
 
-    fun formatElement(element: Element?): Element? {
-        return element?.let { n ->
-            removeNegativescoresNodes(n)
-            cleanupTags(n)
-            removeEmptyTags(n)
-            cleanupDivs(n)
-            cleanupAttributes(n)
-            n
-        }
-    }
+    fun formatElement(element: Element?): Pair<Element, List<Element>> {
+        val html = element?.let { elem ->
+            removeNegativeScoresNodes(elem)
+            cleanupTags(elem)
+            removeEmptyTags(elem)
+            cleanupDivs(elem)
+            elem
+        } ?: Element("div")
 
-    private fun cleanupAttributes(element: Element) {
-        element.getAllElements().forEach { elem ->
-            elem.attributes()
-                .filter { attr -> !attributesToRetain.contains(attr.key) }
-                .forEach { attr ->
-                    elem.removeAttr(attr.key)
+        val clone = html.clone()
+        clone.select("picture").forEach { it.unwrap() }
+
+        cleanupAttributes(html)
+        cleanupAttributes(clone)
+        clone.children().forEach { unwrapDivs(it) }
+        clone.tagName("div")
+
+        val imageElements = clone.select("img")
+        val images = imageElements
+            .filter { image -> image.parent() == clone }
+            .map { image -> Pair(image, image.previousSibling()) }
+
+        val childNodes = clone.childNodes()
+        val indices = images.map { childNodes.indexOf(it.first) }.toMutableList()
+        val parts = if (images.isNotEmpty()) {
+            if (indices.first() != 0) indices.add(0, 0)
+            val chunks = indices.dropLast(1).mapIndexed { index, i -> Pair(i, indices[index + 1]) }.toMutableList()
+            if (chunks.last().second < childNodes.size - 1) chunks.add(Pair(chunks.last().second, childNodes.size))
+            val parts = chunks.map { chunk ->
+                val elem = Element(tag = "div")
+                elem.addChildren(*childNodes.subList(chunk.first, chunk.second).toTypedArray())
+                elem
+            }.toMutableList()
+            images.forEach { image ->
+                if (image.second != null) {
+                    parts.find { part ->
+                        part.childNodes().contains(image.second) }?.also { part ->
+                        parts.add(parts.indexOf(part) + 1, image.first)
+                    }
+                } else {
+                    parts.add(0, image.first)
                 }
+            }
+
+            parts
+        } else {
+            listOf(html)
         }
+        clone
+            .select(TAGS_TO_DELETE_SELECTOR)
+            .forEach { elem -> elem.remove() }
+        html
+            .select(TAGS_TO_DELETE_SELECTOR)
+            .forEach { elem -> elem.remove() }
+
+        return Pair(html, parts)
     }
 
-    private fun removeEmptyTags(node: Node) {
-        node.childNodes().forEach { child -> removeEmptyTags(child) }
-        if ((node !is LeafNode && node.childNodes().isEmpty()) || (node is LeafNode && node.coreValue().trim().isEmpty())) {
-            node.remove()
-        }
-    }
-
-    private fun removeNegativescoresNodes(element: Element) {
+    private fun removeNegativeScoresNodes(element: Element) {
         val gravityElements = element.find("*[gravityScore]")
         gravityElements.forEach {
             val score = try {
@@ -94,9 +128,22 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
 
     private fun cleanupTags(node: Node) {
         node.childNodes().forEach { ce -> cleanupTags(ce) }
-        val tagName = node.nodeName().lowercase()
-        val retainElement = tagsToRetain.contains(tagName)
-        if (!retainElement) {
+        val nodeName = node.nodeName().lowercase()
+        if (!tagsToRetain.contains(nodeName) && nodeName != "#text") {
+            node.remove()
+        }
+    }
+
+    private fun removeEmptyTags(node: Node) {
+        node.childNodes().forEach { child -> removeEmptyTags(child) }
+        if (
+            !emptyTags.contains(node.nodeName().lowercase())
+            && (
+                    (node !is LeafNode && node.childNodes().isEmpty())
+                    || (node is LeafNode && node.coreValue().trim().isEmpty())
+                    || (node is TextNode && node.getWholeText().trim().isBlank())
+               )
+        ) {
             node.remove()
         }
     }
@@ -104,6 +151,23 @@ class HtmlFormatter(private val stopWords: StopWords) : Formatter {
     fun cleanupDivs(element: Node) {
         element.childNodes().forEach { c -> cleanupDivs(c) }
         if (element.nodeName().lowercase() == "div" && element.parent()?.nodeName()?.lowercase() == "div") {
+            element.unwrap()
+        }
+    }
+
+    private fun cleanupAttributes(element: Element) {
+        element.getAllElements().forEach { elem ->
+            elem.attributes()
+                .filter { attr -> !attributesToRetain.contains(attr.key) }
+                .forEach { attr ->
+                    elem.removeAttr(attr.key)
+                }
+        }
+    }
+
+    private fun unwrapDivs(element: Element?) {
+        element?.children()?.forEach { c -> unwrapDivs(c) }
+        if (element?.nodeName() == "div") {
             element.unwrap()
         }
     }
