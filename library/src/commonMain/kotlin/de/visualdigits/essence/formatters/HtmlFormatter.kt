@@ -80,7 +80,7 @@ class HtmlFormatter : Formatter {
         val parts = if (images.isNotEmpty()) {
             if (indices.first() != 0) indices.add(0, 0)
             val chunks = indices.dropLast(1).mapIndexed { index, i -> Pair(i, indices[index + 1]) }.toMutableList()
-            if (chunks.last().second < childNodes.size - 1) chunks.add(Pair(chunks.last().second, childNodes.size))
+            if (chunks.isNotEmpty() && chunks.last().second < childNodes.size - 1) chunks.add(Pair(chunks.last().second, childNodes.size))
             val parts = chunks.map { chunk ->
                 val elem = Element(tag = "div")
                 elem.addChildren(*childNodes.subList(chunk.first, chunk.second).toTypedArray())
