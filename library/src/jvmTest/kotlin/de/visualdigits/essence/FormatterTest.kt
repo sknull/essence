@@ -2,6 +2,7 @@ package de.visualdigits.essence
 
 import com.fleeksoft.ksoup.Ksoup
 import de.visualdigits.essence.formatters.TextFormatter
+import de.visualdigits.essence.model.Language
 import de.visualdigits.essence.words.StopWords
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Assertions.assertEquals

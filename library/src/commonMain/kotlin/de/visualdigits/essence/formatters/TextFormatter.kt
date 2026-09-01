@@ -6,12 +6,12 @@ import com.fleeksoft.ksoup.nodes.TextNode
 import de.visualdigits.essence.util.find
 import de.visualdigits.essence.words.StopWords
 
-class TextFormatter(private val stopWords: StopWords) : Formatter {
+class TextFormatter(private val stopWords: StopWords) : Formatter() {
 
     override fun format(element: Element?) = element?.let {
         val bestRoot = drillDownToCruxElement(element)
         // TODO: Combine the following into a single pass
-        removeNegativescoresNodes(bestRoot)
+        removeNegativeScoredNodes(bestRoot)
         superSubScriptToText(bestRoot)
         linksToText(bestRoot)
         addNewlineToBr(bestRoot)
@@ -31,21 +31,6 @@ class TextFormatter(private val stopWords: StopWords) : Formatter {
             }
         }
         return node
-    }
-
-    private fun removeNegativescoresNodes(node: Element) {
-        val gravityElements = node.find("*[gravityScore]")
-        gravityElements.forEach {
-            val score = try {
-                it.attr("gravityScore").toDouble()
-            } catch (e: NumberFormatException) {
-                0.0
-            }
-
-            if (score < 0.0) {
-                it.remove()
-            }
-        }
     }
 
     private fun superSubScriptToText(node: Element) {

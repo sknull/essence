@@ -1,6 +1,6 @@
 package de.visualdigits.essence.words
 
-import de.visualdigits.essence.Language
+import de.visualdigits.essence.model.Language
 import de.visualdigits.library.generated.resources.Res
 
 

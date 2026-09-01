@@ -21,6 +21,8 @@ import de.visualdigits.essence.extractors.TagsExtractor
 import de.visualdigits.essence.extractors.TitleExtractor
 import de.visualdigits.essence.formatters.HtmlFormatter
 import de.visualdigits.essence.formatters.TextFormatter
+import de.visualdigits.essence.model.EssenceResult
+import de.visualdigits.essence.model.Language
 import de.visualdigits.essence.scorers.DocumentScorer
 import de.visualdigits.essence.words.StopWords
 import kotlin.uuid.ExperimentalUuidApi

@@ -2,6 +2,7 @@ package de.visualdigits.essence
 
 import com.fleeksoft.ksoup.helper.Validate.fail
 import de.visualdigits.essence.model.Expectations
+import de.visualdigits.essence.model.Link
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
 import org.junit.jupiter.api.Assertions.assertEquals

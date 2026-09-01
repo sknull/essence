@@ -1,5 +1,6 @@
 package de.visualdigits.essence
 
+import de.visualdigits.essence.model.Language
 import de.visualdigits.essence.words.StopWords
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Assertions.assertEquals

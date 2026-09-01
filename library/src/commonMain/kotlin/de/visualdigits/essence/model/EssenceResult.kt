@@ -1,11 +1,11 @@
-package de.visualdigits.essence
+package de.visualdigits.essence.model
 
 import com.fleeksoft.ksoup.nodes.Element
 
 data class EssenceResult(
     val text: String,
     val html: Element,
-    val parts: List<Element>,
+    val parts: List<HtmlPart>,
     val language: String,
     val authors: List<String>,
     val title: String,

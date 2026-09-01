@@ -4,9 +4,10 @@ import com.fleeksoft.ksoup.nodes.Element
 import com.fleeksoft.ksoup.nodes.LeafNode
 import com.fleeksoft.ksoup.nodes.Node
 import com.fleeksoft.ksoup.nodes.TextNode
-import de.visualdigits.essence.util.find
+import de.visualdigits.essence.model.ElementType
+import de.visualdigits.essence.model.HtmlPart
 
-class HtmlFormatter : Formatter {
+class HtmlFormatter : Formatter() {
 
     companion object {
         private val tagsToRetain: List<String> = listOf(
@@ -53,79 +54,149 @@ class HtmlFormatter : Formatter {
         return formatElement(element).first.html()
     }
 
-    fun formatElement(element: Element?): Pair<Element, List<Element>> {
-        val html = element?.let { elem ->
-            removeNegativeScoresNodes(elem)
+    fun formatElement(element: Element?): Pair<Element, List<HtmlPart>> {
+        val html = element?.clone() ?: Element("main")
+        html.tagName("main")
+        html.let { elem ->
+            removeNegativeScoredNodes(elem)
             cleanupTags(elem)
             removeEmptyTags(elem)
-            cleanupDivs(elem)
-            elem
-        } ?: Element("div")
+            cleanupNestedDivs(elem)
+        }
 
         val clone = html.clone()
+
         clone.select("picture").forEach { it.unwrap() }
-
-        cleanupAttributes(html)
-        cleanupAttributes(clone)
-        clone.children().forEach { unwrapDivs(it) }
-        clone.tagName("div")
-
         val imageElements = clone.select("img")
-        val images = imageElements
-            .filter { image -> image.parent() == clone }
-            .map { image -> Pair(image, image.previousSibling()) }
+        val images = imageElements.mapNotNull { img ->
+            val dropLast = img.rootLineElements().dropLast(1)
+            val div = dropLast.find { it.nodeName().lowercase() == "div" }
+            if (div != null) {
+                img.remove()
+                val children = div.children()
+                val clones = children.map { child -> child.clone() }
+                img.addChildren(*clones.toTypedArray())
+                val imageResult = if (img.attr("src").isNotBlank()) {
+                    val elem = div.rootLineElements().find { it.parent() == clone } ?: img
+                    ImageResult(
+                        element = elem,
+                        img = img,
+                        previousSibling = div.previousElementSibling()
+                    )
+                } else null
+                imageResult
+            } else {
+                if (img.hasAttr("alt")) {
+                    img.addChildren(TextNode(img.attr("alt")))
+                } else if (img.hasAttr("title")) {
+                    img.addChildren(TextNode(img.attr("title")))
+                }
+                if (img.attr("src").isNotBlank()) {
+                    val elem = img.rootLineElements().find { it.parent() == clone } ?: img
+                    ImageResult(
+                        element = elem,
+                        img = img,
+                        previousSibling = img.previousElementSibling()
+                    )
+                } else null
+            }
+        }
+//        src = img.attr("src"),
+//        alt = if (img.hasAttr("alt")) img.attr("alt") else img.attr(("title")),
 
-        val childNodes = clone.childNodes()
-        val indices = images.map { childNodes.indexOf(it.first) }.toMutableList()
+        val children = clone.children().toList()
+        val indices = images.map { image ->
+            val index = children.indexOf(image.element)
+            if (index != -1) index else 0
+        }.toMutableList()
+        clone.children().forEach { unwrapDivs(it) }
         val parts = if (images.isNotEmpty()) {
-            if (indices.first() != 0) indices.add(0, 0)
+            if (indices.first() > 0) indices.add(0, 0)
             val chunks = indices.dropLast(1).mapIndexed { index, i -> Pair(i, indices[index + 1]) }.toMutableList()
-            if (chunks.isNotEmpty() && chunks.last().second < childNodes.size - 1) chunks.add(Pair(chunks.last().second, childNodes.size))
-            val parts = chunks.map { chunk ->
+            if (chunks.isNotEmpty() && chunks.last().second < children.size) chunks.add(Pair(chunks.last().second, children.size))
+            val chunkParts = chunks.map { chunk ->
                 val elem = Element(tag = "div")
-                elem.addChildren(*childNodes.subList(chunk.first, chunk.second).toTypedArray())
+                val subList = children.subList(chunk.first, chunk.second)
+                elem.addChildren(*subList.toTypedArray())
                 elem
             }.toMutableList()
             images.forEach { image ->
-                if (image.second != null) {
-                    parts.find { part ->
-                        part.childNodes().contains(image.second) }?.also { part ->
-                        parts.add(parts.indexOf(part) + 1, image.first)
+                if (image.previousSibling != null) {
+                    chunkParts.find { part ->
+                        part.childNodes().contains(image.previousSibling) }?.also { part ->
+                        chunkParts.add(chunkParts.indexOf(part) + 1, image.img)
                     }
                 } else {
-                    parts.add(0, image.first)
+                    chunkParts.add(0, image.img)
                 }
             }
 
-            parts
+            chunkParts
         } else {
-            listOf(html)
+            val elem = Element("div")
+            elem.addChildren(*clone.children().toTypedArray())
+            elem
         }
-        clone
-            .select(TAGS_TO_DELETE_SELECTOR)
-            .forEach { elem -> elem.remove() }
-        html
-            .select(TAGS_TO_DELETE_SELECTOR)
-            .forEach { elem -> elem.remove() }
 
-        return Pair(html, parts)
+        val nodesUsedInImages = images.flatMap { image -> image.img.children()
+            .filter { it.hasAttr("essenceNodeId") }
+            .map { child ->  child.attr("essenceNodeId")} }
+            .toSet()
+
+        val htmlParts = parts.flatMap { part ->
+            when (part.nodeName().lowercase()) {
+                "img" -> {
+                    cleanupAttributes(part)
+                    listOf(HtmlPart(
+                        elementType = ElementType.image,
+                        html = part.html(),
+                        src = part.attr("src")
+                    ))
+                }
+                "div" -> {
+                    part.children()
+                        .toList()
+                        .partitionByTagName("div")
+                        .mapNotNull { partition ->
+                            if (partition.element != null && partition.element.childrenSize() > 0) {
+                                val filteredElements = partition.element.children().filter { !it.hasAttr("essenceNodeId") || !nodesUsedInImages.contains(it.attr("essenceNodeId"))}
+                                processDivPartition(filteredElements, ElementType.div)
+                            } else if (partition.elements.isNotEmpty()) {
+                                val filteredElements = partition.elements.filter { !it.hasAttr("essenceNodeId") || !nodesUsedInImages.contains(it.attr("essenceNodeId"))}
+                                processDivPartition(filteredElements, ElementType.paragraph)
+                            } else null
+                        }
+                }
+                else -> listOf()
+            }
+        }
+
+        html.select(TAGS_TO_DELETE_SELECTOR)
+            .forEach { elem -> elem.remove() }
+        cleanupAttributes(html)
+
+        return Pair(html, htmlParts)
     }
 
-    private fun removeNegativeScoresNodes(element: Element) {
-        val gravityElements = element.find("*[gravityScore]")
-        gravityElements.forEach {
-            val score = try {
-                it.attr("gravityScore").toDouble()
-            } catch (_: NumberFormatException) {
-                0.0
-            }
-
-            if (score < 0.0) {
-                it.remove()
-            }
-        }
+    private fun processDivPartition(
+        filteredElements: List<Element>,
+        elementType: ElementType
+    ): HtmlPart? {
+        val elem = Element("div")
+        elem.addChildren(*filteredElements.toTypedArray())
+        removeEmptyTags(elem)
+        cleanupAttributes(elem)
+        return if (elem.childrenSize() > 0) {
+            HtmlPart(
+                elementType = elementType,
+                html = elem.html()
+            )
+        } else null
     }
 
+    /**
+     * Keep only wanted tags.
+     */
     private fun cleanupTags(node: Node) {
         node.childNodes().forEach { ce -> cleanupTags(ce) }
         val nodeName = node.nodeName().lowercase()
@@ -148,10 +219,13 @@ class HtmlFormatter : Formatter {
         }
     }
 
-    fun cleanupDivs(element: Node) {
-        element.childNodes().forEach { c -> cleanupDivs(c) }
-        if (element.nodeName().lowercase() == "div" && element.parent()?.nodeName()?.lowercase() == "div") {
-            element.unwrap()
+    fun cleanupNestedDivs(element: Element) {
+        element.children().forEach { c -> cleanupNestedDivs(c) }
+        if (element.nodeName().lowercase() == "div") {
+            val rootLine = element.rootLine().dropLast(1)
+            if (element.childNodes().size < 2 || rootLine.contains("div")) {
+                element.unwrap()
+            }
         }
     }
 
@@ -165,10 +239,61 @@ class HtmlFormatter : Formatter {
         }
     }
 
-    private fun unwrapDivs(element: Element?) {
-        element?.children()?.forEach { c -> unwrapDivs(c) }
-        if (element?.nodeName() == "div") {
-            element.unwrap()
+    private fun unwrapDivs(node: Element?) {
+        node?.children()?.forEach { c -> unwrapDivs(c) }
+        val rootLine = node?.rootLine()?.drop(1) ?: listOf()
+        if (node?.nodeName() == "div" && rootLine.contains("div")) {
+            node.unwrap()
         }
     }
 }
+
+private fun Element.rootLine(rootLine: MutableList<String> = mutableListOf()): List<String> {
+    return rootLineElements().map { it.nodeName().lowercase() }
+}
+
+private fun Element.rootLineElements(rootLine: MutableList<Element> = mutableListOf()): List<Element> {
+    rootLine.add(0, this)
+    parent()?.rootLineElements(rootLine)
+
+    return rootLine
+}
+
+private data class ImageResult(
+    val element: Element,
+    val img: Element,
+    val previousSibling: Element? = null,
+)
+
+fun List<Element>.partitionByTagName(tagName: String): List<Partition> {
+    val indices = filter { it.tagName() == tagName }.map { indexOf(it) }.toMutableList()
+    val chunks = (indices.map { Pair(it, it + 1) } + indices.dropLast(1).mapIndexed { index, i -> Pair(i + 1, indices[index + 1]) })
+        .sortedBy { it.first }
+        .toMutableList()
+    return if (chunks.isNotEmpty()) {
+        val first = chunks.first().first
+        if (first > 0) {
+            chunks.add(0, Pair(0, first))
+        }
+        val last = chunks.last().second
+        if (last < size) {
+            chunks.add(Pair(last, size))
+        }
+        chunks.map { chunk ->
+            val subList = subList(chunk.first, chunk.second)
+            val element = subList.firstOrNull()
+            if (subList.size == 1 && element?.tagName()?.lowercase() == tagName) {
+                Partition(element = element)
+            } else {
+                Partition(elements = subList)
+            }
+        }
+    } else {
+        listOf(Partition(elements = this))
+    }
+}
+
+data class Partition(
+    val element: Element? = null,
+    val elements: List<Element> = listOf()
+)

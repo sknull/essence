@@ -1,4 +1,4 @@
-package de.visualdigits.essence
+package de.visualdigits.essence.model
 
 enum class Language {
     ar,

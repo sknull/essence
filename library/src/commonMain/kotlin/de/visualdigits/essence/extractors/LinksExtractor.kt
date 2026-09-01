@@ -1,7 +1,7 @@
 package de.visualdigits.essence.extractors
 
 import com.fleeksoft.ksoup.nodes.Element
-import de.visualdigits.essence.Link
+import de.visualdigits.essence.model.Link
 import de.visualdigits.essence.util.find
 
 internal object LinksExtractor {
