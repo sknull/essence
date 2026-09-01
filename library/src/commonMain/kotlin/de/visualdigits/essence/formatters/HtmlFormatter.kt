@@ -6,6 +6,7 @@ import com.fleeksoft.ksoup.nodes.Node
 import com.fleeksoft.ksoup.nodes.TextNode
 import de.visualdigits.essence.model.ElementType
 import de.visualdigits.essence.model.HtmlPart
+import de.visualdigits.essence.model.ImageType
 
 class HtmlFormatter : Formatter() {
 
@@ -48,6 +49,10 @@ class HtmlFormatter : Formatter() {
         )
 
         private const val TAGS_TO_DELETE_SELECTOR: String = "picture,img"
+
+        private val standardImageTypes = listOf(".jpg", ".png", ".webp")
+        private val iconImageTypes = listOf(".svg", ".ico")
+
     }
 
     override fun format(element: Element?): String {
@@ -147,24 +152,66 @@ class HtmlFormatter : Formatter() {
             when (part.nodeName().lowercase()) {
                 "img" -> {
                     cleanupAttributes(part)
+                    val src = part.attr("src")
+                    val srcLower = src.lowercase()
+                    val imageType = if (standardImageTypes.any { srcLower.contains(it) }) {
+                        ImageType.standard
+                    } else if (iconImageTypes.any { srcLower.contains(it) }) {
+                        ImageType.icon
+                    } else {
+                        ImageType.unknown
+                    }
                     listOf(HtmlPart(
                         elementType = ElementType.image,
-                        html = part.html(),
-                        src = part.attr("src")
+                        html = part.children(),
+                        imageType = imageType,
+                        src = src
                     ))
                 }
                 "div" -> {
                     part.children()
                         .toList()
-                        .partitionByTagName("div")
-                        .mapNotNull { partition ->
+                        .partitionBy { it?.tagName()?.lowercase() == "div" }
+                        .flatMap { partition ->
                             if (partition.element != null && partition.element.childrenSize() > 0) {
-                                val filteredElements = partition.element.children().filter { !it.hasAttr("essenceNodeId") || !nodesUsedInImages.contains(it.attr("essenceNodeId"))}
-                                processDivPartition(filteredElements, ElementType.div)
+                                val filteredElements = partition.element.children()
+                                    .filter { !it.hasAttr("essenceNodeId") || !nodesUsedInImages.contains(it.attr("essenceNodeId")) }
+                                val elem = Element("div")
+                                elem.addChildren(*filteredElements.toTypedArray())
+                                removeEmptyTags(elem)
+                                cleanupAttributes(elem)
+                                if (elem.childrenSize() > 0) {
+                                    listOf(HtmlPart(
+                                        elementType = ElementType.div,
+                                        html = elem.children()
+                                    ))
+                                } else listOf()
                             } else if (partition.elements.isNotEmpty()) {
-                                val filteredElements = partition.elements.filter { !it.hasAttr("essenceNodeId") || !nodesUsedInImages.contains(it.attr("essenceNodeId"))}
-                                processDivPartition(filteredElements, ElementType.paragraph)
-                            } else null
+                                val filteredElements = partition.elements.filter {
+                                    !it.hasAttr("essenceNodeId") || !nodesUsedInImages.contains(it.attr("essenceNodeId"))
+                                }
+                                val elem = Element("div")
+                                elem.addChildren(*filteredElements.toTypedArray())
+                                removeEmptyTags(elem)
+                                cleanupAttributes(elem)
+                                elem.children()
+                                    .partitionBy { it?.tagName()?.lowercase()?.startsWith("h") == true }
+                                    .mapNotNull { partition ->
+                                        if (partition.element != null) {
+                                            HtmlPart(
+                                                elementType = ElementType.headline,
+                                                html = listOf(partition.element)
+                                            )
+                                        } else if (partition.elements.isNotEmpty()) {
+                                            HtmlPart(
+                                                elementType = ElementType.paragraph,
+                                                html = partition.elements
+                                            )
+                                        } else {
+                                            null
+                                        }
+                                    }
+                            } else listOf()
                         }
                 }
                 else -> listOf()
@@ -176,22 +223,6 @@ class HtmlFormatter : Formatter() {
         cleanupAttributes(html)
 
         return Pair(html, htmlParts)
-    }
-
-    private fun processDivPartition(
-        filteredElements: List<Element>,
-        elementType: ElementType
-    ): HtmlPart? {
-        val elem = Element("div")
-        elem.addChildren(*filteredElements.toTypedArray())
-        removeEmptyTags(elem)
-        cleanupAttributes(elem)
-        return if (elem.childrenSize() > 0) {
-            HtmlPart(
-                elementType = elementType,
-                html = elem.html()
-            )
-        } else null
     }
 
     /**
@@ -265,8 +296,8 @@ private data class ImageResult(
     val previousSibling: Element? = null,
 )
 
-fun List<Element>.partitionByTagName(tagName: String): List<Partition> {
-    val indices = filter { it.tagName() == tagName }.map { indexOf(it) }.toMutableList()
+fun List<Element>.partitionBy(predicate: (Element?) -> Boolean): List<Partition> {
+    val indices = filter { predicate(it) }.map { indexOf(it) }.toMutableList()
     val chunks = (indices.map { Pair(it, it + 1) } + indices.dropLast(1).mapIndexed { index, i -> Pair(i + 1, indices[index + 1]) })
         .sortedBy { it.first }
         .toMutableList()
@@ -282,7 +313,7 @@ fun List<Element>.partitionByTagName(tagName: String): List<Partition> {
         chunks.map { chunk ->
             val subList = subList(chunk.first, chunk.second)
             val element = subList.firstOrNull()
-            if (subList.size == 1 && element?.tagName()?.lowercase() == tagName) {
+            if (subList.size == 1 && predicate(element)) {
                 Partition(element = element)
             } else {
                 Partition(elements = subList)

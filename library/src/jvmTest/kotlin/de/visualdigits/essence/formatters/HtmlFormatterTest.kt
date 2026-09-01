@@ -26,7 +26,7 @@ class HtmlFormatterTest {
 
         val div = Ksoup.parse(html = html).select("div").firstOrNull()
         val children = div?.children()
-        val partitions = children?.partitionByTagName("span")
+        val partitions = children?.partitionBy { it?.tagName()?.lowercase() == "span" }
 
         assertEquals(7, partitions!!.size)
     }
@@ -47,7 +47,7 @@ class HtmlFormatterTest {
 
         val div = Ksoup.parse(html = html).select("div").firstOrNull()
         val children = div?.children()
-        val partitions = children?.partitionByTagName("span")
+        val partitions = children?.partitionBy { it?.tagName()?.lowercase() == "span" }
 
         assertEquals(1, partitions!!.size)
     }
@@ -64,7 +64,7 @@ class HtmlFormatterTest {
 
         val div = Ksoup.parse(html = html).select("div").firstOrNull()
         val children = div?.children()
-        val partitions = children?.partitionByTagName("span")
+        val partitions = children?.partitionBy { it?.tagName()?.lowercase() == "span" }
 
         assertEquals(2, partitions!!.size)
     }
@@ -80,8 +80,27 @@ class HtmlFormatterTest {
 
         val div = Ksoup.parse(html = html).select("div").firstOrNull()
         val children = div?.children()
-        val partitions = children?.partitionByTagName("span")
+        val partitions = children?.partitionBy { it?.tagName()?.lowercase() == "span" }
 
         assertEquals(2, partitions!!.size)
+    }
+
+    @Test
+    fun testPartition5() {
+        val html = """
+            <div>
+                <h1>h1</h1>
+                <span>111</span>
+                <h1>h2</h1>
+                <span>222</span>
+                <span>333</span>
+            </div>
+        """.trimIndent()
+
+        val div = Ksoup.parse(html = html).select("div").firstOrNull()
+        val children = div?.children()
+        val partitions = children?.partitionBy { it?.tagName()?.lowercase()?.startsWith("h") == true }
+
+        assertEquals(4, partitions!!.size)
     }
 }
