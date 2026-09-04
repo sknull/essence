@@ -3,19 +3,13 @@
 <p>Da die Auflistung laut Listflix laufend aktualisiert wird, könne es immer wieder Schwankungen geben. Die Zahlen am Mittwoch, 26.08.2026, sprechen eine klare Sprache: Wenn man die Anzahl der Dönerläden ins Verhältnis zur Einwohnerzahl setzt, landet Duisburg deutschlandweit aktuell auf dem zweiten Platz.</p>
 <p>Rechnerisch kommen in der Ruhrgebietsstadt rund 13,14 Dönerläden auf 100.000 Einwohner, was insgesamt 67 Betriebe ergibt. Damit lässt die Stadt selbst große Metropolen weit hinter sich. Rein rechnerisch ist die Dönerbuden-Dichte in Duisburg rund viereinhalb Mal so hoch wie in Berlin.</p>
 <h2>Hintergrund zur Auflistung von Listflix</h2>
-<p>Doch woher kommen die Zahlen und warum verändern sie sich? Laut Listflix beziehe sich jede Statistik auf Firmen, die im Handelsregister eingetragen sind oder <cite>"ihre Angebote <abbr>bzw.</abbr> Produkte als eigenständige Firma anbieten."</cite> Weiter heißt es: <cite>"Die Daten werden mit eigens entwickelten Webcrawlern tagesaktuell erfasst, verarbeitet und kategorisiert. Dabei kommen künstliche Intelligenz (<abbr>AI</abbr>) und weitere <span>State of the Art</span> Technologien zum Einsatz."</cite></p>
+<p>Doch woher kommen die Zahlen und warum verändern sie sich? Laut Listflix beziehe sich jede Statistik auf Firmen, die im Handelsregister eingetragen sind oder <cite>"ihre Angebote <abbr>bzw.</abbr> Produkte als eigenständige Firma anbieten."</cite> Weiter heißt es: <cite>"Die Daten werden mit eigens entwickelten Webcrawlern tagesaktuell erfasst, verarbeitet und kategorisiert. Dabei kommen künstliche Intelligenz (<abbr>AI</abbr>) und weitere  State of the Art Technologien zum Einsatz."</cite></p>
 <h2>Große Tradition in Duisburg</h2>
-<div>
- <p>Der Döner Pavillon in Duisburg-Hamborn</p>
- <span>Bildquelle: WDR/Julian Schildheuer</span>
-</div>
+<p>Der Döner Pavillon in Duisburg-Hamborn</p>
 <p>Der Döner Pavillon am Hamboner Altmarkt existiert seit 41 Jahren. Damit ist er der älteste Dönerladen in Duisburg. Doch was bedeutet die wachsende Konkurrenz für so eine Traditionsbude? Viele versuchen vor allem über den Preis zu überleben, weiß Betreiber Necip Gönel. Er hat den Laden 1985 eröffnet und sagt: "<cite>Es ist uns egal, wenn um uns herum immer mehr Dönerläden öffnen. Keiner schmeckt so wie unserer. Wir setzen auf Tradition und die können große Ketten nicht kopieren.</cite>"</p>
 <h2>Viel Angebot zu Lasten der Vielfalt</h2>
-<div>
- <p>Sofie Mühlbacher kritisiert die fehlende Vielfalt.</p>
- <span>Bildquelle: WDR/Julian Schildheuer</span>
- <p>Viele Menschen auf der Straße sehen das große Angebot aber nicht unbedingt positiv, so wie Sofie Mühlbacher: "D<cite>adurch, dass es immer mehr Dönerläden gibt, habe ich die Befürchtung, dass die gastronomische Vielfalt verloren geht. Einige Dönerläden haben leider auch keine Veggie-Optionen.</cite>"</p>
-</div>
+<p>Sofie Mühlbacher kritisiert die fehlende Vielfalt.</p>
+<p>Viele Menschen auf der Straße sehen das große Angebot aber nicht unbedingt positiv, so wie Sofie Mühlbacher: "D<cite>adurch, dass es immer mehr Dönerläden gibt, habe ich die Befürchtung, dass die gastronomische Vielfalt verloren geht. Einige Dönerläden haben leider auch keine Veggie-Optionen.</cite>"</p>
 <h2>Starke Konkurrenz aus dem Süden und dem hohen Norden</h2>
 <p>Im bundesweiten Ranking sichert sich Mannheim mit 13,21 Dönerbuden pro 100.000 Einwohnern die Spitzenpositionierung. Hinter Duisburg liegt Augsburg mit 11,29 Betrieben auf dem dritten Rang, gefolgt von Kiel mit 11,08 Betrieben auf Platz vier und Aachen auf Platz fünf mit 10,66 Dönerläden je 100.000 Einwohner.</p>
 <p>Auch weitere Städte aus <abbr>NRW</abbr> wie Gelsenkirchen und Münster landen im vorderen Teil der Auswertung, während Köln den vierzehnten Platz belegt. Am Ende des 30 Städte umfassenden Rankings reiht sich Bonn mit 2,16 Betrieben ein.</p>

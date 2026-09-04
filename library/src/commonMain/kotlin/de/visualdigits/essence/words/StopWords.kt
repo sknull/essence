@@ -2,6 +2,7 @@ package de.visualdigits.essence.words
 
 import de.visualdigits.essence.model.Language
 import de.visualdigits.library.generated.resources.Res
+import kotlinx.coroutines.runBlocking
 
 
 data class StopWordsStatistics(
@@ -12,14 +13,14 @@ data class StopWordsStatistics(
 class StopWords private constructor(private val stopWords: List<String>) {
     companion object {
 
-        suspend fun load(language: Language = Language.en): StopWords {
+        fun load(language: Language = Language.en): StopWords = runBlocking {
             val bytes = Res.readBytes("files/stopwords/stopwords-$language.txt")
             val words = bytes.decodeToString()
                 .replace("\r\n", "\n")
                 .replace("\r", "\n")
                 .split("\n")
                 .map { line -> line.trim().lowercase() }
-            return StopWords(words)
+            StopWords(words)
         }
     }
 

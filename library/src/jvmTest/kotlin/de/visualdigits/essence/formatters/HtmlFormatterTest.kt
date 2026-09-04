@@ -1,6 +1,7 @@
 package de.visualdigits.essence.formatters
 
 import com.fleeksoft.ksoup.Ksoup
+import de.visualdigits.essence.util.partitionBy
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 

@@ -6,8 +6,5 @@
 <p>Eine Großfahndung mit mehreren Streifenwagen wurde eingeleitet. Auch ein Hubschrauber war im Einsatz.</p>
 <h2>Polizisten wollten Auto mit gezogener Waffe stoppen</h2>
 <p>Auf dem Parkplatz eines Baumarkts an der Borsigstraße wollte die Polizei den Mann dann erneut schnappen. Beamte stellten sich ihm mit gezogener Waffe in den Weg. Trotzdem gab der Fahrer Gas und erwischte dabei einen Zivilpolizisten mit dem Außenspiegel. Der Beamte wurde leicht verletzt und musste in ein Krankenhaus.</p>
-<div>
- <p>Der Mercedesfahrer konnte über die Bornstraße entkommen.</p>
- <span>Bildquelle: NonstopNews</span>
-</div>
+<p>Der Mercedesfahrer konnte über die Bornstraße entkommen.</p>
 <p>Der Mercedesfahrer flüchtete über die Bornstraße, eine mehrspurige Ausfallstraße, und wurde dort mit 154 km/h geblitzt. Obwohl er mit sogar mit dem Polizeihubschrauber verfolgt wurde, war dem Fahrer die Flucht vorerst gelungen.</p>

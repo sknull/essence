@@ -7,8 +7,8 @@ abstract class Formatter {
 
     abstract fun format(element: Element?): String
 
-    fun removeNegativeScoredNodes(element: Element) {
-        val gravityElements = element.find("*[gravityScore]")
+    fun Element.removeNegativeScoredNodes() {
+        val gravityElements = find("*[gravityScore]")
         gravityElements.forEach {
             val score = try {
                 it.attr("gravityScore").toDouble()

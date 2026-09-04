@@ -11,7 +11,7 @@ class TextFormatter(private val stopWords: StopWords) : Formatter() {
     override fun format(element: Element?) = element?.let {
         val bestRoot = drillDownToCruxElement(element)
         // TODO: Combine the following into a single pass
-        removeNegativeScoredNodes(bestRoot)
+        bestRoot.removeNegativeScoredNodes()
         superSubScriptToText(bestRoot)
         linksToText(bestRoot)
         addNewlineToBr(bestRoot)
