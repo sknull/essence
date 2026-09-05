@@ -2,14 +2,14 @@
 <p>Stand: 30.12.2025 10:37 Uhr</p>
 <p><strong>Von Aktivrente bis Wehrdienst: 2026 wird sich im Alltag vieler Menschen etwas ändern. Die Bundesregierung hat bis zuletzt viele Gesetze verabschiedet, die auf Leben und Geldbeutel Auswirkungen haben werden. Ein Überblick.</strong></p>
 <h2>Höherer Mindestlohn</h2>
-<p>Der Mindestlohn <a href="/inland/innenpolitik/mindestlohn-steigerung-100.html">steigt zum 1. Januar auf 13,90 Euro pro Stunde</a>. Auch für Auszubildende ist etwas mehr Geld drin. Die Mindestvergütung im ersten Lehrjahr steigt auf 724 Euro. Auch in den weiteren Ausbildungsjahren gibt es höhere Mindestsätze: im zweiten Jahr 854 Euro, im dritten 977 und bei einem vierten Ausbildungsjahr 1.014 Euro monatlich.</p>
+<p>Der Mindestlohn <a href="/inland/innenpolitik/mindestlohn-steigerung-100.html" title="Mindestlohn: Kabinett will deutliche Erhöhung auf den Weg bringen">steigt zum 1. Januar auf 13,90 Euro pro Stunde</a>. Auch für Auszubildende ist etwas mehr Geld drin. Die Mindestvergütung im ersten Lehrjahr steigt auf 724 Euro. Auch in den weiteren Ausbildungsjahren gibt es höhere Mindestsätze: im zweiten Jahr 854 Euro, im dritten 977 und bei einem vierten Ausbildungsjahr 1.014 Euro monatlich.</p>
 <h2>Höhere Minijob-Grenze</h2>
-<p>Parallel zur Mindestlohnerhöhung steigt auch die Obergrenze für sogenannte Minijobs. Diese erhöht sich <a href="/wirtschaft/arbeitsmarkt/minijobs-mindestlohn-anpassung-verdienstgrenze-100.html">ab Januar von 556 auf 603 Euro im Monat</a>.</p>
+<p>Parallel zur Mindestlohnerhöhung steigt auch die Obergrenze für sogenannte Minijobs. Diese erhöht sich <a href="/wirtschaft/arbeitsmarkt/minijobs-mindestlohn-anpassung-verdienstgrenze-100.html" title="Minijob-Grenze in Deutschland steigt 2026 auf 603 Euro">ab Januar von 556 auf 603 Euro im Monat</a>.</p>
 <a href="/video/video-1540080.html">
  <h3>Was ändert sich positiv in 2026?</h3>Alexander Noodt, Radio Bremen, Morgenmagazin, Das Erste, 30.12.2025 08:00 Uhr
 </a>
 <h2>Deutschlandticket wird teurer</h2>
-<p>Ein Jahr nach der ersten Preiserhöhung wird das Deutschlandticket noch mal teurer: Von Januar an steigt der Preis von 58 <a href="/wissen/klima/deutschlandticket-klimaauswirkung-100.html">auf 63 Euro pro Monat</a>. Rund 14 Millionen Menschen nutzen nach Branchenangaben das Abo, das bundesweit Fahrten im Regional- und Nahverkehr ermöglicht.</p>
+<p>Ein Jahr nach der ersten Preiserhöhung wird das Deutschlandticket noch mal teurer: Von Januar an steigt der Preis von 58 <a href="/wissen/klima/deutschlandticket-klimaauswirkung-100.html" title="Höherer Preis: 63 Euro fürs Deutschlandticket - und das Klima?">auf 63 Euro pro Monat</a>. Rund 14 Millionen Menschen nutzen nach Branchenangaben das Abo, das bundesweit Fahrten im Regional- und Nahverkehr ermöglicht.</p>
 <h2>Steuerfreibetrag steigt</h2>
 <p>Der steuerliche Grundfreibetrag, also das Einkommen, bis zu dem keine Steuer gezahlt werden muss, steigt. 2026 liegt er bei 12.348 Euro. Der Kinderfreibetrag wird auf 9.756 Euro angehoben.</p>
 <h2>Rentenerhöhung</h2>
@@ -34,7 +34,7 @@
  <p>Wer das Formular zur Wehrdiensterfassung oder die Aufforderung zur Musterung ignoriert, dem drohen Konsequenzen.  mehr</p>
 </a>
 <h2>Recht auf  Ganztagsbetreuung</h2>
-<p>Wenn Kinder vom Kindergarten in die Grundschule kommen, kann das für Eltern zu Engpässen in der Kinderbetreuung führen. Ab dem Schuljahr 2026/2027 sollen zunächst alle Erstklässlerinnen und Erstklässler einen Rechtsanspruch auf <a href="/inland/gesellschaft/grundschule-ganztag-ifo-institut-100.html">Ganztagsbetreuung in den Schulen</a> haben. Dieser Anspruch wird in den kommenden Jahren um je eine Klassenstufe pro Jahr ausgeweitet.</p>
+<p>Wenn Kinder vom Kindergarten in die Grundschule kommen, kann das für Eltern zu Engpässen in der Kinderbetreuung führen. Ab dem Schuljahr 2026/2027 sollen zunächst alle Erstklässlerinnen und Erstklässler einen Rechtsanspruch auf <a href="/inland/gesellschaft/grundschule-ganztag-ifo-institut-100.html" title="Ifo-Studie: Ganztag in Grundschulen kann viele positive Effekte haben">Ganztagsbetreuung in den Schulen</a> haben. Dieser Anspruch wird in den kommenden Jahren um je eine Klassenstufe pro Jahr ausgeweitet.</p>
 <h2>Aus Bürgergeld wird Grundsicherung - strengere Sanktionen</h2>
 <p>Das Bürgergeld soll künftig Grundsicherung heißen, und wer Termine im Jobcenter ohne zwingenden Grund versäumt oder eine Arbeitsaufnahme verweigert, soll dies härter zu spüren bekommen. Künftig soll direkt mit einer 30-prozentigen Kürzung bestraft werden können, falls jemand zum Beispiel eine Weiterbildung abbricht oder Bewerbungen nicht abschickt.</p>
 <p>Wer Termine im Jobcenter ohne wichtigen Grund nicht wahrnimmt, dem droht ab dem zweiten verpassten Termin ebenfalls eine Kürzung um 30 Prozent, ab dem dritten Termin eine komplette Streichung der Zahlung. Das Gesetz soll großteils am 1. Juli 2026 in Kraft treten. Zunächst wird der Entwurf nun in Bundestag und Bundesrat beraten.</p>
@@ -44,7 +44,7 @@
  <p>Weniger Geld bei Verstößen: 2026 soll die Grundsicherung das Bürgergeld ersetzen.  mehr</p>
 </a>
 <h2>Mehrwertsteuer für die Gastronomie</h2>
-<p>Die Umsatzsteuer für Speisen in der Gastronomie wird dauerhaft von 19 auf sieben Prozent reduziert. Das galt auch schon während der Corona-Pandemie. Ob die Änderung Verbraucherinnen und Verbraucher auch spüren, ist unklar. <a href="/wirtschaft/mehrwehrsteuer-senkung-gastronomie-100.html">Gastronomen dämpften vor dem Beschluss die Hoffnungen, dass mit der Steuer auch die Preise sinken.</a></p>
+<p>Die Umsatzsteuer für Speisen in der Gastronomie wird dauerhaft von 19 auf sieben Prozent reduziert. Das galt auch schon während der Corona-Pandemie. Ob die Änderung Verbraucherinnen und Verbraucher auch spüren, ist unklar. <a href="/wirtschaft/mehrwehrsteuer-senkung-gastronomie-100.html" title="Essengehen wird wohl trotz Mehrwertsteuer-Senkung nicht günstiger">Gastronomen dämpften vor dem Beschluss die Hoffnungen, dass mit der Steuer auch die Preise sinken.</a></p>
 <h2>Höhere Sozialabgaben für Gutverdiener</h2>
 <p>Gutverdiener sollen turnusmäßig höhere Sozialabgaben zahlen. In der gesetzlichen Rentenversicherung werden künftig voraussichtlich bis zu einem Monatseinkommen von 8.450 Euro Beiträge fällig. Wer mehr verdient, zahlt nur bis zu dieser Grenze Rentenbeiträge. Die Beitragsbemessungsgrenze für die gesetzliche Kranken- und Pflegeversicherung soll auf 5.812,50 Euro pro Monat steigen.</p>
 <h2>Steuerliche Entlastungen für Ehrenamtler</h2>

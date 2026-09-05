@@ -15,7 +15,7 @@
 </a>
 <h2>Kann bei Überraschungen schnell ausgerichtet werden</h2>
 <p>Für die Astronomie ist der Spiegeldeal ein Glücksfall, denn der ursprüngliche Bauplan für das Roman-Teleskop sah einen wesentlich kleineren Spiegel vor. Der jetzige ist so geformt, dass das Teleskop unter einem sehr großen Blickwinkel ins All schaut. Eine seiner Aufnahmen umfasst eine Fläche am Himmel, die fast so groß ist wie der Vollmond.</p>
-<p>Nur ein Weltraumteleskop schaut mit noch umfassenderem Blick ins All: das europäische <a href="/wissen/forschung/weltraumteleskop-euclid-100.html">Euklid-Teleskop</a>. Roman allerdings kann feinere Details abbilden und etwas tiefer ins All schauen als Euklid.</p>
+<p>Nur ein Weltraumteleskop schaut mit noch umfassenderem Blick ins All: das europäische <a href="/wissen/forschung/weltraumteleskop-euclid-100.html" title="Das sind die neuen Bilder vom Weltraumteleskop Euclid ">Euklid-Teleskop</a>. Roman allerdings kann feinere Details abbilden und etwas tiefer ins All schauen als Euklid.</p>
 <p>Bei überraschenden Ereignissen am Himmel, beispielsweise einer Supernova-Explosion, kann Roman innerhalb von Minuten in die entsprechende Richtung geschwenkt werden, um auch frühe Phasen solcher Ereignisse nicht zu verpassen. Bei Hubble würde ein entsprechender Schwenk Stunden dauern.</p>
 <p>Während das Roman-Teleskop den Astronomen einen Überblick über das Geschehen auf großer Fläche im All verschafft, schauen das Hubble-Teleskop und auch das James-Webb-Teleskop auf recht kleinen Spots am Himmel extrem tief ins All - und damit Milliarden Jahre in die Vergangenheit unseres Universums.</p>
 <a href="/wissen/weltraum/schwarze-loecher-102.html">
