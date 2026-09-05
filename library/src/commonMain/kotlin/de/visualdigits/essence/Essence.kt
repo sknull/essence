@@ -118,13 +118,12 @@ object Essence {
     ): List<Part> {
         val nodeMap = createNodeIds(document)
         val stopWords = StopWords.load(language)
-        val scorer = DocumentScorer(stopWords)
         val htmlScoredCleaner = HtmlScoreCleaner(stopWords)
         val htmlFormatter = HtmlFormatter()
 
         // clean and score document before extracting text, links and video
         val doc = Cleaner().clean(document.clone())
-        val node = scorer.score(doc)
+        val node = DocumentScorer(stopWords).score(doc)
 
         val topNodeHtml = node?.let { n -> htmlScoredCleaner.cleanHtml(n) }
         val articleElement = doc.selectFirst("article")
@@ -134,16 +133,9 @@ object Essence {
         val topNode = nodeMap[topNodeHtml?.attr("essenceNodeId")]
         val topNodeArticle = nodeMap[topNodeHtmlArticle?.attr("essenceNodeId")]
 
-        // if topNode is contained in article node prefer top node as article probably contains crap around the wanted text
-        // otherwise prefer the longer paragraph
-        val favorite = if (topNodeArticle?.contains(topNode) == true) {
-            topNode
-        } else {
-            listOf(topNode, topNodeArticle).maxBy { n -> n.toString().length }
-        }
+        val favorite = listOf(topNode, topNodeArticle).maxBy { n -> n.toString().length }
 
         val parts = favorite?.let { fav -> htmlFormatter.formatElement(fav) } ?: listOf()
-
         return parts
     }
 

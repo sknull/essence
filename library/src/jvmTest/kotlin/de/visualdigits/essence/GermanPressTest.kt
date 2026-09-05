@@ -73,32 +73,40 @@ class GermanPressTest {
 
     @Test
     fun readFocus1() = runTest {
-        val html = File(ClassLoader.getSystemResource("germanpress/focus_story-1.html").toURI()).readTextNormalized()
-        val expected = File(ClassLoader.getSystemResource("germanpress/focus_story-1_expected.html.txt").toURI()).readTextNormalized()
+        val html = File(ClassLoader.getSystemResource("germanpress/focus-story-1.html").toURI()).readTextNormalized()
+        val expected = File(ClassLoader.getSystemResource("germanpress/focus-story-1_expected.html.txt").toURI()).readTextNormalized()
         val result = Essence.extract(html)
         assertEquals(expected, result.html)
     }
 
     @Test
     fun readFocus2() = runTest {
-        val html = File(ClassLoader.getSystemResource("germanpress/focus_story-2.html").toURI()).readTextNormalized()
-        val expected = File(ClassLoader.getSystemResource("germanpress/focus_story-2_expected.html.txt").toURI()).readTextNormalized()
+        val html = File(ClassLoader.getSystemResource("germanpress/focus-story-2.html").toURI()).readTextNormalized()
+        val expected = File(ClassLoader.getSystemResource("germanpress/focus-story-2_expected.html.txt").toURI()).readTextNormalized()
         val result = Essence.extract(html)
         assertEquals(expected, result.html)
     }
 
     @Test
     fun readFocus3() = runTest {
-        val html = File(ClassLoader.getSystemResource("germanpress/focus_story-3.html").toURI()).readTextNormalized()
-        val expected = File(ClassLoader.getSystemResource("germanpress/focus_story-3_expected.html.txt").toURI()).readTextNormalized()
+        val html = File(ClassLoader.getSystemResource("germanpress/focus-story-3.html").toURI()).readTextNormalized()
+        val expected = File(ClassLoader.getSystemResource("germanpress/focus-story-3_expected.html.txt").toURI()).readTextNormalized()
         val result = Essence.extract(html)
         assertEquals(expected, result.html)
     }
 
     @Test
     fun readFocus4() = runTest {
-        val html = File(ClassLoader.getSystemResource("germanpress/focus_story-4.html").toURI()).readTextNormalized()
-        val expected = File(ClassLoader.getSystemResource("germanpress/focus_story-4_expected.html.txt").toURI()).readTextNormalized()
+        val html = File(ClassLoader.getSystemResource("germanpress/focus-story-4.html").toURI()).readTextNormalized()
+        val expected = File(ClassLoader.getSystemResource("germanpress/focus-story-4_expected.html.txt").toURI()).readTextNormalized()
+        val result = Essence.extract(html)
+        assertEquals(expected, result.html)
+    }
+
+    @Test
+    fun readFocus5() = runTest {
+        val html = File(ClassLoader.getSystemResource("germanpress/focus-story-5.html").toURI()).readTextNormalized()
+        val expected = File(ClassLoader.getSystemResource("germanpress/focus-story-5_expected.html.txt").toURI()).readTextNormalized()
         val result = Essence.extract(html)
         assertEquals(expected, result.html)
     }

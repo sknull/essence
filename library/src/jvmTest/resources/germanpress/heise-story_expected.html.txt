@@ -17,4 +17,4 @@
  <h3>E-Mail-Adresse</h3>
  <p>Ausführliche Informationen zum Versandverfahren und zu Ihren Widerrufsmöglichkeiten erhalten Sie in unserer <a href="https://www.heise.de/Datenschutzerklaerung-der-Heise-Medien-GmbH-Co-KG-4860.html#datenschutz-newsletter">Datenschutzerklärung</a>.</p>
 </div>
-<p>(<a href="mailto:cbo@heise.de" title="Christoph Böttcher">cbo</a>)</p>
+<p>  (<a href="mailto:cbo@heise.de" title="Christoph Böttcher">cbo</a>) </p>

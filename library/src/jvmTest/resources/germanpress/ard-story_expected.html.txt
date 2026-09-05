@@ -3,20 +3,22 @@
 <p>Die Strecke zwischen Hamburg-Altona und dem Hauptbahnhof ist ein internationaler Bahn-Korridor - nun rollen hier wieder rund 900 Züge pro Tag auf vier Gleisen. Die Sternbrücke ist 3.700 Tonnen schwer, ihr Einbau gilt als technische Meisterleistung. Sie ist deutlich größer als ihre Vorgängerin - was bei Anwohnerinnen und Anwohnern nach wie vor kritisiert wird.</p>
 <h2>Straßen länger gesperrt</h2>
 <p>Die Bahn hatte die Sperrpause um zwei Wochen verlängert, weil die Oberleitungen Probleme machten. Auch jetzt wird nicht alles rechtzeitig fertig: Die Straßen unter der Sternbrücke bleiben zunächst gesperrt, die Stresemannstraße etwa ist erst ab dem 7. September wieder frei, die Max-Brauer-Allee noch später. Grund ist unter anderem, dass die Bahn am Bahndamm 10.000 Tonnen mehr Boden austauschen musste als ursprünglich geplant.</p>
-<a href="https://www.ardmediathek.de/video/Y3JpZDovL25kci5kZS9wcm9wbGFuXzE5NjM4MDMxOF9nYW56ZVNlbmR1bmc">
- <div>ARD Mediathek</div>
+<a href="https://www.ardmediathek.de/video/Y3JpZDovL25kci5kZS9wcm9wbGFuXzE5NjM4MDMxOF9nYW56ZVNlbmR1bmc"> 
+ <div>    ARD Mediathek   </div> 
 </a>
 <h2>100 Jahre alte Brücke ersetzt</h2>
 <p>Die alte Sternbrücke stammte aus dem Jahr 1926. Wegen ihres Zustands und der gestiegenen Anforderungen an den modernen Bahnverkehr hatte sich die Deutsche Bahn für einen Neubau entschieden.</p>
 <p>Der Einbau war das Ergebnis eines spektakulären Transports Ende Juli: Die neue, 108 Meter lange Brücke wurde rund 500 Meter vom Bauort bis zum Bahndamm an der Kreuzung Max-Brauer-Allee/Stresemannstraße gefahren - Zentimeter für Zentimeter, an manchen Stellen mit nur 40 Zentimetern Abstand zu den Häusern. Tausende Schaulustige verfolgten das Manöver des niederländischen Spezialteams Mammoet.</p>
-<h2><a href="/nachrichten/hamburg/gross-baustellen-in-hamburg-eine-verzoegert-sich-eine-neue-kommt,sommerbaustellen-106.html">Großbaustellen in Hamburg: Eine verzögert sich, eine neue kommt</a></h2>
-<p>Während an der Sternbrücke noch länger gebaut wird, startet am Schlump kommende Woche eine neue Großbaustelle.</p>
-<h2><a href="/nachrichten/hamburg/neue-sternbruecke-in-hamburg-arbeiten-gehen-weiter,sternbruecke-162.html">Neue Sternbrücke in Hamburg: Arbeiten gehen weiter</a></h2>
-<p>Die neue Sternbrücke ist fertig eingehoben. Und auch am Sonnabend kamen viele Schaulustige, um die neue Brücke zu sehen.</p>
-<h2><a href="/kultur/musik/sternbruecke-in-hamburg-wie-die-grossbaustelle-die-clubszene-veraendert,sternbruecke-232.html">Sternbrücke in Hamburg: Wie die Großbaustelle die Clubszene verändert</a></h2>
-<p>Für einige Clubs bedeutet der Abriss und Neubau der Eisenbahnbrücke Abschied und Neuanfang - eine Kneipe zeigt Durchhaltevermögen.</p>
-<h2><a href="/geschichte/schauplaetze/schon-1893-fuhr-die-eisenbahn-ueber-die-hamburger-sternbruecke,sternbruecke196.html">Schon 1893 fuhr die Eisenbahn über die Hamburger Sternbrücke</a></h2>
-<p>1893 wird in Altona die erste Sternbrücke gebaut, 1926 folgt wegen zunehmenden Verkehrs ein Neubau. 100 Jahre später wird in Hamburg nun das dritte Bauwerk installiert.</p>
+<div>
+ <h2><a href="/nachrichten/hamburg/gross-baustellen-in-hamburg-eine-verzoegert-sich-eine-neue-kommt,sommerbaustellen-106.html">Großbaustellen in Hamburg: Eine verzögert sich, eine neue kommt</a></h2>
+ <p>Während an der Sternbrücke noch länger gebaut wird, startet am Schlump kommende Woche eine neue Großbaustelle.</p>
+ <h2><a href="/nachrichten/hamburg/neue-sternbruecke-in-hamburg-arbeiten-gehen-weiter,sternbruecke-162.html">Neue Sternbrücke in Hamburg: Arbeiten gehen weiter</a></h2>
+ <p>Die neue Sternbrücke ist fertig eingehoben. Und auch am Sonnabend kamen viele Schaulustige, um die neue Brücke zu sehen.</p>
+ <h2><a href="/kultur/musik/sternbruecke-in-hamburg-wie-die-grossbaustelle-die-clubszene-veraendert,sternbruecke-232.html">Sternbrücke in Hamburg: Wie die Großbaustelle die Clubszene verändert</a></h2>
+ <p>Für einige Clubs bedeutet der Abriss und Neubau der Eisenbahnbrücke Abschied und Neuanfang - eine Kneipe zeigt Durchhaltevermögen.</p>
+ <h2><a href="/geschichte/schauplaetze/schon-1893-fuhr-die-eisenbahn-ueber-die-hamburger-sternbruecke,sternbruecke196.html">Schon 1893 fuhr die Eisenbahn über die Hamburger Sternbrücke</a></h2>
+ <p>1893 wird in Altona die erste Sternbrücke gebaut, 1926 folgt wegen zunehmenden Verkehrs ein Neubau. 100 Jahre später wird in Hamburg nun das dritte Bauwerk installiert.</p>
+</div>
 <div>
  <p>Dieses Thema im Programm:</p>
  <h3>NDR 90,3 | NDR 90,3 Aktuell | 31.08.2026 | 07:00 Uhr</h3>

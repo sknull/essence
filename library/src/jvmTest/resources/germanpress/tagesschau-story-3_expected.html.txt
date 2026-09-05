@@ -1,6 +1,8 @@
-<h1>"Nancy Grace Roman" Neues  Weltraumteleskop ins All gestartet</h1>
-<p>Stand: 30.08.2026 • 16:45 Uhr</p>
-<p><strong>Mehr als 35 Jahre ist "Hubble" schon im Einsatz, entsprechend altersschwach ist das Weltraumteleskop. Jetzt ist ein Nachfolger ins All gestartet. Er ist deutlich leistungsstärker. </strong></p>
+<div>
+ <h1> "Nancy Grace Roman"  Neues  Weltraumteleskop ins All gestartet</h1>
+ <p>Stand: 30.08.2026 • 16:45 Uhr</p>
+ <p><strong>Mehr als 35 Jahre ist "Hubble" schon im Einsatz, entsprechend altersschwach ist das Weltraumteleskop. Jetzt ist ein Nachfolger ins All gestartet. Er ist deutlich leistungsstärker. </strong></p>
+</div>
 <p>Die US-Raumfahrtbehörde NASA hat ein neues Weltraumteleskop auf den Weg ins All gebracht. Das "Nancy Grace Roman Space Telescope" startete mit Hilfe einer "Falcon Heavy"-Rakete vom Weltraumbahnhof Cape Canaveral im US-Bundesstaat Florida zu seinem Beobachtungsplatz tief im Weltall.</p>
 <p>Von dort aus soll es die Verteilung von dunkler Materie im Weltall untersuchen, Daten zur Ausdehnungsgeschwindigkeit des Universums liefern und Planeten an fremden Sternen finden. Für die Suche nach Exoplaneten hat das Roman-Teleskop ein neuartiges Instrument an Bord, in dem auch Präzisionsbauteile aus Deutschland verbaut sind.</p>
 <p>Eine der Besonderheiten des Roman-Teleskops ist zwar nicht technischer Natur, aber für die Astronomie trotzdem recht erfreulich: Das Teleskop wurde acht Monate vor dem geplanten Termin fertiggestellt. So konnte auch der Starttermin entsprechend vorgezogen werden.</p>
@@ -8,45 +10,45 @@
 <p>Benannt ist das Teleskop nach der 2018 verstorbenen Forscherin Nancy Grace Roman. Sie war die erste Chefin der Astronomieabteilung der NASA und treibende Kraft hinter dem "Great Observatories"-Programm. In diesem Zusammenhang wird sie auch häufig als "Mutter des Hubble-Weltraumteleskops" bezeichnet.</p>
 <p>Die US-amerikanische Astronomin Nancy Grace Roman (1925-2018) war maßgeblich an der Planung für das Hubble-Weltraumteleskop beteiligt.</p>
 <p>Bemerkenswert an der Baugeschichte des Roman-Teleskops ist, dass sein Spiegel ursprünglich für einen US-Spionagesatelliten hergestellt wurde. Der Spion im All wurde jedoch nie zu Ende gebaut und der Spiegel Jahre nach Einstellung des Projekts an das Team des Roman-Teleskops weitergegeben. Sein Durchmesser beträgt 2,4 Meter. Er hat damit die gleiche Größe wie der Spiegel des legendären Hubble-Weltraumteleskops.</p>
-<a href="/wissen/weltraum/gravitationswellen-forschung-100.html">
- <p>12.02.2026</p>
- <h3>Zehn Jahre nach erstem Nachweis Was  Gravitationswellen über das Universum verraten</h3>
- <p>Vor zehn Jahren wurde der Nachweis von Gravitationswellen bekannt. Sie weiten den Blick auf das Universum.  mehr</p>
+<a href="/wissen/weltraum/gravitationswellen-forschung-100.html">  
+ <p> 12.02.2026</p> 
+ <h3> Zehn Jahre nach erstem Nachweis  Was  Gravitationswellen über das Universum verraten</h3>   
+ <p>Vor zehn Jahren wurde der Nachweis von Gravitationswellen bekannt. Sie weiten den Blick auf das Universum.  mehr</p>  
 </a>
 <h2>Kann bei Überraschungen schnell ausgerichtet werden</h2>
 <p>Für die Astronomie ist der Spiegeldeal ein Glücksfall, denn der ursprüngliche Bauplan für das Roman-Teleskop sah einen wesentlich kleineren Spiegel vor. Der jetzige ist so geformt, dass das Teleskop unter einem sehr großen Blickwinkel ins All schaut. Eine seiner Aufnahmen umfasst eine Fläche am Himmel, die fast so groß ist wie der Vollmond.</p>
 <p>Nur ein Weltraumteleskop schaut mit noch umfassenderem Blick ins All: das europäische <a href="/wissen/forschung/weltraumteleskop-euclid-100.html" title="Das sind die neuen Bilder vom Weltraumteleskop Euclid ">Euklid-Teleskop</a>. Roman allerdings kann feinere Details abbilden und etwas tiefer ins All schauen als Euklid.</p>
 <p>Bei überraschenden Ereignissen am Himmel, beispielsweise einer Supernova-Explosion, kann Roman innerhalb von Minuten in die entsprechende Richtung geschwenkt werden, um auch frühe Phasen solcher Ereignisse nicht zu verpassen. Bei Hubble würde ein entsprechender Schwenk Stunden dauern.</p>
 <p>Während das Roman-Teleskop den Astronomen einen Überblick über das Geschehen auf großer Fläche im All verschafft, schauen das Hubble-Teleskop und auch das James-Webb-Teleskop auf recht kleinen Spots am Himmel extrem tief ins All - und damit Milliarden Jahre in die Vergangenheit unseres Universums.</p>
-<a href="/wissen/weltraum/schwarze-loecher-102.html">
- <p>30.03.2026</p>
- <h3>Astrophysik Wie Schwarze Löcher das Wachstum von Galaxien steuern</h3>
- <p>Eine neue Studie zeigt, wie Schwarze Löcher ganze Galaxien formen.  mehr</p>
+<a href="/wissen/weltraum/schwarze-loecher-102.html">  
+ <p> 30.03.2026</p> 
+ <h3> Astrophysik  Wie Schwarze Löcher das Wachstum von Galaxien steuern</h3>   
+ <p>Eine neue Studie zeigt, wie Schwarze Löcher ganze Galaxien formen.  mehr</p>  
 </a>
 <h2>Erforschung von dunkler Materie und Supernovae</h2>
 <p>An Bord des Roman-Weltraumteleskops befinden sich zwei Instrumente: Zum einen das Wide-Field-Instrument. Mit ihm sollen Galaxien im frühen Universum abgebildet und die Verteilung von dunkler Materie im All bestimmt werden. Dunkle Materie ist unter anderem dafür verantwortlich, dass Galaxien trotz ihrer schnellen Eigendrehung im All nicht auseinanderfliegen.</p>
 <p>Eine der mit dem Wide-Field-Instrument vorgesehenen Beobachtungsreihen wird nach Supernovae außerhalb unserer Milchstraße schauen. Die Helligkeit der Explosion einer bestimmten Art von Supernova ist immer gleich - ein Umstand, der es ermöglicht, die Entfernung zwischen Erde und Supernova zu bestimmen.</p>
 <p>Mit den Entfernungsdaten wollen die Astronomen die Frage beantworten, ob sich das Weltall gleichmäßig oder ungleichmäßig ausdehnt und welche Rolle dunkle Energie dabei spielt.</p>
-<a href="/wissen/weltraum/exoplaneten-100.html">
- <p>29.03.2026</p>
- <h3>Exoplaneten Auf der Suche nach Leben im All</h3>
- <p>Gibt es Leben auf fernen Planeten?  mehr</p>
+<a href="/wissen/weltraum/exoplaneten-100.html">  
+ <p> 29.03.2026</p> 
+ <h3> Exoplaneten  Auf der Suche nach Leben im All</h3>   
+ <p>Gibt es Leben auf fernen Planeten?  mehr</p>  
 </a>
 <h2>Koronograf macht Planeten sichtbar</h2>
 <p>Roman soll auch in Richtung des Zentrums unserer Milchstraße schauen und dort das Licht von Millionen Sternen analysieren. Wenn zwei Sterne direkt voreinander stehen, lenkt die Masse des Sterns im Vordergrund das Licht des Sterns im Hintergrund ab. Kreist um den Stern im Vordergrund auch noch ein Planet, entsteht im Lichtsignal ein kleiner Peak, mit dem sich der Planet verrät.</p>
 <p>Um solche Exoplaneten - also Planeten außerhalb unseres Sonnensystems - direkt abbilden zu können, nutzt Roman sein zweites Bordinstrument, den Koronografen. Er ist in der Lage, durch eine raffinierte Anordnung und Bewegung von Masken und Spiegeln das von einem Stern ausgehende Licht abzublocken und so die normalerweise vom Sternenlicht bei Weitem überstrahlten Planeten sichtbar zu machen. Planeten, deren Licht eine Milliarde Mal schwächer ist als das ihres Sterns, können so abgebildet werden.</p>
-<a href="/wissen/forschung/exoplanet-cheops-esa-100.html">
- <p>12.07.2023</p>
- <h3>ESA-Mission Cheops Der Planet, den es nicht geben dürfte</h3>
- <p>Er ist der hellste Exoplanet, der bisher entdeckt wurde. Ein Jahr dauert für ihn nur 19 Stunden.  mehr</p>
+<a href="/wissen/forschung/exoplanet-cheops-esa-100.html">    
+ <p> 12.07.2023</p> 
+ <h3> ESA-Mission Cheops  Der Planet, den es nicht geben dürfte</h3>   
+ <p>Er ist der hellste Exoplanet, der bisher entdeckt wurde. Ein Jahr dauert für ihn nur 19 Stunden.  mehr</p>   
 </a>
 <h2>Bei Suche nach Exoplaneten helfen Teile aus Heidelberg</h2>
 <p>Die präzise Ausrichtung der Bauteile des Koronografen gelingt mithilfe von Stellgliedern, die vom Max-Planck-Institut für Astronomie in Heidelberg entwickelt wurden. Sie sorgen dafür, dass die Bauteile des Koronografen über Stunden hinweg trotz der harschen Bedingungen im All maximal um einen Winkel von 40 Millibogensekunden verkippen - dieser superkleine Winkel ist so groß wie ein Mensch in Los Angeles erscheint, wenn er von Heidelberg aus betrachtet werden würde.</p>
 <p>Diese Technik soll noch weiterentwickelt werden und den Weltraumteleskopen der Zukunft dabei helfen, erdähnliche Planeten zu entdecken.</p>
-<a href="/wissen/forschung/ausserirdisches-leben-102.html">
- <p>20.02.2026</p>
- <h3>Phosphor und Stickstoff Der Schlüssel für außerirdisches Leben</h3>
- <p>Laut einer neuen Studie sind neben Wasser die Elemente Phosphor und Stickstoff entscheidende Lebensgrundlagen.  mehr</p>
+<a href="/wissen/forschung/ausserirdisches-leben-102.html">  
+ <p> 20.02.2026</p> 
+ <h3> Phosphor und Stickstoff  Der Schlüssel für außerirdisches Leben</h3>   
+ <p>Laut einer neuen Studie sind neben Wasser die Elemente Phosphor und Stickstoff entscheidende Lebensgrundlagen.  mehr</p>  
 </a>
 <h2>Teleskop soll mindestens fünf Jahre lang im Einsatz sein</h2>
 <p>Seinen Platz im All findet das Roman-Space-Teleskop am sogenannten Lagrangepunkt 2. Er liegt von der Sonne aus gesehen ungefähr 1,5 Millionen Kilometer hinter der Erde. Dort heben sich die Anziehungskräfte von Sonne und Erde gegenseitig auf und das Teleskop kann mit geringem Treibstoffverbrauch auf einer Bahn um diesen Punkt gehalten werden. Vorgesehen ist eine Betriebsdauer von fünf Jahren, weitere fünf Jahre Verlängerung sind möglich.</p>

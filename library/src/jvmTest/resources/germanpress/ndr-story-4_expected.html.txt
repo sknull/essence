@@ -3,14 +3,16 @@
 <p>Es war eine Entscheidung, die manche als historisch ansehen: Vor knapp einem Jahr hatte das Bundesverwaltungsgericht in Leipzig die Pläne für die A26 Ost gestoppt - und dabei erstmals entschieden, dass bei der Trassen-Abwägung einer Autobahn auch der Klimaschutz berücksichtigt werden muss. Die A26 Ost soll eines Tages die A7 und die A1 im Süden Hamburgs verbinden. Bei der Trasse mit dem Namen Süd 1, für die sich die Planer entschieden haben, würden mehr als 20 Hektar wertvolle Moor- und Torfböden in Anspruch genommen - genau daran stoßen sich die Umweltverbände.</p>
 <h2>Wie es weitergeht</h2>
 <p>Am Montag, 31. August, endet die Frist für Stellungnahmen zu den Planergänzungen für die A26 Ost. Anschließend muss die Planfeststellungsbehörde bei der Hamburger Wirtschaftsbehörde die Argumente abwägen und einen neuen Beschluss erlassen - möglich ist, dass dagegen erneut geklagt wird. Für die insgesamt rund 10 Kilometer lange Strecke werden aktuell Baukosten von mehr als 2,3 Milliarden Euro veranschlagt.</p>
-<h2><a href="/nachrichten/hamburg/Artikelvorlage-HH,hafenfinanzierung-100.html">Ausbau der deutschen Häfen: Koordinator fordert bessere Zusammenarbeit</a></h2>
-<p>Bund und Länder müssten an einem Strang ziehen, verlangte der Maritime Koordinator der Bundesregierung, Ploß (CDU), auf NDR Info.</p>
-<h2><a href="/nachrichten/hamburg/verwaltungsgericht-stoppt-plaene-zur-a26-ost-vorerst,hafenautobahn-hamburg-100.html">Verwaltungsgericht stoppt Pläne zur A26-Ost vorerst</a></h2>
-<p>Die A26-Ost ist eines der größten Bauprojekte in Hamburg. Doch die Planung ist teilweise rechtswidrig. Naturschutzverbände sehen einen "Triumph für das Klima".</p>
-<h2><a href="/nachrichten/hamburg/verwaltungsgericht-stoppt-plaene-zur-a26-ost-vorerst,hafenautobahn-hamburg-102.html">Hamburger Wirtschaftsbehörde hält an Bau der A26-Ost fest</a></h2>
-<p>Nach dem vorläufigen Aus für die Autobahn A26-Ost zeigen sich Umweltverbände erleichtert. Die Wirtschaftsbehörde will derweil die Pläne überarbeiten.</p>
-<h2><a href="/nachrichten/hamburg/vorerst-kein-geld-fuer-die-a26-ost-cdu-gibt-senat-die-schuld,hafenautobahn-100.html">Vorerst kein Geld für die A26-Ost: CDU gibt Senat die Schuld</a></h2>
-<p>Grund dafür ist eine Entscheidung des Bundesverwaltungsgerichts. Das hatte die Hafenautobahn im Hamburger Süden als nicht baureif eingestuft.</p>
+<div>
+ <h2><a href="/nachrichten/hamburg/Artikelvorlage-HH,hafenfinanzierung-100.html">Ausbau der deutschen Häfen: Koordinator fordert bessere Zusammenarbeit</a></h2>
+ <p>Bund und Länder müssten an einem Strang ziehen, verlangte der Maritime Koordinator der Bundesregierung, Ploß (CDU), auf NDR Info.</p>
+ <h2><a href="/nachrichten/hamburg/verwaltungsgericht-stoppt-plaene-zur-a26-ost-vorerst,hafenautobahn-hamburg-100.html">Verwaltungsgericht stoppt Pläne zur A26-Ost vorerst</a></h2>
+ <p>Die A26-Ost ist eines der größten Bauprojekte in Hamburg. Doch die Planung ist teilweise rechtswidrig. Naturschutzverbände sehen einen "Triumph für das Klima".</p>
+ <h2><a href="/nachrichten/hamburg/verwaltungsgericht-stoppt-plaene-zur-a26-ost-vorerst,hafenautobahn-hamburg-102.html">Hamburger Wirtschaftsbehörde hält an Bau der A26-Ost fest</a></h2>
+ <p>Nach dem vorläufigen Aus für die Autobahn A26-Ost zeigen sich Umweltverbände erleichtert. Die Wirtschaftsbehörde will derweil die Pläne überarbeiten.</p>
+ <h2><a href="/nachrichten/hamburg/vorerst-kein-geld-fuer-die-a26-ost-cdu-gibt-senat-die-schuld,hafenautobahn-100.html">Vorerst kein Geld für die A26-Ost: CDU gibt Senat die Schuld</a></h2>
+ <p>Grund dafür ist eine Entscheidung des Bundesverwaltungsgerichts. Das hatte die Hafenautobahn im Hamburger Süden als nicht baureif eingestuft.</p>
+</div>
 <div>
  <p>Dieses Thema im Programm:</p>
  <h3>NDR 90,3 | NDR 90,3 Aktuell | 30.08.2026 | 10:00 Uhr</h3>

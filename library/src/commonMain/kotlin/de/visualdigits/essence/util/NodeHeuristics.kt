@@ -35,7 +35,7 @@ object NodeHeuristics {
         return element.tagName() == "li" && listOf("ul", "ol").contains(element.parent()?.tagName()?:"?")
     }
 
-    fun isNodeThresholdMetHtml(parent: Node, child: Element): Boolean {
+    fun isNodeThresholdMetricHtml(parent: Node, child: Element): Boolean {
         val parentNodeScore = Scorer.getScore(parent)
         val childNodeScore = Scorer.getScore(child)
         val thresholdScore = parentNodeScore * 0.08

@@ -7,8 +7,8 @@ import de.visualdigits.essence.model.ImageEntry
 import de.visualdigits.essence.model.ImagePart
 import de.visualdigits.essence.model.ImageType
 import de.visualdigits.essence.model.Part
-import de.visualdigits.essence.util.cleanupAttributes
 import de.visualdigits.essence.util.cleanupElement
+import de.visualdigits.essence.util.isEmpty
 import de.visualdigits.essence.util.isTag
 import de.visualdigits.essence.util.partitionBy
 import de.visualdigits.essence.util.removeEmptyTags
@@ -19,35 +19,8 @@ class HtmlFormatter : Formatter() {
 
     companion object {
 
-        val tagsToRetain: List<String> = listOf(
-            "a",
-            "abbr",
-            "b",
-            "br",
-            "cite",
-            "div",
-            "embed",
-            "h1",
-            "h2",
-            "h3",
-            "h4",
-            "i",
-            "img",
-            "li",
-            "object",
-            "p",
-            "picture",
-            "span",
-            "strong",
-            "svg",
-            "u",
-            "ul",
-            "ol"
-        )
-
         private val standardImageTypes = listOf(".jpg", ".png", ".webp")
         private val iconImageTypes = listOf(".svg", ".ico")
-
     }
 
     override fun format(element: Element?): String {
@@ -58,15 +31,16 @@ class HtmlFormatter : Formatter() {
         val html = element ?: Element("main")
         html.tagName("main")
         html.removeNegativeScoredNodes()
-        html.removeUnwantedTags(tagsToRetain)
+        html.removeUnwantedTags()
         html.removeEmptyTags()
         html.unwrapDivs()
-        html.select("picture").forEach { it.unwrap() }
+        html.select("picture,section,article").forEach { it.unwrap() }
+        html.select("header,aside").forEach { it.tagName("div") }
         html.children().forEach { it.select("span").forEach { s -> s.prepend(" ").unwrap() } }
 
         val partitionBy = html.children()
             .partitionBy { it?.isTag("img") == true || it?.select("img")?.isNotEmpty() == true }
-        val htmlParts = partitionBy
+        val parts = partitionBy
             .flatMap { imagePartition ->
                 if (imagePartition.element != null) {
                     val (container, images) = if (imagePartition.element.nodeName().lowercase() == "img") {
@@ -95,7 +69,6 @@ class HtmlFormatter : Formatter() {
                     val elements = if (container != null && container != html && container.childNodes().isNotEmpty()) {
                         container.select("img").forEach { it.remove() }
                         container.remove()
-                        container.cleanupElement()
                         if (container.isTag("div")) {
                             container.children()
                         } else {
@@ -104,9 +77,10 @@ class HtmlFormatter : Formatter() {
                     } else {
                         listOf()
                     }.filter { elem -> !elem.isTag("a") || elem.childrenSize() > 0 }
+                    elements.forEach { elem -> elem.cleanupElement() }
                     val listOf = listOf(
                         ImagePart(
-                            html = elements,
+                            html = elements.filter { !it.isEmpty() },
                             images = imageEntries,
                             previousSibling = (container ?: images.first()).previousElementSibling()
                         )
@@ -120,8 +94,8 @@ class HtmlFormatter : Formatter() {
                                 val divHtml = divPartition.element.children().map { it.cleanupElement() }
                                 listOf(
                                     HtmlPart(
-                                        elementType = if (divHtml.size == 1) ElementType.paragraph else ElementType.div,
-                                        html = divHtml
+                                        html = divHtml,
+                                        elementType = if (divHtml.size == 1) ElementType.paragraph else ElementType.div
                                     )
                                 )
                             } else if (divPartition.elements.isNotEmpty()) {
@@ -131,15 +105,15 @@ class HtmlFormatter : Formatter() {
                                         if (headerPartition.element != null) {
                                             val headerHtml = headerPartition.element.cleanupElement()
                                             HtmlPart(
-                                                elementType = ElementType.headline,
-                                                html = listOf(headerHtml)
+                                                html = listOf(headerHtml),
+                                                elementType = ElementType.headline
                                             )
                                         } else if (headerPartition.elements.isNotEmpty()) {
                                             val paragraphHtml = headerPartition.elements.map { it.cleanupElement() }
                                             if (paragraphHtml.isNotEmpty()) {
                                                 HtmlPart(
-                                                    elementType = ElementType.paragraph,
-                                                    html = paragraphHtml
+                                                    html = paragraphHtml,
+                                                    elementType = ElementType.paragraph
                                                 )
                                             } else null
                                         } else {
@@ -153,6 +127,16 @@ class HtmlFormatter : Formatter() {
                 }
             }
 
-        return htmlParts
+        val finalParts = if (parts.size == 1) {
+            val first = parts.first()
+            if (first is HtmlPart && first.elementType == ElementType.div) {
+                listOf(first.copy(elementType = ElementType.paragraph))
+            } else {
+                parts
+            }
+        } else {
+            parts
+        }
+        return finalParts
     }
 }

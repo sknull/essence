@@ -1,15 +1,14 @@
 package de.visualdigits.essence.util
 
 import com.fleeksoft.ksoup.nodes.Element
-import com.fleeksoft.ksoup.nodes.LeafNode
 import com.fleeksoft.ksoup.nodes.Node
-import com.fleeksoft.ksoup.nodes.TextNode
 import de.visualdigits.essence.formatters.Partition
 
 
 private val emptyTags: List<String> = listOf(
     "br",
-    "img"
+    "img",
+    "#text"
 )
 
 private val attributesToRetain: List<String> = listOf(
@@ -18,6 +17,39 @@ private val attributesToRetain: List<String> = listOf(
     "target",
     "alt",
     "title",
+)
+
+private val tagsToRetain: List<String> = listOf(
+    "a",
+    "abbr",
+    "b",
+    "br",
+    "cite",
+    "div",
+    "embed",
+    "h1",
+    "h2",
+    "h3",
+    "h4",
+    "i",
+    "img",
+    "li",
+    "object",
+    "p",
+    "picture",
+    "figure",
+    "figcaption",
+    "span",
+    "strong",
+    "svg",
+    "u",
+    "ul",
+    "ol"
+)
+
+val forceRemove = listOf(
+    "noscript",
+    "template"
 )
 
 fun Node.isTag(nodeName: String): Boolean = nodeName().equals(nodeName, ignoreCase = true)
@@ -31,24 +63,11 @@ fun Element.hasParent(nodeName: String): Boolean {
     return false
 }
 
-fun Node.removeEmptyTags() {
-    childNodes().forEach { child -> child.removeEmptyTags() }
-    if (
-        !emptyTags.contains(nodeName().lowercase())
-        && (
-                (this !is LeafNode && childNodes().isEmpty())
-                        || (this is LeafNode && coreValue().trim().isEmpty())
-                        || (this is TextNode && getWholeText().trim().isBlank())
-                )
-    ) {
-        remove()
-    }
-}
-
-fun Node.removeUnwantedTags(tagsToRetain: List<String>) {
-    childNodes().forEach { c -> c.removeUnwantedTags(tagsToRetain) }
+fun Node.removeUnwantedTags() {
+    childNodes().forEach { c -> c.removeUnwantedTags() }
     val nodeName = nodeName().lowercase()
-    if (!tagsToRetain.contains(nodeName) && nodeName != "#text") {
+    val hasImg = if (this is Element) select("img").isNotEmpty() && !forceRemove.contains(nodeName) else false
+    if (!tagsToRetain.contains(nodeName) && !hasImg && nodeName != "#text") {
         remove()
     }
 }
@@ -56,6 +75,9 @@ fun Node.removeUnwantedTags(tagsToRetain: List<String>) {
 fun Element.cleanupElement(): Element {
     cleanupAttributes()
     unwrapDivs()
+    removeEmptyTags()
+    select("figcaption").forEach { it.unwrap() }
+    select("figure").forEach { it.tagName("span") }
 
     return this
 }
@@ -72,11 +94,23 @@ fun Element.cleanupAttributes() {
 
 fun Element.unwrapDivs(): Element {
     children().forEach { c -> c.unwrapDivs() }
-    if (nodeName() == "div" && hasParent("div")) {
+    if (isTag("div") && hasParent("div") && parentNode()?.isTag("main") == false) {
         unwrap()
     }
 
     return this
+}
+
+fun Node.isEmpty(): Boolean {
+    return (!emptyTags.contains(nodeName().lowercase()) && (this is Element && wholeText().trim().isBlank())) || childNodeSize() == 0
+}
+
+fun Node.removeEmptyTags() {
+    childNodes().forEach { child -> child.removeEmptyTags() }
+    val nodeName = nodeName().lowercase()
+    if (!emptyTags.contains(nodeName) && (this is Element && wholeText().trim().isBlank())) {
+        remove()
+    }
 }
 
 fun List<Element>.partitionBy(predicate: (Element?) -> Boolean): List<Partition> {

@@ -45,11 +45,14 @@ class HtmlScoreCleaner(private val stopWords: StopWords) : ScoreCleaner {
         val topNode = skipNonTextualTopNodes(element)
         addSiblingsToTopNode(topNode)?.let { updatedElement ->
             updatedElement.children().forEach { child ->
-                if (
-                    (!isParagraphOrAnchor(child) &&
-                        (NodeHeuristics.hasHighLinkDensity(child) || NodeHeuristics.isTableOrListWithNoParagraphs(child) || !NodeHeuristics.isNodeThresholdMetHtml(updatedElement, child)) &&
-                        child.hasParent()) && !NodeHeuristics.isHeadline(child)
-                    ) {
+                val isNoParagraph = !isParagraphOrAnchor(child)
+                val hasHighLinkDensity = NodeHeuristics.hasHighLinkDensity(child)
+                val tableOrListWithNoParagraphs = NodeHeuristics.isTableOrListWithNoParagraphs(child)
+                val hasNotThresholdMetric = !NodeHeuristics.isNodeThresholdMetricHtml(updatedElement, child)
+                val hasParent = child.hasParent()
+                val isNoHeadline = !NodeHeuristics.isHeadline(child)
+                val containsNoImage = !child.select("img").isNotEmpty()
+                if (isNoParagraph && isNoHeadline && hasParent && containsNoImage && (hasHighLinkDensity || tableOrListWithNoParagraphs || hasNotThresholdMetric)) {
                     child.remove()
                 }
             }
