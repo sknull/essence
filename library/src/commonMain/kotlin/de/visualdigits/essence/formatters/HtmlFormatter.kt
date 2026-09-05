@@ -7,6 +7,7 @@ import de.visualdigits.essence.model.ImageEntry
 import de.visualdigits.essence.model.ImagePart
 import de.visualdigits.essence.model.ImageType
 import de.visualdigits.essence.model.Part
+import de.visualdigits.essence.util.cleanupAttributes
 import de.visualdigits.essence.util.cleanupElement
 import de.visualdigits.essence.util.isEmpty
 import de.visualdigits.essence.util.isTag
@@ -137,6 +138,7 @@ class HtmlFormatter : Formatter() {
         } else {
             parts
         }
+
         return finalParts
     }
 }

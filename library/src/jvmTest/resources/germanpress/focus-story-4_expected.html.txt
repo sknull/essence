@@ -1,6 +1,7 @@
-<div>
+<picture>
+ <img src="https://quadro.burda-forward.de/ctf/49a9747d-4239-4c36-972e-c2573496206c.e4fb7d65-37cd-45ca-9e22-fa320ceab194.jpg?im=RegionOfInterestCrop=(4040,2273),regionOfInterest=(2186,1023)&amp;hash=1dbc45887fdd42f28901df144f773fbea475b591ac15c5146fe38c48264058bf" alt="Sven Schulze und Ulrich Siegmund" title=""><img src="https://quadro.burda-forward.de/ctf/9edd7acc-2733-4fbf-b0dd-4013d25558a2.6eccf672-d7a4-4020-a3ef-986fe27daff1.png?im=RegionOfInterestCrop=(96,96),regionOfInterest=(600,526)&amp;hash=8e837d13990e0c3ac8e3829b7d64a5a6c9bfb1acc4226d1894fb3af6ff742083" alt="Toska Kelmendi" title="">
  <h2>AfD oder alle gegen sie: Fünf Szenarien für Sachsen-Anhalt</h2>
- <span>  AfD-Spitzenkandidat Ulrich Siegmund fordert CDU-Ministerpräsident Sven Schulze bei der Landtagswahl in Sachsen-Anhalt heraus.   Klaus-Dietmar Gabbert/dpa </span><span>Sebastian Scheffel</span><a href="https://www.focus.de/autoren/sebastian-scheffel_a1af5d50-aefb-465e-9704-e6e6f27cf64a.html">Sebastian Scheffel</a>
+ <span>  AfD-Spitzenkandidat Ulrich Siegmund fordert CDU-Ministerpräsident Sven Schulze bei der Landtagswahl in Sachsen-Anhalt heraus.   Klaus-Dietmar Gabbert/dpa </span><span>Sebastian Scheffel</span>
  <ul>
   <li><a href="" target="_blank"> Kommentare</a></li>
   <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.focus.de%2Fpolitik%2Fdeutschland%2Fafd-oder-alle-gegen-sie-fuer-die-landtagswahl-in-sachsen-anhalt-gibt-es-5-regierungs-szenarien_064f9860-d268-4f38-b9ab-097ad5a98dee.html%3Futm_medium%3Dsocial%26utm_source%3Dfacebook%26utm_campaign%3Dsocial-sharing" target="_blank"> Bei Facebook teilen</a></li>
@@ -9,9 +10,10 @@
   <li><a href="" target="_blank"> Print</a></li>
   <li><a href="mailto:redaktion@focus.de?subject=Mein+Feedback" target="_self"> Feedback</a></li>
  </ul>
-</div>
+</picture>
 <a href="https://google.com/preferences/source?q=https://www.focus.de" target="_blank">FOCUS online bei Google bevorzugen</a>
-<div>
+<picture>
+ <img src="https://quadro.burda-forward.de/ctf/7a6922e8-6525-4f54-bd63-2e09a30f818a.346f0c88-6cc9-4827-a3e3-0c092c14d6ce.jpg?im=RegionOfInterestCrop=(1080,720),regionOfInterest=(2240,1076)&amp;hash=faeb44e013562e99ff905295d3b6ea73b24ac9a3249d27a08009b42e1bb05ba0" alt="Ulrich Siegmund  im Wahlkampf in Merseburg" title=""><img src="https://quadro.burda-forward.de/ctf/d1c7d309-9979-4696-8d1a-1e1eaece85bc.b148e66d-9b0d-4b1a-a5cb-d6149259579b.jpg?im=RegionOfInterestCrop=(1080,720),regionOfInterest=(1417,820)&amp;hash=9e6a8efb215c009b903b41695824de0d77cbd8a3b6439b3d731202853cd4c91b" alt="Thomas Schulze und Claudia Wittig" title=""><img src="https://quadro.burda-forward.de/ctf/6c9edb0e-beff-4795-861e-8da1a65134b3.01899f98-71e8-489e-90fd-fbc5c786b343.jpeg?im=RegionOfInterestCrop=(1056,720),regionOfInterest=(1151,646)&amp;hash=3959e3e09e18cff1ccd8aa4279093091ff521b7b8a9121e4f0000102a2fb5165" alt="Sven Schulze (CDU), Ministerpräsident von Sachsen-Anhalt" title="">
  <p>Am 6. September <a href="https://www.focus.de/politik/deutschland/landtagswahl-in-sachsen-anhalt/" target="_self">stimmt Sachsen-Anhalt über den neuen Landtag ab</a>. Die <a href="https://www.focus.de/politik/deutschland/cdu-verliert-in-neuer-umfrage-afd-baut-vorsprung-aus_41a284e0-2586-4d76-8d61-382a8a32becf.html" target="_self">Umfragen</a> deuten darauf hin, dass die Regierungsbildung danach sehr schwer werden könnte. Viel hängt davon ab, welche Parteien in den Landtag einziehen und wie stark genau die AfD wird. Es gibt fünf Szenarien, wie es nach der Landtagswahl weitergehen könnte.</p>
  <h2>Szenario 1: Absolute Mehrheit für die AfD</h2>
  <p>Das klarste der Szenarien ist eine absolute Mehrheit für die in Sachsen-Anhalt als gesichert rechtsextremistisch eingestufte AfD. Dazu muss die Partei von Spitzenkandidat Ulrich Siegmund nicht unbedingt mehr als 50 Prozent der Stimmen erhalten – relevant ist die Mehrheit der Sitze im neuen Landtag.</p>
@@ -44,4 +46,4 @@
  <p>Hinter vorgehaltener Hand spekulieren manche auch über ein Szenario, bei dem es zu gar keiner neuen Regierung kommen würde. Denn auch mit einem neuen Landtag kann die Regierung in Sachsen-Anhalt theoretisch unendlich geschäftsführend im Amt bleiben. Als abgelöst gilt sie erst, wenn ein neuer Ministerpräsident gewählt ist – etwa die CDU könnte versuchen, das zu blockieren.</p>
  <p>Das allerdings würde zahlreiche Probleme mit sich bringen, was das Szenario unwahrscheinlich macht. Demokratietheoretisch wäre es äußerst heikel, das Wahlergebnis quasi zu missachten. Der öffentliche Aufschrei wäre vermutlich groß.</p>
  <p>Praktisch bliebe zudem das Problem, dass auch die fortbestehende Regierung eine Mehrheit im neuen Landtag suchen muss für ihre Gesetzesvorhaben. Spätestens mit der Aufstellung eines neuen Haushalts würde die geschäftsführende Regierung wahrscheinlich handlungsunfähig werden.</p>
-</div>
+</picture>

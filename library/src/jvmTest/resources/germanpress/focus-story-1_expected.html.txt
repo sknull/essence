@@ -1,7 +1,7 @@
-<div>
+<picture>
+ <img src="https://quadro.burda-forward.de/ctf/9f18bff0-e3e3-4d24-a2ea-f8cb1c2ed450.09cf35f4-933e-430a-9f2b-bd5d692e90b5.jpeg?im=RegionOfInterestCrop=(640,360),regionOfInterest=(320,180)&amp;hash=1b800b675ac9fca6f9e8b7db715c9e4bfdf7797454bbfdd5f219bb9e0c841a3c" alt="AfD bei fast 30 Prozent: „Jetzt muss sich Union entscheiden”" title=""><img src="https://quadro.burda-forward.de/ctf/28b1bf51-c4db-4b63-a4f8-039bb2a4027d.d60ca91f-9848-41cf-b64c-db8fad8160b9.png?im=RegionOfInterestCrop=(48,48),regionOfInterest=(522,377)&amp;hash=53d4b4ff83b6cbd8e8f077d8ff1f3a96ae716c68588f2f5b2f3f651a2ad1c095" alt="Focus online / Toska Kelmendi" title="">
  <h2>AfD bei fast 30 Prozent: „Jetzt muss sich Union entscheiden”</h2>
- <figcaption></figcaption>
- <span>Malte Arnsperger</span><a href="https://www.focus.de/autoren/malte-arnsperger_9aa9cf9d-e456-403a-800e-324b0cae9a79.html">Malte Arnsperger</a>
+ <span>Malte Arnsperger</span>
  <ul>
   <li><a href="" target="_blank"> Kommentare</a></li>
   <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://www.focus.de/politik/deutschland/afd-liegt-in-aktueller-insa-umfrage-bei-fast-30-prozent-jetzt-muss-sich-union-entscheiden_148370b1-c041-462c-88c0-41a3449f7aba.html" target="_blank"> Bei Facebook teilen</a></li>
@@ -10,7 +10,7 @@
   <li><a href="" target="_blank"> Print</a></li>
   <li><a href="mailto:redaktion@focus.de?subject=Mein+Feedback" target="_blank"> Feedback</a></li>
  </ul>
-</div>
+</picture>
 <a href="https://google.com/preferences/source?q=https://www.focus.de" target="_blank">FOCUS online bei Google bevorzugen</a>
 <div>
  <p><strong>FOCUS online: </strong><a href="https://www.focus.de/politik/deutschland/klingbeil-will-tabaksteuer-um-20-prozent-erhoehen_55cf65a2-275e-41a9-8f1d-e647edfc1e5c.html" target="_self"><strong>Herr Binkert, Ihr Institut sieht die AfD bei fast dreißig Prozent,</strong></a><strong> die Union bei fast zwanzig. Es wird darüber diskutiert, ob ein Überspringen bzw. Unterschreiten dieser Werte ein kritischer Moment wäre und sogar ein „Point of no return”. Wie sehen Sie das?</strong></p>

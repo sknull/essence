@@ -1,6 +1,7 @@
-<div>
+<picture>
+ <img src="https://quadro.burda-forward.de/ctf/baf9687f-94fb-408a-8933-db8957cf5200.6718f311-cdd7-43de-8739-2fd7a997919d.jpeg?im=RegionOfInterestCrop=(2048,1365),regionOfInterest=(1020,531)&amp;hash=18232c65f63e138ca5feeafa76f6d640efe0aa8745666bf5204a9431e5e86372" alt="Trump wird 80: Verpufft seine Macht?" title="">
  <h2>„Warum so viele?” Trump offenbar von 22 Ärzten untersucht</h2>
- <span>  Basketball, Männer: NBA, Finale, 3. Spieltag, New York Knicks - San Antonio Spurs. US-Präsident Donald Trump besucht das Spiel.   Mark Schiefelbein/AP/dpa </span><a href="https://www.focus.de/autoren/daniel-georg-kuhn_1a99ca66-2223-400d-9511-4886b6b87e40.html">Daniel Georg Kuhn</a>
+ <span>  Basketball, Männer: NBA, Finale, 3. Spieltag, New York Knicks - San Antonio Spurs. US-Präsident Donald Trump besucht das Spiel.   Mark Schiefelbein/AP/dpa </span>
  <ul>
   <li><a href="" target="_blank"> Kommentare</a></li>
   <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://www.focus.de/panorama/warum-so-viele-tump-offenbar-von-22-aerzten-untersucht_1b70bcd5-e651-473f-9589-d5d1ed04bd8d.html" target="_blank"> Bei Facebook teilen</a></li>
@@ -9,7 +10,7 @@
   <li><a href="" target="_blank"> Print</a></li>
   <li><a href="mailto:redaktion@focus.de?subject=Mein+Feedback" target="_blank"> Feedback</a></li>
  </ul>
-</div>
+</picture>
 <a href="https://google.com/preferences/source?q=https://www.focus.de" target="_blank">FOCUS online bei Google bevorzugen</a>
 <div>
  <p>„<a href="https://www.focus.de/politik/ausland/trump-ist-bei-exzellenter-gesundheit-sollte-aber-abnehmen_4e465e57-2b61-4252-9404-6f8d1cc037d0.html" target="_self">Exzellente Gesundheit</a>“ - das wurde US-Präsident Trump bei seinem jährlichen Gesundheits-Check Ende Mai attestiert. Die Spekulationen um seinen körperlichen und mentalen Zustand konnte das offizielle Gutachten aber nicht beenden.&nbsp;</p>

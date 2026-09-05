@@ -102,13 +102,13 @@ fun Element.unwrapDivs(): Element {
 }
 
 fun Node.isEmpty(): Boolean {
-    return (!emptyTags.contains(nodeName().lowercase()) && (this is Element && wholeText().trim().isBlank())) || childNodeSize() == 0
+    return !emptyTags.contains(nodeName().lowercase()) && (this is Element && wholeText().trim().isBlank()) && childrenSize() == 0
 }
 
 fun Node.removeEmptyTags() {
     childNodes().forEach { child -> child.removeEmptyTags() }
     val nodeName = nodeName().lowercase()
-    if (!emptyTags.contains(nodeName) && (this is Element && wholeText().trim().isBlank())) {
+    if (!emptyTags.contains(nodeName) && isEmpty()) {
         remove()
     }
 }

@@ -1,6 +1,6 @@
 <p>Hamburg feiert am zweiten Mai-Wochenende den 837. Hafengeburtstag und empfängt dabei Schiffe aus aller Welt. Zum großen Fest im Hafen mit Einheimischen sowie vielen Touristinnen und Touristen werden prächtige Großsegler, moderne Einsatzfahrzeuge und Sportboote erwartet, aber auch viele Traditions- und Museumsschiffe.</p>
-<a href="/nachrichten/hamburg/schiffe-124~_backId-hafengeburtstag--124.html">   22 Bilder   
- <h2>Hamburger Hafengeburtstag 2026: Diese Schiffe sind dabei</h2>  </a>
+<picture><img src="https://images.ndr.de/image/c1578ac5-c6b3-4be6-b5eb-2094eacde495/AAABnSWOD0U/AAABnSSvrFg/16x9-big/statsraadlehmkuhl-100.webp?width=576" alt="Das Segelschiff &quot;Statsraad Lehmkuhl&quot;." title="Das Segelschiff &quot;Statsraad Lehmkuhl&quot;. | picture alliance / Hans Lucas / Pierre Larrieu"><a href="/nachrichten/hamburg/schiffe-124~_backId-hafengeburtstag--124.html">        22 Bilder   
+  <h2>Hamburger Hafengeburtstag 2026: Diese Schiffe sind dabei</h2>  </a></picture>
 <h2>Schiffsparaden, Schlepperballett und Feuerwerk</h2>
 <p>Wie in jedem Jahr empfängt der Hamburger Hafen die Schiffe mit der Einlaufparade. Auch das Schlepperballett, eine Show auf der schwimmenden Bühne und das große Feuerwerk finden statt. Erstmals wird es eine zusätzliche Bühne an Land geben.Viele Schiffe können im Rahmen von "Open Ship" besichtigt werden. Auch ein großes Showprogramm ist wieder geplant, wie zum Beispiel eine große Drohnenshow im Rahmen der Olympiakampagne am Freitagabend. Außerdem wird mit der Erlebniswelt HafenSport ein neuer Treffpunkt für Bewegung und Gemeinschaft angeboten: mit Drachenbootrennen, Stand-up-Paddeling- und Tretboot-Wettkämpfen und einem abwechslungsreichen Bühnenprogramm.</p>
 <h2>Programm-Highlights am Freitag</h2>
@@ -70,7 +70,7 @@
 <h2>Bunte Hafenmeile</h2>
 <p>Zwischen Baumwall und Landungsbrücken gibt es wieder eine bunte Hafenmeile mit Ständen mit den verschiedensten kulinarischen Spezialitäten. Fischbrötchen, Grillwurst, vegetarische Speisen und süße Angebote sind dabei. Die vielen Stände haben Freitag und Sonnabend von 10 Uhr bis 24 Uhr geöffnet, am Sonntag von 10 Uhr bis 21 Uhr. Neben der Hafenmeile gibt es in der Stadt viele Aussichtspunkte, von denen aus sich die Schiffe gut beobachten lassen. Die schönsten Plätze dafür sind in der folgenden Karte zusammengestellt.</p>
 <strong>Video:</strong>
-<div>
+<picture><img src="https://images.ndr.de/image/77d90a6f-3fd3-4ab3-8239-e66ac480f51c/AAABlqWynY0/AAABnSSvrFg/16x9-big/hafengeburtstag3986.webp?width=576" alt="Absperrung beim Hafengeburtstag 2024." title="Absperrung beim Hafengeburtstag 2024. | IMAGO / Hanno Bode, Hanno Bode"><img src="https://images.ndr.de/image/aaa15ce7-31ad-40f8-8fb8-bf582cf09e00/AAABncSxGrU/AAABnSSvrFg/16x9-big/autobahn7-102.webp?width=576" alt="Autos fahren in Hamburg auf der Autobahn 7 in Richtung Hannover." title="Autos fahren in Hamburg auf der Autobahn 7 in Richtung Hannover. | picture alliance / ABBfoto"><img src="https://images.ndr.de/image/34da9191-8777-48e4-ae65-c404b12f0ab3/AAABlr-q0l0/AAABnSSvrFg/16x9-big/hafengeburtstag4074.webp?width=576" alt="Schiffe beim Hamburger Hafengeburtstag." title="Schiffe beim Hamburger Hafengeburtstag. | Imago, Martin Wagner"><img src="https://images.ndr.de/image/80a6ecce-7f45-46ed-8c3b-3f7c4421204e/AAABkWxAAmg/AAABnSSvrFg/16x9-big/hafengeburtstag3822.webp?width=576" alt="Menschen beim Hamburger Hafengeburtstag 2024 vor der Bühne von &quot;Landungsbrücken Open Air&quot;." title="Menschen beim Hamburger Hafengeburtstag 2024 vor der Bühne von &quot;Landungsbrücken Open Air&quot;. | Landungsbrücken Open Air, Nola/Andrea da Silva Nolasco"><img src="https://images.ndr.de/image/ece20384-438f-4720-a634-bcc0558d3d3b/AAABlrWu6cg/AAABnSSvrFg/16x9-big/hafengeburtstag4016.webp?width=576" alt="Die Alexander von Humboldt II bei der Einlaufparade vom Hamburger Hafengeburtstag 2025." title="Die Alexander von Humboldt II bei der Einlaufparade vom Hamburger Hafengeburtstag 2025. | Imago, Hanno Bode">
  <h2><a href="/nachrichten/hamburg/strassensperrungen-zum-hafengeburtstag-2026-in-hamburg,hafengeburtstag-136.html">Straßensperrungen zum Hafengeburtstag 2026 in Hamburg</a></h2>
  <p>Wegen des 837. Hamburger Hafengeburtstags ab 6. Mai werden zwischen Altona und der Speicherstadt Straßen gesperrt.</p>
  <h2><a href="/nachrichten/hamburg/a7-waehrend-des-hamburger-hafengeburtstags-teilweise-gesperrt,asieben-sperrung-100.html">A7 während des Hamburger Hafengeburtstags teilweise gesperrt</a></h2>
@@ -80,8 +80,7 @@
  <h2><a href="/nachrichten/hamburg/hafengeburtstag-2026-buehnenprogramm-an-landungsbruecken,hafengeburtstag-126.html">Hafengeburtstag 2026: Bühnenprogramm an den Landungsbrücken</a></h2>
  <p>Auf der zentralen Bühne an den Landungsbrücken gibt es mehr als 20 Konzerte - zusammengestellt von den Hamburger Clubs Knust und Logo.</p>
  <h2><a href="/nachrichten/hamburg/So-war-der-Hamburger-Hafengeburtstag-2025,hafengeburtstag3946.html">So war der Hamburger Hafengeburtstag 2025</a></h2>
- <p>Vom 9. bis 11. Mai hat Hamburg seinen 836. Hafengeburtstag gefeiert. Hier finden Sie alle Infos, Fotos und Videos zum Hafenfest.</p>
-</div>
+ <p>Vom 9. bis 11. Mai hat Hamburg seinen 836. Hafengeburtstag gefeiert. Hier finden Sie alle Infos, Fotos und Videos zum Hafenfest.</p></picture>
 <div>
  <p>Dieses Thema im Programm:</p>
  <h3>NDR Fernsehen | Hamburg Journal | 28.04.2026 | 19:30 Uhr</h3>

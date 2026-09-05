@@ -1,12 +1,13 @@
-<div>
- <a href="javascript:void(0);" title="Video starten">   Video starten, abbrechen mit Escape </a>
+<picture>
+ <img src="/nrw/ruhrgebiet/bochum/bochum-schiff-gesunken-bergung-ostsee100~_v-TeaserAufmacher.jpg" alt="Sebastian Ohrndorf und Armin Keller jubeln. Ihr Boot schwimmt wieder." title="Sebastian Ohrndorf und Armin Keller jubeln. Ihr Boot schwimmt wieder. | Bildquelle: WDR/Jan Akkermann">
  <h2>Gesunkenes Boot aus Bochum soll wieder segeln</h2>
  <p> WDR .   04:34 <abbr title="Minuten">Min.</abbr> .   Verfügbar bis 24.05.2028 . </p>
  <h1> Nach Schiffbruch  :   Gesunkenes Boot aus Bochum soll wieder segeln</h1>
  <p>Stand:  </p>
  <p>Das Segelschiff von zwei Bochumern war in einem Orkan gesunken. Die Restaurierung dauerte stolze zweieinhalb Jahre. Jetzt hoffen Armin Keller und Sebastian Ohrndorf, dass ihr Boot nicht noch einmal untergeht.</p>
-</div>
-<div>
+</picture>
+<picture>
+ <img src="/nrw/ruhrgebiet/bochum/bochum-boot-schiff-gesunken-bergung-ostsee100~_v-gseapremiumxl.jpg" alt="Die &quot;Saint Sampson&quot; nach der ersten Bergung im Hafen" title="Die &quot;Saint Sampson&quot; nach der ersten Bergung im Hafen | Bildquelle: WDR/ Jan Akkermann"><img src="/nrw/ruhrgebiet/bochum/bochum-boot-schiff-gesunken-ostsee-bergung100~_v-gseapremiumxl.jpg" alt="Die &quot;Saint Sampson&quot; vor den britischen Kanalinseln" title="Die &quot;Saint Sampson&quot; vor den britischen Kanalinseln | Bildquelle: Privat"><img src="/nrw/ruhrgebiet/bochum/bochum-boot-schiff-gesunken-bergung-ostsee102~_v-gseapremiumxl.jpg" alt="Sebastian Ohrndorf und Armin Keller hoffen, dass mit ihrem Segler alles gutgeht" title="Sebastian Ohrndorf und Armin Keller hoffen, dass mit ihrem Segler alles gutgeht | Bildquelle: WDR/ Jan Akkermann">
  <p><cite>"Ich bin mit den Nerven am Ende!</cite>", stöhnt Sebastian Ohrndorf und blickt sehr nervös auf seine "Saint Sampson". An einem Hebekran baumelnd rollt das 13,70 Meter lange Segelschiff gerade an dem Bochumer vorbei in Richtung Ostsee. Hier in Olpenitz soll das 72 Jahre alte Boot wieder ins Wasser. Quasi um die Ecke, in Maasholm, war es vor zweieinhalb Jahren gesunken.</p>
  <h2>Meterhohe Wellen ließen Boot der Bochumer sinken</h2>
  <p>Der Hafen, kurz vor Dänemark galt eigentlich immer als sturmsicher. Bis zum 20. Oktober 2023. In der Nacht fegte ein Orkan über die Ostsee, der an der schleswig-holsteinischen Küste für die größte Sturmflut seit mehr als 100 Jahren sorgte.</p>
@@ -33,7 +34,7 @@
   <li>Gespräch mit Sebastian Ohrndorf und Armin Keller</li>
  </ul>
  <p><strong>Sendung: </strong><abbr title="Westdeutscher Rundfunk"><strong>WDR</strong></abbr><strong>.de, </strong>Gesunkenes Boot aus Bochum soll wieder segeln, <strong>26.05.2026, </strong>5:02 Uhr</p>
-</div>
+</picture>
 <ul>
  <li><a href="/nrw/uebersicht-umwelt-100.html" title="Klima &amp; Umwelt">Klima &amp; Umwelt</a></li>
  <li><a href="/nrw/ruhrgebiet/index.html" title="Ruhrgebiet">Ruhrgebiet</a></li>

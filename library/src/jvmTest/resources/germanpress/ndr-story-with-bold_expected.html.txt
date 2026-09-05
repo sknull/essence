@@ -3,12 +3,13 @@
 <p>Die <strong>Busse</strong> fahren an Heiligabend von Betriebsbeginn bis 14 Uhr ebenfalls wie sonnabends, danach gehen viele Linien im Laufe des Nachmittags in einen Sonderfahrplan über.</p>
 <h2>Donnerstag und Freitag wie sonntags</h2>
 <p>Am 1. und 2. Weihnachtstag gilt der Sonntagsfahrplan. In den Nächten zum 25. und 26. Dezember gibt es den üblichen durchgehenden Nachtverkehr der Schnellbahnen und der ergänzenden Buslinien.</p>
-<div>
+<picture>
+ <img src="https://images.ndr.de/image/7ca27c31-a84c-4ca9-8a6e-839d0db773f2/AAABkwEEWdQ/AAABmyZE0EA/16x9-big/alstertanne164.webp?width=576" alt="Die Beleuchtete Tanne auf der Hamburger Binnenalster." title="Die Beleuchtete Tanne auf der Hamburger Binnenalster. | NDR, Screenshot"><img src="https://images.ndr.de/image/a4a256ff-cb7a-4c92-a979-94f58f19542e/AAABmnN5np0/AAABmyZE0EA/16x9-big/autobahn-310.webp?width=576" alt="Eine mehrspurige Autobahn, die nur in eine Fahrtrichtung befahren wird." title="Eine mehrspurige Autobahn, die nur in eine Fahrtrichtung befahren wird. | NDR, Julius Matuschik">
  <h2><a href="/nachrichten/hamburg/weihnachten-in-hamburg-wohin-zum-einkaufen-und-bei-notfaellen,hilfe-weihnachten-100.html">Weihnachten in Hamburg: Wohin zum Einkaufen und bei Notfällen?</a></h2>
  <p>Was ist während der Feiertage eigentlich noch offen? Und wo in der Stadt bekommt man Hilfe? Ein Überblick.</p>
  <h2><a href="/nachrichten/info/strassenverkehr-im-norden-kaum-probleme-vor-heiligabend,weihnachtsverkehr-100.html">Kaum Weihnachtsstaus - aber Probleme im Fährverkehr</a></h2>
  <p>Die Stau-Prognosen des ADAC haben sich an den Tagen vor dem Fest nicht bestätigt. Jedoch wirbelt der Ostwind den Fährverkehr auf der Nordsee durcheinander.</p>
-</div>
+</picture>
 <div>
  <p>Dieses Thema im Programm:</p>
  <h3>NDR 90,3 | NDR 90,3 Aktuell | 24.12.2025 | 09:00 Uhr</h3>

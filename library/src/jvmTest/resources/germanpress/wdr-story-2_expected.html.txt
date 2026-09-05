@@ -1,12 +1,13 @@
-<div>
- <span>      <a href="javascript:void(0);" title="Video starten">   Video starten, abbrechen mit Escape </a>    
+<picture>
+ <img src="/polizist-angefahren-video-tn-100~_v-TeaserAufmacher.jpg" alt="Polizist angefahren TN" title="Polizist angefahren TN | Bildquelle: WDR"><span>      <a href="javascript:void(0);" title="Video starten">          Video starten, abbrechen mit Escape </a>    
   <h2>Zivilpolizist bei Flucht angefahren | Video</h2>  Bildquelle: WDR 
   <p> WDR .   35 <abbr title="Sekunden">Sek.</abbr> .   Verfügbar bis 27.08.2028 . </p>    </span>
  <h1> Polizisten angefahren  :   Raser nach Verfolgungsjagd in Dortmund identifiziert</h1>
  <p> Stand:  </p>
  <p>Die Dortmunder Polizei hat sich eine Verfolgungsjagd mit einem Autofahrer geliefert. Mit fast 160 km/h gelang ihm die Flucht. Mittlerweile konnte die Polizei den Tatverdächtigen identifizieren.</p>
-</div>
-<div>
+</picture>
+<picture>
+ <img src="/nrw/dortmund/verfolgungsjagd-polizei-104~_v-TeaserAufmacher.jpg" alt="Polizei verfolgt den Wagen" title="Polizei verfolgt den Wagen | Bildquelle: NonstopNews">
  <p>Es handelt sich bei dem Tatverdächtigen um einen 32-jährigen Dortmunder ohne Führerschein. Der Tatverdächtige bleibe auf freiem Fuß, weil keine Haftgründe vorlägen, sagte ein Polizeisprecher dem <abbr title="Westdeutschen Rundfunk">WDR</abbr>.</p>
  <p>Allerdings werde der Mann zeitnah vorgeladen, um sich zu den Vorwürfen zu äußern. Der 32-Jährige muss sich unter anderem wegen des Verdachts der gefährlichen Körperverletzung, des tätlichen Angriffs auf einen Vollstreckungsbeamten, der Teilnahme an einem verbotenen Kraftfahrzeugrennen und Fahrerflucht verantworten.</p>
  <p>Seinen Mercedes hatte die Polizei nach einem Hinweis in Dortmund-Kirchderne gefunden und sichergestellt - ein paar Stunden nach der Verfolgungsjagd. Die Polizei wertet nun Daten des sichergestellten Autos aus, um zu analysieren, wie schnell der Tatverdächtige tatsächlich gefahren ist.</p>
@@ -17,13 +18,13 @@
  <p>Auf dem Parkplatz eines Baumarkts an der Borsigstraße wollte die Polizei den Mann dann erneut schnappen. Beamte stellten sich ihm mit gezogener Waffe in den Weg. Trotzdem gab der Fahrer Gas und erwischte dabei einen Zivilpolizisten mit dem Außenspiegel. Der Beamte wurde leicht verletzt und musste in ein Krankenhaus.</p>
  <p>Der Mercedesfahrer konnte über die Bornstraße entkommen.</p>
  <p>Der Mercedesfahrer flüchtete über die Bornstraße, eine mehrspurige Ausfallstraße, und wurde dort mit 154 km/h geblitzt. Obwohl er mit sogar mit dem Polizeihubschrauber verfolgt wurde, war dem Fahrer die Flucht vorerst gelungen.</p>
-</div>
-<div>
+</picture>
+<picture>
+ <img src="/polizist-angefahren-video-tn-100~_v-TeaserAufmacher.jpg" alt="Polizist angefahren TN" title="Polizist angefahren TN | Bildquelle: WDR">
  <h2>Raser nach Verfolgungsjagd in Dortmund identifiziert</h2>
  <p> WDR .   28.08.2026 .   17 <abbr title="Sekunden">Sek.</abbr> .   Verfügbar bis 28.08.2028 .   WDR Online . </p>
- <a href="javascript:void(0);" title="Audio starten">   Audio starten, abbrechen mit Escape </a>
  <p><a href="//wdrmedien-a.akamaihd.net/media/p/public/weltweit/2026/08/28/c0869c16-1055-4aad-9a83-526fbdbf7455/c0869c16-1055-4aad-9a83-526fbdbf7455_MP3-128.mp3" title="Audio Download">  Audio  Download  .  </a></p>
-</div>
+</picture>
 <div>
  <h2>Unsere Quellen:</h2>
  <ul>

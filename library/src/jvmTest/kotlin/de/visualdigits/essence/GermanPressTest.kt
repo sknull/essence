@@ -40,6 +40,14 @@ class GermanPressTest {
     }
 
     @Test
+    fun readTagesschau4() = runTest {
+        val html = File(ClassLoader.getSystemResource("germanpress/tagesschau-story-4.html").toURI()).readTextNormalized()
+        val expected = File(ClassLoader.getSystemResource("germanpress/tagesschau-story-4_expected.html.txt").toURI()).readTextNormalized()
+        val result = Essence.extract(html)
+        assertEquals(expected, result.html)
+    }
+
+    @Test
     fun readHr1() = runTest {
         val html = File(ClassLoader.getSystemResource("germanpress/hr-story-1.html").toURI()).readTextNormalized()
         val expected = File(ClassLoader.getSystemResource("germanpress/hr-story-1_expected.html.txt").toURI()).readTextNormalized()

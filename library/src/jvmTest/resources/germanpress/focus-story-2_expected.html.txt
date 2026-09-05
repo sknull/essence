@@ -1,6 +1,7 @@
-<div>
+<picture>
+ <img src="https://quadro.burda-forward.de/ctf/f6ac42fa-1dca-4500-a760-cc3f502bfbe9.bb61b582-0af9-4ab5-a1e2-42be9219ea9d.png?im=RegionOfInterestCrop=(600,143),regionOfInterest=(300,72)&amp;hash=78884fbdd47a6e12fc28ce6954b6773a9f9c9d78f8ad8857b41938703d4fbfdd" alt="Tagesspiegel" title=""><img src="https://quadro.burda-forward.de/ctf/1c9bf01d-58ba-4c71-ab5d-6b68b31e9811.5db68387-96e0-463d-8ed4-e2cd99fc4d17.png?im=RegionOfInterestCrop=(1200,1200),regionOfInterest=(600,600)&amp;hash=8e9d14673254128d8dba9bb2db7604d11b2416526ef24421b95482a547c9dc63" alt="Hände mit Bierbechern (Symbolbild)." title="">
  <h2>Grüne wollen Alkoholkonsum der Deutschen eindämmen</h2>
- <span>  Hände mit Bierbechern (Symbolbild).   Foto: Imago/Zoonar/Sirijit Jongcharoenkulchai </span><a href="/partner/tagesspiegel/">Tagesspiegel</a>
+ <span>  Hände mit Bierbechern (Symbolbild).   Foto: Imago/Zoonar/Sirijit Jongcharoenkulchai </span>
  <ul>
   <li><a href="" target="_blank"> Kommentare</a></li>
   <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://www.focus.de/politik/gruenen-plaene-alkoholkonsum-der-deutschen-soll-eingedaemmt-werden_8eace5e3-b0db-44e6-a86d-66646bb8e4c6.html" target="_blank"> Bei Facebook teilen</a></li>
@@ -9,7 +10,7 @@
   <li><a href="" target="_blank"> Print</a></li>
   <li><a href="mailto:redaktion@focus.de?subject=Mein+Feedback" target="_blank"> Feedback</a></li>
  </ul>
-</div>
+</picture>
 <a href="https://google.com/preferences/source?q=https://www.focus.de" target="_blank">FOCUS online bei Google bevorzugen</a>
 <div>
  <p>Die Grünen im Bundestag möchten mit einer Vielzahl von Maßnahmen gegen den hohen Alkoholkonsum in Deutschland vorgehen. Die Fraktion hat einen entsprechenden Antrag beschlossen. Er soll im Umfeld der Aktionswoche Alkohol vom 13. bis 21. Juni in den Bundestag eingebracht werden. In diesem Zeitraum finden Präventionskampagnen gegen übermäßigen Alkoholkonsum statt.</p>

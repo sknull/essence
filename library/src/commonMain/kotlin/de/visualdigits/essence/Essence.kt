@@ -25,6 +25,7 @@ import de.visualdigits.essence.formatters.TextFormatter
 import de.visualdigits.essence.model.ElementType
 import de.visualdigits.essence.model.EssenceResult
 import de.visualdigits.essence.model.HtmlPart
+import de.visualdigits.essence.model.ImagePart
 import de.visualdigits.essence.model.Language
 import de.visualdigits.essence.model.Part
 import de.visualdigits.essence.scorers.DocumentScorer
@@ -51,6 +52,21 @@ object Essence {
                     val elem = Element("div")
                     elem.addChildren(*part.html.toTypedArray())
                     elem.outerHtml()
+                } else if (part is ImagePart) {
+                    val images = part.images.map { img ->
+                        val imgElem = Element("img")
+                        imgElem.attr("src", img.src)
+                        imgElem.attr("alt", img.alt)
+                        imgElem.attr("title", img.title)
+                    }
+                    if (part.html.isNotEmpty() || images.size > 1) {
+                        val elem = Element("picture")
+                        elem.addChildren(*images.toTypedArray())
+                        elem.addChildren(*part.html.toTypedArray())
+                        elem.outerHtml()
+                    } else {
+                        images.first().outerHtml()
+                    }
                 } else {
                     part.html.joinToString("\n") { elem ->
                         elem.outerHtml()

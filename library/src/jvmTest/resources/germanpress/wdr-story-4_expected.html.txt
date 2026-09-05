@@ -1,20 +1,20 @@
-<div>
- <span>      Bildquelle: WDR/Alexander Schwinning   </span>
+<picture>
+ <img src="/nrw/duesseldorf/zerkratzte-autos-krefeld-100~_v-TeaserAufmacher.jpg" alt="Blaues Auto mit einem großem Kratzer von der Hintertür bis zur Vordertür (Symbolbild)" title="Blaues Auto mit einem großem Kratzer von der Hintertür bis zur Vordertür (Symbolbild) | Bildquelle: WDR/Alexander Schwinning"><span>             Bildquelle: WDR/Alexander Schwinning   </span>
  <h1> Vandalismus  :   Unbekannter zerkratzt über 40 Autos in Mülheim</h1>
  <p> Stand:  </p>
  <p>Der Mann hat vor allem Striemen, aber auch Herzchen und sogar Sprüche in den Lack geritzt. Dabei wurde er wahrscheinlich gefilmt.</p>
-</div>
+</picture>
 <div>
  <p>Böses Erwachen für viele Menschen in Mülheim. Dort wurden im Stadtteil Dümpten in der Nacht von Freitag auf Samstag (29.08.2026) zahlreiche Autos zerkratzt. Die Polizei sucht jetzt Zeugen, die Kripo ermittelt.</p>
  <h2>Tatverdächtiger auf Videobildern zu sehen</h2>
  <p>Insgesamt 43 betroffene Fahrzeuge hat die Polizei gezählt. Nach Angaben der Polizei wurde an vielen Autos mit einem spitzen Gegenstand einfach nur entlang gelaufen und ein langer Kratzer hinterlassen. Andere Autos hätten aber auch eingeritzte Herzen oder Sprüche abbekommen.</p>
  <p>Auf Bildern, die eine Kamera eines Mülheimers in der Nacht gemacht hatte, ist ein Tatverdächtiger zu sehen - in T-Shirt, heller Hose und schwarzen Sneakern. Außerdem hatte der Mann eine Bierflasche in der Hand. Die Polizei bittet nun Zeugen darum sich bei ihr zu melden, wenn sie etwas Verdächtiges im Bereich Mülheim-Dümpten bemerkt oder Angaben zum Tatverdächtigen machen können.</p>
 </div>
-<div>
+<picture>
+ <img src="/nrw/duesseldorf/zerkratzte-autos-krefeld-100~_v-TeaserAufmacher.jpg" alt="Blaues Auto mit einem großem Kratzer von der Hintertür bis zur Vordertür " title="Blaues Auto mit einem großem Kratzer von der Hintertür bis zur Vordertür  | Bildquelle: WDR/Alexander Schwinning">
  <h2>Zerkratzte Autos in Mülheim</h2>
  <p> WDR .   31.08.2026 .   38 <abbr title="Sekunden">Sek.</abbr> .   Verfügbar bis 30.08.2028 . </p>
- <a href="javascript:void(0);" title="Audio starten">   Audio starten, abbrechen mit Escape </a>
-</div>
+</picture>
 <div>
  <p><strong>Unsere Quellen:</strong>
   <br>

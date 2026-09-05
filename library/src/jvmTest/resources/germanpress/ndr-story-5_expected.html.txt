@@ -39,10 +39,11 @@
 <strong>Video:</strong>
 <h2>Auf dem Weg zur Startlinie</h2>
 <p>Die Imoca-Flotte lässt New York hinter sich und macht sich langsam auf den Weg zur Startlinie 145 Seemeilen vor der US-Küste. Meeresschutzgebiete erfordern einen Start weiter draußen. Am Mittwoch fällt für Boris Herrmann und Co. der Startschuss für die 3000 Seemeilen im Rennmodus nach Lorient.</p>
-<div>
+<picture>
+ <img src="https://images.ndr.de/image/e02f12ef-3d88-4fd4-865f-1217d8d3dc55/AAABoFv87pE/AAABnSSvrFg/16x9-big/oceanrace-202.webp?width=576" alt="Die Malizia 4 von Boris Herrmann (l.) und die United by the Ocean von Paul Meilhat vor New York" title="Die Malizia 4 von Boris Herrmann (l.) und die United by the Ocean von Paul Meilhat vor New York | Team Malizia">
  <h2><a href="/sport/mehr_sport/herrmann-startet-mit-der-malizia-4-in-abenteuer-ocean-race-atlantic,ocean-race-atlantic-start-100.html">Herrmann startet mit der Malizia 4 ins Abenteuer Ocean Race Atlantic</a></h2>
  <p>Der Sprint über den Nordatlantik nach Lorient ist der erste Härtetest für das neue Boot des Hamburgers - gegen fünf weitere Teams.</p>
-</div>
+</picture>
 <p>"Es ist Zeit, segeln zu gehen", sagt der Schweizer Embrace The Challenge-Skipper Oliver Heer. "Es geht um Speed und darum, das Schiff in einem guten Zustand zu halten. Und hoffentlich sind wir in unter sieben Tagen in Lorient."</p>
 <h2>"Super emotional, heute hier abzulegen"</h2>
 <p>"Es war super emotional, heute hier abzulegen", sagt Elodie-Jane Mettraux an Bord der 11th Hour Racing. "Jetzt sind wir bereit, das Rennen nach Lorient aufzunehmen." Die Schwester von Malizia-Co-Skipperin Justine Mettraux blickt schon ein bisschen voraus: "Die ersten drei, vier Tage werden schnell und wild. Vor der britischen Küste wird es mit einem Hochdruckgebiet dann etwas langsamer werden."</p>
