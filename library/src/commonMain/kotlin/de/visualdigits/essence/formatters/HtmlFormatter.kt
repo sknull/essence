@@ -35,8 +35,8 @@ class HtmlFormatter : Formatter() {
         html.removeUnwantedTags()
         html.removeEmptyTags()
         html.unwrapDivs()
-        html.select("picture,section,article").forEach { it.unwrap() }
-        html.select("header,aside").forEach { it.tagName("div") }
+        html.select("picture,section").forEach { it.unwrap() }
+        html.select("header,aside,article").forEach { it.tagName("div") }
         html.children().forEach { it.select("span").forEach { s -> s.prepend(" ").unwrap() } }
 
         val partitionBy = html.children()
@@ -77,7 +77,7 @@ class HtmlFormatter : Formatter() {
                         }
                     } else {
                         listOf()
-                    }.filter { elem -> !elem.isTag("a") || elem.childrenSize() > 0 }
+                    }
                     elements.forEach { elem -> elem.cleanupElement() }
                     val listOf = listOf(
                         ImagePart(

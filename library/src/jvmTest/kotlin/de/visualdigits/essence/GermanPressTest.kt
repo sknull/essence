@@ -136,6 +136,14 @@ class GermanPressTest {
     }
 
     @Test
+    fun readNtv3() = runTest {
+        val html = File(ClassLoader.getSystemResource("germanpress/ntv-story-3.html").toURI()).readTextNormalized()
+        val expected = File(ClassLoader.getSystemResource("germanpress/ntv-story-3_expected.html.txt").toURI()).readTextNormalized()
+        val result = Essence.extract(html)
+        assertEquals(expected, result.html)
+    }
+
+    @Test
     fun readNdr() = runTest {
         val html = File(ClassLoader.getSystemResource("germanpress/ndr-story.html").toURI()).readTextNormalized()
         val expected = File(ClassLoader.getSystemResource("germanpress/ndr-story_expected.html.txt").toURI()).readTextNormalized()
