@@ -149,9 +149,16 @@ object Essence {
         val topNode = nodeMap[topNodeHtml?.attr("essenceNodeId")]
         val topNodeArticle = nodeMap[topNodeHtmlArticle?.attr("essenceNodeId")]
 
-        val favorite = listOf(topNode, topNodeArticle).maxBy { n -> n.toString().length }
+        // if topNode is contained in article node prefer top node as article probably contains crap around the wanted text
+        // otherwise prefer the longer paragraph
+        val favorite = if (topNodeArticle?.contains(topNode) == true) {
+            topNode
+        } else {
+            listOf(topNode, topNodeArticle).maxBy { n -> n.toString().length }
+        }
 
         val parts = favorite?.let { fav -> htmlFormatter.formatElement(fav) } ?: listOf()
+
         return parts
     }
 
