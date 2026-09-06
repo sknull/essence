@@ -7,7 +7,6 @@ import de.visualdigits.essence.model.ImageEntry
 import de.visualdigits.essence.model.ImagePart
 import de.visualdigits.essence.model.ImageType
 import de.visualdigits.essence.model.Part
-import de.visualdigits.essence.util.cleanupAttributes
 import de.visualdigits.essence.util.cleanupElement
 import de.visualdigits.essence.util.isEmpty
 import de.visualdigits.essence.util.isTag
@@ -65,7 +64,8 @@ class HtmlFormatter : Formatter() {
                             title = image.attr("title"),
                             imageType = imageType
                         )
-                    }
+                    }.associateBy { it.src }.values.toList() // make distinct for src url's
+
                     images.forEach { it.remove() }
                     val elements = if (container != null && container != html && container.childNodes().isNotEmpty()) {
                         container.select("img").forEach { it.remove() }
