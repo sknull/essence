@@ -26,6 +26,7 @@ private val tagsToRetain: List<String> = listOf(
     "br",
     "cite",
     "div",
+    "em",
     "embed",
     "h1",
     "h2",
